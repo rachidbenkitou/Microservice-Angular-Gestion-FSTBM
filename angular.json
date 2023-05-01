@@ -31,7 +31,11 @@
 						"styles": [
 							"src/styles.scss"
 						],
-						"scripts": []
+						"scripts": [
+              "src/assets/js/lib.vendor.bundle.js",
+              "src/assets/js/counterup.bundle.js",
+              "src/assets/js/core.js"
+            ]
 					},
 					"configurations": {
 						"production": {
@@ -93,7 +97,11 @@
 						"styles": [
 							"src/styles.scss"
 						],
-						"scripts": []
+						"scripts": [
+              "src/assets/js/lib.vendor.bundle.js",
+              "src/assets/js/counterup.bundle.js",
+              "src/assets/js/core.js"
+            ]
 					}
 				}
 			}

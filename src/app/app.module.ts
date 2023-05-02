@@ -9,6 +9,10 @@ import { EtudiantsComponent } from './dashboard/etudiants/etudiants.component';
 import { MainComponent } from './dashboard/main/main.component';
 import { EtudiantsListComponent } from './dashboard/etudiants/etudiants-list/etudiants-list.component';
 
+import { FilieresComponent } from './dashboard/filieres/filieres.component';
+import { FiliereListComponent } from './dashboard/filieres/filiere-list/filiere-list.component';
+import { FiliereFormComponent } from './dashboard/filieres/filiere-form/filiere-form.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -16,7 +20,13 @@ import { EtudiantsListComponent } from './dashboard/etudiants/etudiants-list/etu
     MainComponent,
     EtudiantsComponent,
     EtudiantsFormComponent,
-    EtudiantsListComponent
+    EtudiantsListComponent,
+    FilieresComponent,
+    FiliereListComponent,
+    FiliereFormComponent,
+    FilieresComponent,
+    FiliereListComponent,
+    FiliereFormComponent
   ],
   imports: [
     BrowserModule,

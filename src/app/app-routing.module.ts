@@ -4,6 +4,10 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { EtudiantsFormComponent } from './dashboard/etudiants/etudiants-form/etudiants-form.component';
 import { EtudiantsListComponent } from './dashboard/etudiants/etudiants-list/etudiants-list.component';
 import { EtudiantsComponent } from './dashboard/etudiants/etudiants.component';
+import { FiliereFormComponent } from './dashboard/filieres/filiere-form/filiere-form.component';
+import { FiliereListComponent } from './dashboard/filieres/filiere-list/filiere-list.component';
+import { FilieresComponent } from './dashboard/filieres/filieres.component';
+
 import { MainComponent } from './dashboard/main/main.component';
 
 const routes: Routes = [
@@ -26,6 +30,20 @@ const routes: Routes = [
           },
           {
             path: 'edit/:id', component: EtudiantsFormComponent,
+          }
+        ]
+      },
+      {
+        path: 'filieres', component: FilieresComponent,
+        children: [
+          {
+            path: '', component: FiliereListComponent,
+          },
+          {
+            path: 'add', component: FiliereFormComponent,
+          },
+          {
+            path: 'edit/:id', component: FiliereFormComponent,
           }
         ]
       }

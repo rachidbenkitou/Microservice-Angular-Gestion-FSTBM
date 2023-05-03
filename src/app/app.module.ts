@@ -18,6 +18,9 @@ import { EnseignentFormComponent } from './dashboard/enseignents/enseignent-form
 import { DepartementsComponent } from './dashboard/departements/departements.component';
 import { DepartementFormComponent } from './dashboard/departements/departement-form/departement-form.component';
 import { DepartementListComponent } from './dashboard/departements/departement-list/departement-list.component';
+import { CoursComponent } from './dashboard/cours/cours.component';
+import { CourFormComponent } from './dashboard/cours/cour-form/cour-form.component';
+import { CourListComponent } from './dashboard/cours/cour-list/cour-list.component';
 
 @NgModule({
   declarations: [
@@ -39,6 +42,9 @@ import { DepartementListComponent } from './dashboard/departements/departement-l
     DepartementsComponent,
     DepartementFormComponent,
     DepartementListComponent,
+    CoursComponent,
+    CourFormComponent,
+    CourListComponent,
   ],
   imports: [BrowserModule, AppRoutingModule],
   providers: [],

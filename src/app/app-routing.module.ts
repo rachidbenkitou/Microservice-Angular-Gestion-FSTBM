@@ -1,5 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { CourFormComponent } from './dashboard/cours/cour-form/cour-form.component';
+import { CourListComponent } from './dashboard/cours/cour-list/cour-list.component';
+import { CoursComponent } from './dashboard/cours/cours.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { DepartementFormComponent } from './dashboard/departements/departement-form/departement-form.component';
 import { DepartementListComponent } from './dashboard/departements/departement-list/departement-list.component';
@@ -96,6 +99,24 @@ const routes: Routes = [
           {
             path: 'edit/:id',
             component: DepartementFormComponent,
+          },
+        ],
+      },
+      {
+        path: 'cours',
+        component: CoursComponent,
+        children: [
+          {
+            path: '',
+            component: CourListComponent,
+          },
+          {
+            path: 'add',
+            component: CourFormComponent,
+          },
+          {
+            path: 'edit/:id',
+            component: CourFormComponent,
           },
         ],
       },

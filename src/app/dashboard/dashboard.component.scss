@@ -135,6 +135,11 @@
     -moz-osx-font-smoothing: grayscale;
     font-size: 17px;
   }
+  .action-buttons{
+    display:flex;
+    gap: 12px;
+    justify-content: flex-end;
+  }
 
   .icon-user-female,
   .icon-user-follow,

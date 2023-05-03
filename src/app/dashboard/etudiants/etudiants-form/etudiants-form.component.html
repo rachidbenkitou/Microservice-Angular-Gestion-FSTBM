@@ -11,7 +11,8 @@
             <a [routerLink]="['/dashboard/etudiants']">Étudiants</a>
           </li>
           <li class="breadcrumb-item active" aria-current="page">
-            Ajout / Modification
+            <span *ngIf="mode === 'add'">Ajout</span>
+            <span *ngIf="mode === 'edit'">Modification</span>
           </li>
         </ol>
       </div>
@@ -74,8 +75,7 @@
               <label class="col-md-3 col-form-label">Date de Naissance</label>
               <div class="col-md-9">
                 <input
-                  data-provide="datepicker"
-                  data-date-autoclose="true"
+                  type="date"
                   class="form-control"
                   placeholder="Date of Birth"
                 />
@@ -87,12 +87,7 @@
                 >Date d'Inscription <span class="text-danger">*</span></label
               >
               <div class="col-md-9">
-                <input
-                  data-provide="datepicker"
-                  data-date-autoclose="true"
-                  class="form-control"
-                  placeholder=""
-                />
+                <input type="date" class="form-control" placeholder="" />
               </div>
             </div>
             <div class="form-group row">
@@ -162,7 +157,7 @@
                 >
               </div>
             </div>
-            <div class="col-sm-12">
+            <div class="col-sm-12 action-buttons">
               <button type="submit" class="btn btn-primary">Submit</button>
               <button type="cancel" class="btn btn-outline-secondary">
                 Cancel

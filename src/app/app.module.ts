@@ -12,6 +12,9 @@ import { EtudiantsListComponent } from './dashboard/etudiants/etudiants-list/etu
 import { FilieresComponent } from './dashboard/filieres/filieres.component';
 import { FiliereListComponent } from './dashboard/filieres/filiere-list/filiere-list.component';
 import { FiliereFormComponent } from './dashboard/filieres/filiere-form/filiere-form.component';
+import { EnseignentsComponent } from './dashboard/enseignents/enseignents.component';
+import { EnseignentListComponent } from './dashboard/enseignents/enseignent-list/enseignent-list.component';
+import { EnseignentFormComponent } from './dashboard/enseignents/enseignent-form/enseignent-form.component';
 
 @NgModule({
   declarations: [
@@ -26,13 +29,13 @@ import { FiliereFormComponent } from './dashboard/filieres/filiere-form/filiere-
     FiliereFormComponent,
     FilieresComponent,
     FiliereListComponent,
-    FiliereFormComponent
+    FiliereFormComponent,
+    EnseignentsComponent,
+    EnseignentListComponent,
+    EnseignentFormComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule
-  ],
+  imports: [BrowserModule, AppRoutingModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

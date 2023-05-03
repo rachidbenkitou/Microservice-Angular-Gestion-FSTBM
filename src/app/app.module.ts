@@ -15,6 +15,9 @@ import { FiliereFormComponent } from './dashboard/filieres/filiere-form/filiere-
 import { EnseignentsComponent } from './dashboard/enseignents/enseignents.component';
 import { EnseignentListComponent } from './dashboard/enseignents/enseignent-list/enseignent-list.component';
 import { EnseignentFormComponent } from './dashboard/enseignents/enseignent-form/enseignent-form.component';
+import { DepartementsComponent } from './dashboard/departements/departements.component';
+import { DepartementFormComponent } from './dashboard/departements/departement-form/departement-form.component';
+import { DepartementListComponent } from './dashboard/departements/departement-list/departement-list.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +36,9 @@ import { EnseignentFormComponent } from './dashboard/enseignents/enseignent-form
     EnseignentsComponent,
     EnseignentListComponent,
     EnseignentFormComponent,
+    DepartementsComponent,
+    DepartementFormComponent,
+    DepartementListComponent,
   ],
   imports: [BrowserModule, AppRoutingModule],
   providers: [],

@@ -1,6 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { DepartementFormComponent } from './dashboard/departements/departement-form/departement-form.component';
+import { DepartementListComponent } from './dashboard/departements/departement-list/departement-list.component';
+import { DepartementsComponent } from './dashboard/departements/departements.component';
 import { EnseignentFormComponent } from './dashboard/enseignents/enseignent-form/enseignent-form.component';
 import { EnseignentListComponent } from './dashboard/enseignents/enseignent-list/enseignent-list.component';
 import { EnseignentsComponent } from './dashboard/enseignents/enseignents.component';
@@ -75,6 +78,24 @@ const routes: Routes = [
           {
             path: 'edit/:id',
             component: EnseignentFormComponent,
+          },
+        ],
+      },
+      {
+        path: 'departements',
+        component: DepartementsComponent,
+        children: [
+          {
+            path: '',
+            component: DepartementListComponent,
+          },
+          {
+            path: 'add',
+            component: DepartementFormComponent,
+          },
+          {
+            path: 'edit/:id',
+            component: DepartementFormComponent,
           },
         ],
       },

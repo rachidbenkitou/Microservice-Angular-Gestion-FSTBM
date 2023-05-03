@@ -8,6 +8,9 @@ import { EtudiantsFormComponent } from './dashboard/etudiants/etudiants-form/etu
 import { EtudiantsComponent } from './dashboard/etudiants/etudiants.component';
 import { MainComponent } from './dashboard/main/main.component';
 import { EtudiantsListComponent } from './dashboard/etudiants/etudiants-list/etudiants-list.component';
+import { HomeComponent } from './components/home/home.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { HeaderComponent } from './components/header/header.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +19,10 @@ import { EtudiantsListComponent } from './dashboard/etudiants/etudiants-list/etu
     MainComponent,
     EtudiantsComponent,
     EtudiantsFormComponent,
-    EtudiantsListComponent
+    EtudiantsListComponent,
+    HomeComponent,
+    FooterComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,

@@ -20,6 +20,10 @@ import { FiliereListComponent } from './dashboard/filieres/filiere-list/filiere-
 import { FilieresComponent } from './dashboard/filieres/filieres.component';
 
 import { MainComponent } from './dashboard/main/main.component';
+import { EnseignantComponent } from './components/enseignant/enseignant.component';
+import { DepartementComponent } from './components/departement/departement.component';
+import { LoginComponent } from './components/login/login.component';
+import { IndexComponent } from './components/index/index.component';
 
 const routes: Routes = [
   // { path: '', component: HomeComponent, }, @TODO: Add Home Component
@@ -124,6 +128,24 @@ const routes: Routes = [
       },
     ],
   },
+{
+path:'',component:IndexComponent,
+children:[
+  {
+    path:'',component:HomeComponent
+  },
+  {
+    path:'departement',component:DepartementComponent
+  },
+  {
+    path:'enseignant',component:EnseignantComponent
+  },
+  {
+    path:'login',component:LoginComponent
+  }
+]
+
+} 
 
 ];
 

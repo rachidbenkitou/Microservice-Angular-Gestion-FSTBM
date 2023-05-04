@@ -1,4 +1,5 @@
-import { NgModule } from '@angular/core';
+import { HomeComponent } from './components/home/home.component';
+import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from '@angular/router';
 import { CourFormComponent } from './dashboard/cours/cour-form/cour-form.component';
 import { CourListComponent } from './dashboard/cours/cour-list/cour-list.component';
@@ -115,6 +116,7 @@ const routes: Routes = [
             component: CourFormComponent,
           },
           {
+
             path: 'edit/:id',
             component: CourFormComponent,
           },
@@ -122,6 +124,7 @@ const routes: Routes = [
       },
     ],
   },
+
 ];
 
 @NgModule({

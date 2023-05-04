@@ -8,6 +8,9 @@ import { EtudiantsFormComponent } from './dashboard/etudiants/etudiants-form/etu
 import { EtudiantsComponent } from './dashboard/etudiants/etudiants.component';
 import { MainComponent } from './dashboard/main/main.component';
 import { EtudiantsListComponent } from './dashboard/etudiants/etudiants-list/etudiants-list.component';
+import { HomeComponent } from './components/home/home.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { HeaderComponent } from './components/header/header.component';
 
 import { FilieresComponent } from './dashboard/filieres/filieres.component';
 import { FiliereListComponent } from './dashboard/filieres/filiere-list/filiere-list.component';
@@ -45,6 +48,13 @@ import { CourListComponent } from './dashboard/cours/cour-list/cour-list.compone
     CoursComponent,
     CourFormComponent,
     CourListComponent,
+    HomeComponent,
+    FooterComponent,
+    HeaderComponent
+  ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule
   ],
   imports: [BrowserModule, AppRoutingModule],
   providers: [],

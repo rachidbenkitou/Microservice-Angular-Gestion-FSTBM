@@ -6,7 +6,7 @@ import { Component, ViewEncapsulation } from '@angular/core';
   styleUrls: ['./dashboard.component.scss', './../../assets/plugins/bootstrap/css/bootstrap.min.css'],
   encapsulation: ViewEncapsulation.None
 })
-export class DashboardComponent {
+export class  DashboardComponent {
   ngOnInit() {
 
   }

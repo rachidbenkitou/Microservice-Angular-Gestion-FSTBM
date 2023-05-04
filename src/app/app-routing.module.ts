@@ -6,6 +6,9 @@ import { EtudiantsFormComponent } from './dashboard/etudiants/etudiants-form/etu
 import { EtudiantsListComponent } from './dashboard/etudiants/etudiants-list/etudiants-list.component';
 import { EtudiantsComponent } from './dashboard/etudiants/etudiants.component';
 import { MainComponent } from './dashboard/main/main.component';
+import { DepartementComponent } from './components/departement/departement.component';
+import { EnseignantComponent } from './components/enseignant/enseignant.component';
+import { LoginComponent } from './components/login/login.component';
 
 const routes: Routes = [
   // { path: '', component: HomeComponent, }, @TODO: Add Home Component
@@ -33,7 +36,16 @@ const routes: Routes = [
     ]
   },
   {
-    path:'home',component:HomeComponent
+    path:'',component:HomeComponent
+  },
+  {
+    path:'departement',component:DepartementComponent
+  },
+  {
+    path:'enseignant',component:EnseignantComponent
+  },
+  {
+    path:'login',component:LoginComponent
   }
 ];
 

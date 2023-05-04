@@ -27,6 +27,7 @@ import { DepartementListComponent } from './dashboard/departements/departement-l
 import { CoursComponent } from './dashboard/cours/cours.component';
 import { CourFormComponent } from './dashboard/cours/cour-form/cour-form.component';
 import { CourListComponent } from './dashboard/cours/cour-list/cour-list.component';
+import { IndexComponent } from './components/index/index.component';
 
 @NgModule({
   declarations: [
@@ -56,7 +57,8 @@ import { CourListComponent } from './dashboard/cours/cour-list/cour-list.compone
     HeaderComponent,
     DepartementComponent,
     EnseignantComponent,
-    LoginComponent
+    LoginComponent,
+    IndexComponent
   ],
   imports: [BrowserModule,AppRoutingModule],
 

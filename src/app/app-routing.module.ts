@@ -23,6 +23,7 @@ import { MainComponent } from './dashboard/main/main.component';
 import { EnseignantComponent } from './components/enseignant/enseignant.component';
 import { DepartementComponent } from './components/departement/departement.component';
 import { LoginComponent } from './components/login/login.component';
+import { IndexComponent } from './components/index/index.component';
 
 const routes: Routes = [
   // { path: '', component: HomeComponent, }, @TODO: Add Home Component
@@ -127,6 +128,9 @@ const routes: Routes = [
       },
     ],
   },
+{
+path:'',component:IndexComponent,
+children:[
   {
     path:'',component:HomeComponent
   },
@@ -139,6 +143,9 @@ const routes: Routes = [
   {
     path:'login',component:LoginComponent
   }
+]
+
+} 
 
 ];
 

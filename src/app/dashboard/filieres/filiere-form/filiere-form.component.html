@@ -2,17 +2,16 @@
   <div class="container-fluid">
     <div class="d-flex justify-content-between align-items-center">
       <div class="header-action">
-        <h1 class="page-title">Étudiants</h1>
+        <h1 class="page-title">Filieres</h1>
         <ol class="breadcrumb page-breadcrumb">
           <li class="breadcrumb-item">
             <a [routerLink]="['/dashboard']">FSTBM</a>
           </li>
           <li class="breadcrumb-item">
-            <a [routerLink]="['/dashboard/etudiants']">Étudiants</a>
+            <a [routerLink]="['/dashboard/filieres']">Filieres</a>
           </li>
           <li class="breadcrumb-item active" aria-current="page">
-            <span *ngIf="mode === 'add'">Ajout</span>
-            <span *ngIf="mode === 'edit'">Modification</span>
+            Ajout / Modification
           </li>
         </ol>
       </div>
@@ -25,7 +24,7 @@
       <div class="col-lg-12 col-md-12 col-sm-12">
         <div class="card">
           <div class="card-header">
-            <h3 class="card-title">Les informations d'étudiant</h3>
+            <h3 class="card-title">Filieres informations</h3>
           </div>
           <form class="card-body">
             <div class="form-group row">
@@ -75,7 +74,8 @@
               <label class="col-md-3 col-form-label">Date de Naissance</label>
               <div class="col-md-9">
                 <input
-                  type="date"
+                  data-provide="datepicker"
+                  data-date-autoclose="true"
                   class="form-control"
                   placeholder="Date of Birth"
                 />
@@ -87,7 +87,12 @@
                 >Date d'Inscription <span class="text-danger">*</span></label
               >
               <div class="col-md-9">
-                <input type="date" class="form-control" placeholder="" />
+                <input
+                  data-provide="datepicker"
+                  data-date-autoclose="true"
+                  class="form-control"
+                  placeholder=""
+                />
               </div>
             </div>
             <div class="form-group row">
@@ -157,7 +162,7 @@
                 >
               </div>
             </div>
-            <div class="col-sm-12 action-buttons">
+            <div class="col-sm-12">
               <button type="submit" class="btn btn-primary">Submit</button>
               <button type="cancel" class="btn btn-outline-secondary">
                 Cancel

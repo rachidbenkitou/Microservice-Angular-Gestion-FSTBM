@@ -17,9 +17,12 @@
       <div class="col-6 col-md-4 col-xl-2">
         <div class="card">
           <div class="card-body">
-            <a href="professors.html" class="my_sort_cut text-muted">
+            <a
+              [routerLink]="['/dashboard/enseignents']"
+              class="my_sort_cut text-muted"
+            >
               <i class="fa fa-black-tie"></i>
-              <span>Professors</span>
+              <span>Enseignents</span>
             </a>
           </div>
         </div>
@@ -27,9 +30,12 @@
       <div class="col-6 col-md-4 col-xl-2">
         <div class="card">
           <div class="card-body">
-            <a href="app-contact.html" class="my_sort_cut text-muted">
+            <a
+              [routerLink]="['/dashboard/etudiants']"
+              class="my_sort_cut text-muted"
+            >
               <i class="fa fa-address-book"></i>
-              <span>Contact</span>
+              <span>Etudiants</span>
             </a>
           </div>
         </div>
@@ -37,9 +43,12 @@
       <div class="col-6 col-md-4 col-xl-2">
         <div class="card">
           <div class="card-body">
-            <a href="staff.html" class="my_sort_cut text-muted">
+            <a
+              [routerLink]="['/dashboard/filieres']"
+              class="my_sort_cut text-muted"
+            >
               <i class="fa fa-user-circle-o"></i>
-              <span>Staff</span>
+              <span>Filières</span>
             </a>
           </div>
         </div>
@@ -47,9 +56,12 @@
       <div class="col-6 col-md-4 col-xl-2">
         <div class="card">
           <div class="card-body">
-            <a href="app-filemanager.html" class="my_sort_cut text-muted">
+            <a
+              [routerLink]="['/dashboard/cours']"
+              class="my_sort_cut text-muted"
+            >
               <i class="fa fa-folder"></i>
-              <span>FileManager</span>
+              <span>Cours</span>
             </a>
           </div>
         </div>
@@ -59,7 +71,7 @@
           <div class="card-body">
             <a href="library.html" class="my_sort_cut text-muted">
               <i class="fa fa-book"></i>
-              <span>Library</span>
+              <span>PFE</span>
             </a>
           </div>
         </div>
@@ -67,9 +79,9 @@
       <div class="col-6 col-md-4 col-xl-2">
         <div class="card">
           <div class="card-body">
-            <a href="holiday.html" class="my_sort_cut text-muted">
+            <a href="" class="my_sort_cut text-muted">
               <i class="fa fa-bullhorn"></i>
-              <span>Holiday</span>
+              <span>Avis</span>
             </a>
           </div>
         </div>
@@ -81,7 +93,7 @@
           <div class="card-body top_counter">
             <div class="icon bg-yellow"><i class="fa fa-users"></i></div>
             <div class="content">
-              <span>Total Student</span>
+              <span> Nombre total d'étudiants</span>
               <h5 class="number mb-0">2,051</h5>
             </div>
           </div>
@@ -103,7 +115,7 @@
           <div class="card-body top_counter">
             <div class="icon bg-dark"><i class="fa fa-black-tie"></i></div>
             <div class="content">
-              <span>Total Teacher</span>
+              <span>Nombre total d'enseignants</span>
               <h5 class="number mb-0">27</h5>
             </div>
           </div>
@@ -114,7 +126,7 @@
           <div class="card-body top_counter">
             <div class="icon bg-azure"><i class="fa fa-tags"></i></div>
             <div class="content">
-              <span>Total Courses</span>
+              <span>Nombre Total des cours</span>
               <h5 class="number mb-0">31</h5>
             </div>
           </div>
@@ -127,8 +139,8 @@
               <i class="fa fa-credit-card"></i>
             </div>
             <div class="content">
-              <span>Expense</span>
-              <h5 class="number mb-0">$7,254</h5>
+              <span>Nombre total des admin</span>
+              <h5 class="number mb-0">4</h5>
             </div>
           </div>
         </div>

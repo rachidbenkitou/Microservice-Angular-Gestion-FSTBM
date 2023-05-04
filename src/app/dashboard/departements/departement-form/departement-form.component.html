@@ -2,17 +2,16 @@
   <div class="container-fluid">
     <div class="d-flex justify-content-between align-items-center">
       <div class="header-action">
-        <h1 class="page-title">Étudiants</h1>
+        <h1 class="page-title">Départements</h1>
         <ol class="breadcrumb page-breadcrumb">
           <li class="breadcrumb-item">
             <a [routerLink]="['/dashboard']">FSTBM</a>
           </li>
           <li class="breadcrumb-item">
-            <a [routerLink]="['/dashboard/etudiants']">Étudiants</a>
+            <a [routerLink]="['/dashboard/departements']">Départements</a>
           </li>
           <li class="breadcrumb-item active" aria-current="page">
-            <span *ngIf="mode === 'add'">Ajout</span>
-            <span *ngIf="mode === 'edit'">Modification</span>
+            Ajout / Modification
           </li>
         </ol>
       </div>
@@ -25,7 +24,7 @@
       <div class="col-lg-12 col-md-12 col-sm-12">
         <div class="card">
           <div class="card-header">
-            <h3 class="card-title">Les informations d'étudiant</h3>
+            <h3 class="card-title">Les informations du departement</h3>
           </div>
           <form class="card-body">
             <div class="form-group row">

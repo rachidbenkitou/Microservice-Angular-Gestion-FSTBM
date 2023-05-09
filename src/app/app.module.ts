@@ -3,11 +3,11 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
-import { EtudiantsFormComponent } from './dashboard/etudiants/etudiants-form/etudiants-form.component';
-import { EtudiantsComponent } from './dashboard/etudiants/etudiants.component';
-import { MainComponent } from './dashboard/main/main.component';
-import { EtudiantsListComponent } from './dashboard/etudiants/etudiants-list/etudiants-list.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { EtudiantsFormComponent } from './components/dashboard/etudiants/etudiants-form/etudiants-form.component';
+import { EtudiantsComponent } from './components/dashboard/etudiants/etudiants.component';
+import { MainComponent } from './components/dashboard/main/main.component';
+import { EtudiantsListComponent } from './components/dashboard/etudiants/etudiants-list/etudiants-list.component';
 import { HomeComponent } from './components/home/home.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { HeaderComponent } from './components/header/header.component';
@@ -15,18 +15,18 @@ import { DepartementComponent } from './components/departement/departement.compo
 import { EnseignantComponent } from './components/enseignant/enseignant.component';
 import { LoginComponent } from './components/login/login.component';
 
-import { FilieresComponent } from './dashboard/filieres/filieres.component';
-import { FiliereListComponent } from './dashboard/filieres/filiere-list/filiere-list.component';
-import { FiliereFormComponent } from './dashboard/filieres/filiere-form/filiere-form.component';
-import { EnseignentsComponent } from './dashboard/enseignents/enseignents.component';
-import { EnseignentListComponent } from './dashboard/enseignents/enseignent-list/enseignent-list.component';
-import { EnseignentFormComponent } from './dashboard/enseignents/enseignent-form/enseignent-form.component';
-import { DepartementsComponent } from './dashboard/departements/departements.component';
-import { DepartementFormComponent } from './dashboard/departements/departement-form/departement-form.component';
-import { DepartementListComponent } from './dashboard/departements/departement-list/departement-list.component';
-import { CoursComponent } from './dashboard/cours/cours.component';
-import { CourFormComponent } from './dashboard/cours/cour-form/cour-form.component';
-import { CourListComponent } from './dashboard/cours/cour-list/cour-list.component';
+import { FilieresComponent } from './components/dashboard/filieres/filieres.component';
+import { FiliereListComponent } from './components/dashboard/filieres/filiere-list/filiere-list.component';
+import { FiliereFormComponent } from './components/dashboard/filieres/filiere-form/filiere-form.component';
+import { EnseignentsComponent } from './components/dashboard/enseignents/enseignents.component';
+import { EnseignentListComponent } from './components/dashboard/enseignents/enseignent-list/enseignent-list.component';
+import { EnseignentFormComponent } from './components/dashboard/enseignents/enseignent-form/enseignent-form.component';
+import { DepartementsComponent } from './components/dashboard/departements/departements.component';
+import { DepartementFormComponent } from './components/dashboard/departements/departement-form/departement-form.component';
+import { DepartementListComponent } from './components/dashboard/departements/departement-list/departement-list.component';
+import { CoursComponent } from './components/dashboard/cours/cours.component';
+import { CourFormComponent } from './components/dashboard/cours/cour-form/cour-form.component';
+import { CourListComponent } from './components/dashboard/cours/cour-list/cour-list.component';
 import { IndexComponent } from './components/index/index.component';
 
 @NgModule({

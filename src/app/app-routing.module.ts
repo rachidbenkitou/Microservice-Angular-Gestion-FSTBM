@@ -24,6 +24,9 @@ import { EnseignantComponent } from './components/enseignant/enseignant.componen
 import { DepartementComponent } from './components/departement/departement.component';
 import { LoginComponent } from './components/login/login.component';
 import { IndexComponent } from './components/index/index.component';
+import {ExamenComponent} from "./components/dashboard/examen/examen.component";
+import {ExamenListComponent} from "./components/dashboard/examen/examen-list/examen-list.component";
+import {ExamenFormComponent} from "./components/dashboard/examen/examen-form/examen-form.component";
 
 const routes: Routes = [
   // { path: '', component: HomeComponent, }, @TODO: Add Home Component
@@ -126,6 +129,25 @@ const routes: Routes = [
           },
         ],
       },
+          {
+        path: 'examens',
+        component: ExamenComponent,
+        children: [
+          {
+            path: '',
+            component: ExamenListComponent,
+          },
+          {
+            path: 'add',
+            component: ExamenFormComponent,
+          },
+          {
+
+            path: 'edit/:id',
+            component: CourFormComponent,
+          },
+        ],
+      },
     ],
   },
 {
@@ -145,7 +167,7 @@ children:[
   }
 ]
 
-} 
+}
 
 ];
 

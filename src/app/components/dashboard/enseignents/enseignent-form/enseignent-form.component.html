@@ -56,51 +56,28 @@
               </div>
             </div>
             <div class="form-group row">
-              <label class="col-md-3 col-form-label"
-                >APOGEE <span class="text-danger">*</span></label
-              >
-              <div class="col-md-9">
-                <input type="text" class="form-control" />
-              </div>
-            </div>
-            <div class="form-group row">
               <label class="col-md-3 col-form-label">Email</label>
               <div class="col-md-9">
                 <input type="text" class="form-control" />
               </div>
             </div>
 
-            <div class="form-group row">
-              <label class="col-md-3 col-form-label">Date de Naissance</label>
-              <div class="col-md-9">
-                <input
-                  type="date"
-                  class="form-control"
-                  placeholder="Date of Birth"
-                />
-              </div>
-            </div>
+            
 
-            <div class="form-group row">
-              <label class="col-md-3 col-form-label"
-                >Date d'Inscription <span class="text-danger">*</span></label
-              >
-              <div class="col-md-9">
-                <input type="date" class="form-control" placeholder="" />
-              </div>
-            </div>
+            
             <div class="form-group row">
               <label class="col-md-3 col-form-label">
-                Filières <span class="text-danger">*</span></label
+                departements <span class="text-danger">*</span></label
               >
               <div class="col-md-9">
                 <select class="form-control input-height" name="department">
                   <option value="">Select...</option>
-                  <option value="Category 1">Computer</option>
-                  <option value="Category 2">Mechanical</option>
-                  <option value="Category 3">Mathematics</option>
-                  <option value="Category 3">Commerce</option>
-                </select>
+                  <div *ngFor="let name of departementNames">
+                    <option [ngValue]="name" value="Category 1">{{name}}</option>
+                  
+                  </div>
+                
+            </select>
               </div>
             </div>
             <div class="form-group row">

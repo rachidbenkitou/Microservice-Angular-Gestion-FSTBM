@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { departement } from '../models/departement';
 const headers = new HttpHeaders({
   'Content-Type': 'application/json'
 });
@@ -21,8 +22,24 @@ export class EnseignantService {
   }
 
   getAll(){
-    return this.http.get(`${this.baseUrl}/${this.serviceName}/${this.apiUrl}/all`)
+    return this.http.get<departement[]>(`${this.baseUrl}/${this.serviceName}/${this.apiUrl}/all`)
   }
+
+  getByName(name:string){
+    return this.http.get<departement>(`${this.baseUrl}/${this.serviceName}/${this.apiUrl}/name/${name}`)
+
+  }
+
+  deleteById(id:number){
+    return this.http.delete(`${this.baseUrl}/${this.serviceName}/${this.apiUrl}/delete/id/${id}`)
+
+  }
+
+  getDepartementNames(){
+    return this.http.get<string[]>(`${this.baseUrl}/${this.serviceName}/${this.apiUrl}/name/all`)
+
+  }
+  
 
 
 

@@ -27,6 +27,7 @@ import { IndexComponent } from './components/index/index.component';
 import {ExamenComponent} from "./components/dashboard/examen/examen.component";
 import {ExamenListComponent} from "./components/dashboard/examen/examen-list/examen-list.component";
 import {ExamenFormComponent} from "./components/dashboard/examen/examen-form/examen-form.component";
+import {ExamenEditFormComponent} from "./components/dashboard/examen/examen-edit-form/examen-edit-form.component";
 
 const routes: Routes = [
   // { path: '', component: HomeComponent, }, @TODO: Add Home Component
@@ -144,7 +145,7 @@ const routes: Routes = [
           {
 
             path: 'edit/:id',
-            component: CourFormComponent,
+            component: ExamenEditFormComponent,
           },
         ],
       },

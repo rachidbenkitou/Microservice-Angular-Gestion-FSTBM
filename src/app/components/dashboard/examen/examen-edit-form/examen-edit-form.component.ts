@@ -1,26 +1,26 @@
 import {Component, OnInit} from '@angular/core';
-import {FormBuilder, FormGroup,ValidationErrors, Validators} from "@angular/forms";
-import {Examen} from "../../../../Entities/Examen";
+import {ActivatedRoute} from "@angular/router";
+import {FormBuilder, FormGroup, ValidationErrors, Validators} from "@angular/forms";
 import {ExamenServiceService} from "../../../../services/examen-service.service";
+import {Examen} from "../../../../Entities/Examen";
 import {Module} from "../../../../Entities/Module";
 
 @Component({
-  selector: 'app-examen-form',
-  templateUrl: './examen-form.component.html',
-  styleUrls: ['./examen-form.component.scss']
+  selector: 'app-examen-edit-form',
+  templateUrl: './examen-edit-form.component.html',
+  styleUrls: ['./examen-edit-form.component.scss']
 })
-export class ExamenFormComponent implements OnInit{
-  formGroup !:FormGroup
-  examen !: Examen
+export class ExamenEditFormComponent implements OnInit{
+  formGroup ! : FormGroup
+  id !: number
+  examen!: Examen
+  module !: Module
   modules !: Array<Module>
-  module : Module = new Module()
-  varia !: any
-  constructor(private fb : FormBuilder, private examenServ : ExamenServiceService) {
-
+  constructor(public activateroute:ActivatedRoute,private fb : FormBuilder, private examenServ : ExamenServiceService) {
+     this.id= activateroute.snapshot.params['id'];
   }
-
-  ngOnInit(): void {
-    this.examenServ.getallModulesForSave().subscribe({
+    ngOnInit(): void {
+       this.examenServ.getallModulesForSave().subscribe({
       next : (data) =>{
         this.modules=data;
       }});
@@ -29,11 +29,18 @@ export class ExamenFormComponent implements OnInit{
       dateExam : this.fb.control(null,[Validators.required]),
       module : this.fb.control(null,[Validators.required])
     })
+    this.examenServ.getExamenById(this.id).subscribe(
+      {
+      next : (data) =>{
+        this.examen = data
+        const oldExamen = {type : this.examen.type ,module : this.examen.module.moduleId}
+        this.formGroup.patchValue(oldExamen);
+      }}
+    )
   }
 
-
-handleAddProduct() {
-     const typeValue = this.formGroup.get('type')?.value;
+  handleUpdateProduct() {
+    const typeValue = this.formGroup.get('type')?.value;
     const dateExamValue = this.formGroup.get('dateExam')?.value;
     const moduleValue = this.formGroup.get('module')?.value;
 
@@ -43,7 +50,7 @@ handleAddProduct() {
             this.examen =new Examen(typeValue, dateExamValue,this.module)
             this.examen.DcreationDateTime= new Date()
               console.log(this.module)
-       this.examenServ.saveExamen(this.examen).subscribe({
+       this.examenServ.updateExamen(this.examen,this.id).subscribe({
         next : (data) =>{
 
        console.log(this.examen)
@@ -63,4 +70,5 @@ handleAddProduct() {
      else return ""
 
   }
+
 }

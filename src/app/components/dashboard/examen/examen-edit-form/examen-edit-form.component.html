@@ -11,7 +11,7 @@
             <a [routerLink]="['/dashboard/examens']">Examens</a>
           </li>
           <li class="breadcrumb-item active" aria-current="page">
-            Ajout / Modification
+            Modifier/ Modification
           </li>
         </ol>
       </div>
@@ -24,11 +24,11 @@
       <div class="col-lg-12 col-md-12 col-sm-12">
         <div class="card">
           <div class="card-header">
-            <h3 class="card-title">Les informations du Examen</h3>
+            <h3 class="card-title">Modifier les  informations du Examen</h3>
           </div>
-          <form [formGroup]="formGroup"  class="card-body" >
-
-            <div class="form-group row">
+          <form [formGroup]="formGroup" class="card-body" >
+<!--public router:Router-->
+                <div class="form-group row">
               <label  class="col-md-3 col-form-label">Type Examen <span class="text-danger">*</span></label>
                  <div class="col-md-9">
                 <select class="form-control input-height"  formControlName="type" >
@@ -41,15 +41,17 @@
               </div>
             </div>
 
+
+
             <div class="form-group row">
               <label class="col-md-3 col-form-label"
                 >Date d'examen <span class="text-danger">*</span></label
               >
               <div class="col-md-9">
                 <input type="date"  formControlName="dateExam" class="form-control" placeholder="" />
-                 <small *ngIf="formGroup.controls['dateExam'].errors && formGroup.controls['dateExam'].touched" class="text-danger">
+                <small *ngIf="formGroup.controls['dateExam'].errors && formGroup.controls['dateExam'].touched" class="text-danger">
                    {{getErrorMessag('Date',formGroup.controls['dateExam'].errors )}}
-        </small>
+                 </small>
               </div>
             </div>
 
@@ -58,17 +60,17 @@
                 >Module <span class="text-danger">*</span></label
               >
               <div class="col-md-9">
-                <select class="form-control input-height" formControlName="module"  aria-label="Default select example">
-                  <option *ngFor="let m of modules " [value]="m.moduleId" >{{m.moduleName}} / {{m.moduleSemestre}}</option>
+                <select class="form-control input-height" formControlName="module" name="gender">
+                  <option  *ngFor="let m of modules " [value]="m.moduleId" >{{m.moduleName}} / {{m.moduleSemestre}}</option>
 
                 </select>
-                   <small *ngIf="formGroup.controls['module'].errors && formGroup.controls['module'].touched" class="text-danger">
+                 <small *ngIf="formGroup.controls['module'].errors && formGroup.controls['module'].touched" class="text-danger">
                      {{getErrorMessag('module',formGroup.controls['module'].errors )}}</small>
               </div>
             </div>
 
             <div class="col-sm-12 action-buttons">
-              <button type="submit" class="btn btn-primary" (click)="handleAddProduct()">Submit</button>
+              <button type="submit" class="btn btn-primary"  (click)="handleUpdateProduct()">Update</button>
               <button type="cancel" class="btn btn-outline-secondary">
                 Cancel
               </button>

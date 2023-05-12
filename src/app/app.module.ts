@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule} from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -38,6 +40,7 @@ import {RouterModule} from "@angular/router";
 
 @NgModule({
   declarations: [
+    
     AppComponent,
     DashboardComponent,
     MainComponent,
@@ -71,8 +74,12 @@ import {RouterModule} from "@angular/router";
     ExamenFormComponent,
     ExamenEditFormComponent
   ],
+<<<<<<< HEAD
   imports: [BrowserModule,AppRoutingModule,
     HttpClientModule, ReactiveFormsModule],
+=======
+  imports: [BrowserModule,AppRoutingModule,HttpClientModule,FormsModule, ReactiveFormsModule],
+>>>>>>> ea0609c992b22045cf8e9cd152bffbd8dc2110f5
 
   providers: [],
   bootstrap: [AppComponent],

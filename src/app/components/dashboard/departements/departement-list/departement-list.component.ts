@@ -28,7 +28,7 @@ export class DepartementListComponent implements OnInit {
   }
 
   deleteById(id:number){
-    this.service.deleteById(id).subscribe(()=>{
+    this.service.deleteDepartementById(id).subscribe(()=>{
       console.log('deleted')
       this.departements=this.departements.filter(d => d.id!=id);
     });

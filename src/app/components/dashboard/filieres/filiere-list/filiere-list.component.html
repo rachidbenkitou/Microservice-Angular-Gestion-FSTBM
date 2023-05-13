@@ -62,46 +62,19 @@
       >
         <thead>
           <tr>
-            <th>ID:</th>
-            <th>Nom de filieres</th>
-            <th>Department</th>
-            <th>Chef de Filiere</th>
-            <th>Action</th>
+            <th>Nom de filiere</th>
+            <th>Niveau</th>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>1</td>
-            <td>MIPC</td>
-            <td>math</td>
-            <td><span class="font-16">Ken Smith</span></td>
-            <td>
-              <button type="button" class="btn btn-icon btn-sm" title="View">
-                <i class="fa fa-eye"></i>
-              </button>
-              <button type="button" class="btn btn-icon btn-sm" title="Edit">
-                <i class="fa fa-edit"></i>
-              </button>
-              <button
-                type="button"
-                class="btn btn-icon btn-sm js-sweetalert"
-                title="Delete"
-                data-type="confirm"
-              >
-                <i class="fa fa-trash-o text-danger"></i>
-              </button>
-            </td>
+          <tr *ngIf="filiereList.length == 0">
+            <td colspan="4" class="text-center">No data found</td>
           </tr>
-          <tr>
-            <td>2</td>
-            <td>BCG</td>
-            <td>chimie</td>
-            <td><span class="font-16">Ken Smith</span></td>
+          <tr *ngFor="let filiere of filiereList">
+            <td>{{ filiere.name }}</td>
+            <td>{{ filiere.niveau }}</td>
             <td>
-              <button type="button" class="btn btn-icon btn-sm" title="View">
-                <i class="fa fa-eye"></i>
-              </button>
-              <button type="button" class="btn btn-icon btn-sm" title="Edit">
+              <button type="button" class="btn btn-icon btn-sm" title="Edit" (click)="editFiliere(filiere.idFiliere)">
                 <i class="fa fa-edit"></i>
               </button>
               <button
@@ -109,28 +82,7 @@
                 class="btn btn-icon btn-sm js-sweetalert"
                 title="Delete"
                 data-type="confirm"
-              >
-                <i class="fa fa-trash-o text-danger"></i>
-              </button>
-            </td>
-          </tr>
-          <tr>
-            <td>3</td>
-            <td>GEGM</td>
-            <td>chimie</td>
-            <td><span class="font-16">Ken Smith</span></td>
-            <td>
-              <button type="button" class="btn btn-icon btn-sm" title="View">
-                <i class="fa fa-eye"></i>
-              </button>
-              <button type="button" class="btn btn-icon btn-sm" title="Edit">
-                <i class="fa fa-edit"></i>
-              </button>
-              <button
-                type="button"
-                class="btn btn-icon btn-sm js-sweetalert"
-                title="Delete"
-                data-type="confirm"
+                (click)="deleteFiliere(filiere.idFiliere)"
               >
                 <i class="fa fa-trash-o text-danger"></i>
               </button>

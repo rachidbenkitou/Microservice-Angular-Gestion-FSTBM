@@ -15,13 +15,13 @@ export class FiliereService {
 
   private API_URL = `${GET_BASE_URL(STUDENT_BE_SERVICE)}/${STUDENT_BE_APIS.FILIERES}/`;
 
-  getAllFilieres(): Observable<Filiere> {
+  getAllFilieres(): Observable<Filiere[]> {
     return this.http
-      .get<Filiere>(this.API_URL)
+      .get<Filiere[]>(this.API_URL)
       .pipe(retry(1), catchError(this.handleError));
   }
 
-  getFiliereById(id: number): Observable<Filiere> {
+  getFiliereById(id: string): Observable<Filiere> {
     return this.http
       .get<Filiere>(this.API_URL + id)
       .pipe(retry(1), catchError(this.handleError));
@@ -48,7 +48,7 @@ export class FiliereService {
       .pipe(retry(1), catchError(this.handleError));
   }
 
-  deleteFiliere(id: number): Observable<Filiere> {
+  deleteFiliere(id: string): Observable<Filiere> {
     return this.http
       .delete<Filiere>(this.API_URL + id)
       .pipe(retry(1), catchError(this.handleError));

@@ -31,4 +31,8 @@ export class ExamenServiceService {
   }
   deleteExamen(id:number){
     return  this.http.delete("http://localhost:8222/note-service/api/v1/examens/"+id);
-  }}
+  }
+  searchExamen(keyword1 : string , keyword2: string) : Observable<Array<Examen>>{
+    return  this.http.get<Array<Examen>>("http://localhost:8222/note-service/api/v1/examens/search?key1="+keyword1+"&key2="+keyword2);
+  }
+}

@@ -3,6 +3,7 @@ import {FormBuilder, FormGroup,ValidationErrors, Validators} from "@angular/form
 import {Examen} from "../../../../Entities/Examen";
 import {ExamenServiceService} from "../../../../services/examen-service.service";
 import {Module} from "../../../../Entities/Module";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-examen-form',
@@ -15,7 +16,7 @@ export class ExamenFormComponent implements OnInit{
   modules !: Array<Module>
   module : Module = new Module()
   varia !: any
-  constructor(private fb : FormBuilder, private examenServ : ExamenServiceService) {
+  constructor(private fb : FormBuilder,private router : Router,private examenServ : ExamenServiceService) {
 
   }
 
@@ -46,7 +47,8 @@ handleAddProduct() {
        this.examenServ.saveExamen(this.examen).subscribe({
         next : (data) =>{
 
-       console.log(this.examen)
+
+          this.router.navigateByUrl("dashboard/examens")
      }
      })
        }

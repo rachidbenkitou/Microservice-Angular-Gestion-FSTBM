@@ -28,31 +28,37 @@
     <div class="card">
       <div class="card-body">
         <div class="row">
-          <div class="col-lg-2 col-md-4 col-sm-6">
-            <div class="input-group">
-              <input type="text" class="form-control" placeholder="ID:" />
+          <div class="col-lg-6 col-md-4 col-sm-6">
+            <div class="input-group" style="padding-bottom: 4px;">
+              <input type="text" class="form-control" placeholder="cin:" [(ngModel)]="cin" name="cin"/>
             </div>
+            <a
+              
+              class="btn btn-sm btn-primary btn-block"
+              title=""
+              (click)="searchByCIN()"
+              >Search</a
+            >
           </div>
-          <div class="col-lg-2 col-md-4 col-sm-6">
+          
+          <div class="col-lg-6 col-md-4 col-sm-6">
+            
             <div class="input-group">
-              <input type="text" class="form-control" placeholder="Nom" />
+                <select  class="form-control input-height" name="department" [(ngModel)]="departementName" name="departement">
+                  <option value="">Select...</option>
+                  
+                    <option *ngFor="let name of departementNames" [ngValue]="name" >{{name}}</option>
+                  
+                  
+                
+            </select>
             </div>
-          </div>
-          <div class="col-lg-4 col-md-4 col-sm-6">
-            <div class="input-group">
-              <input
-                type="text"
-                class="form-control"
-                placeholder="Department"
-              />
-            </div>
-          </div>
-          <div class="col-lg-2 col-md-4 col-sm-6">
             <a
               href="javascript:void(0);"
               class="btn btn-sm btn-primary btn-block"
               title=""
-              >Search</a
+              (click)="searchByDepartement()"
+              >select departement</a
             >
           </div>
         </div>
@@ -65,18 +71,25 @@
         <thead>
           <tr>
             <th>ID:</th>
-            <th>Nom de filieres</th>
-            <th>Department</th>
-            <th>Chef de Filiere</th>
-            <th>Action</th>
+            <th>nom</th>
+            <th>prenom</th>
+            <th>departement</th>
+            <th>CIN</th>
+            <th>email</th>
+            <th>adresse</th>
+            <th>action</th>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>1</td>
-            <td>MIPC</td>
-            <td>math</td>
-            <td><span class="font-16">Ken Smith</span></td>
+          <tr *ngFor="let enseignant of enseignants">
+            <td>{{enseignant.id}}</td>
+            <td>{{enseignant.nom}}</td>
+            <td>{{enseignant.prenom}}</td>
+            <td>{{enseignant.departement.nameDeparetement}}</td>
+            <td>{{enseignant.cin}}</td>
+            <td>{{enseignant.email}}</td>
+            <td><span class="font-16">{{enseignant.adresse}}
+            </span></td>
             <td>
               <button type="button" class="btn btn-icon btn-sm" title="View">
                 <i class="fa fa-eye"></i>
@@ -89,55 +102,13 @@
                 class="btn btn-icon btn-sm js-sweetalert"
                 title="Delete"
                 data-type="confirm"
+                (click)="deleteEnseignat(enseignant.id)"
               >
                 <i class="fa fa-trash-o text-danger"></i>
               </button>
             </td>
           </tr>
-          <tr>
-            <td>2</td>
-            <td>BCG</td>
-            <td>chimie</td>
-            <td><span class="font-16">Ken Smith</span></td>
-            <td>
-              <button type="button" class="btn btn-icon btn-sm" title="View">
-                <i class="fa fa-eye"></i>
-              </button>
-              <button type="button" class="btn btn-icon btn-sm" title="Edit">
-                <i class="fa fa-edit"></i>
-              </button>
-              <button
-                type="button"
-                class="btn btn-icon btn-sm js-sweetalert"
-                title="Delete"
-                data-type="confirm"
-              >
-                <i class="fa fa-trash-o text-danger"></i>
-              </button>
-            </td>
-          </tr>
-          <tr>
-            <td>3</td>
-            <td>GEGM</td>
-            <td>chimie</td>
-            <td><span class="font-16">Ken Smith</span></td>
-            <td>
-              <button type="button" class="btn btn-icon btn-sm" title="View">
-                <i class="fa fa-eye"></i>
-              </button>
-              <button type="button" class="btn btn-icon btn-sm" title="Edit">
-                <i class="fa fa-edit"></i>
-              </button>
-              <button
-                type="button"
-                class="btn btn-icon btn-sm js-sweetalert"
-                title="Delete"
-                data-type="confirm"
-              >
-                <i class="fa fa-trash-o text-danger"></i>
-              </button>
-            </td>
-          </tr>
+         
         </tbody>
       </table>
     </div>

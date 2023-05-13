@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule} from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -28,9 +30,16 @@ import { CoursComponent } from './components/dashboard/cours/cours.component';
 import { CourFormComponent } from './components/dashboard/cours/cour-form/cour-form.component';
 import { CourListComponent } from './components/dashboard/cours/cour-list/cour-list.component';
 import { IndexComponent } from './components/index/index.component';
+import { ExamenComponent } from './components/dashboard/examen/examen.component';
+import { ExamenListComponent } from './components/dashboard/examen/examen-list/examen-list.component';
+import { ExamenFormComponent } from './components/dashboard/examen/examen-form/examen-form.component';
+import { ExamenEditFormComponent } from './components/dashboard/examen/examen-edit-form/examen-edit-form.component';
+import {RouterModule} from "@angular/router";
+import { ModuleComponent } from './components/dashboard/module/module.component';
 
 @NgModule({
   declarations: [
+    
     AppComponent,
     DashboardComponent,
     MainComponent,
@@ -58,10 +67,15 @@ import { IndexComponent } from './components/index/index.component';
     DepartementComponent,
     EnseignantComponent,
     LoginComponent,
-    IndexComponent
+    IndexComponent,
+    ExamenComponent,
+    ExamenListComponent,
+    ExamenFormComponent,
+    ExamenEditFormComponent,
+    ModuleComponent
   ],
-  imports: [BrowserModule,AppRoutingModule],
 
+  imports: [BrowserModule,AppRoutingModule,HttpClientModule,FormsModule, ReactiveFormsModule],
   providers: [],
   bootstrap: [AppComponent],
 })

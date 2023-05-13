@@ -33,10 +33,9 @@ import { IndexComponent } from './components/index/index.component';
 import { ExamenComponent } from './components/dashboard/examen/examen.component';
 import { ExamenListComponent } from './components/dashboard/examen/examen-list/examen-list.component';
 import { ExamenFormComponent } from './components/dashboard/examen/examen-form/examen-form.component';
-import {HttpClientModule} from "@angular/common/http";
-import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { ExamenEditFormComponent } from './components/dashboard/examen/examen-edit-form/examen-edit-form.component';
 import {RouterModule} from "@angular/router";
+import { ModuleComponent } from './components/dashboard/module/module.component';
 
 @NgModule({
   declarations: [
@@ -72,15 +71,11 @@ import {RouterModule} from "@angular/router";
     ExamenComponent,
     ExamenListComponent,
     ExamenFormComponent,
-    ExamenEditFormComponent
+    ExamenEditFormComponent,
+    ModuleComponent
   ],
-<<<<<<< HEAD
-  imports: [BrowserModule,AppRoutingModule,
-    HttpClientModule, ReactiveFormsModule],
-=======
-  imports: [BrowserModule,AppRoutingModule,HttpClientModule,FormsModule, ReactiveFormsModule],
->>>>>>> ea0609c992b22045cf8e9cd152bffbd8dc2110f5
 
+  imports: [BrowserModule,AppRoutingModule,HttpClientModule,FormsModule, ReactiveFormsModule],
   providers: [],
   bootstrap: [AppComponent],
 })

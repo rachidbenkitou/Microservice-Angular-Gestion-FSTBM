@@ -28,9 +28,14 @@ import {ExamenComponent} from "./components/dashboard/examen/examen.component";
 import {ExamenListComponent} from "./components/dashboard/examen/examen-list/examen-list.component";
 import {ExamenFormComponent} from "./components/dashboard/examen/examen-form/examen-form.component";
 import {ExamenEditFormComponent} from "./components/dashboard/examen/examen-edit-form/examen-edit-form.component";
+import { ModuleComponent } from './components/dashboard/module/module.component';
 
 const routes: Routes = [
   // { path: '', component: HomeComponent, }, @TODO: Add Home Component
+  {
+    path: 'test',
+    component: ModuleComponent
+  },
   {
     path: 'dashboard',
     component: DashboardComponent,

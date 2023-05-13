@@ -1,12 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Examen} from "../../../../Entities/Examen";
-import {HttpClient, HttpHeaders} from "@angular/common/http";
-import {Observable} from "rxjs";
 import {ExamenServiceService} from "../../../../services/examen-service.service";
 import {Router} from "@angular/router";
-import {
-  log
-} from "../../../../../../../Users/dell/anaconda3/Lib/site-packages/bokeh/server/static/js/types/core/util/math";
 
 @Component({
   selector: 'app-examen-list',

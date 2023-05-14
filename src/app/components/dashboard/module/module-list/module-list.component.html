@@ -1,0 +1,77 @@
+<div class="section-body">
+    <div class="container-fluid">
+        <div class="d-flex justify-content-between align-items-center">
+            <div class="header-action">
+                <h1 class="page-title">Modules</h1>
+                <ol class="breadcrumb page-breadcrumb">
+                    <li class="breadcrumb-item"><a href="#">FSTBM</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Modules</li>
+                </ol>
+            </div>
+            <ul class="nav nav-tabs page-header-tab">
+                <li class="nav-item">
+                    <a class="nav-link button_ btn btn-sm btn-primary btn-block" data-toggle="tab" style="color: aliceblue; " (click)="showComponentModuleForm()">Ajouter Module</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="section-body mt-4">
+    <div class="container-fluid">
+        <div class="card">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-lg-2 col-md-4 col-sm-6">
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="Name" />
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-md-4 col-sm-6">
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="Semestre" />
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-2 col-md-4 col-sm-6">
+                        <a href="javascript:void(0);" class="btn btn-sm btn-primary btn-block" title="">Search</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="table-responsive card">
+            <table class="table table-hover table-vcenter table-striped mb-0 text-nowrap">
+                <thead>
+                    <tr>
+                        <th>ID:</th>
+                        <th>Name</th>
+                        <th>Semestre</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let m of modules">
+                        <td>{{m.moduleId}}</td>
+                        <td>{{m.moduleName}}</td>
+                        <td>{{m.moduleSemestre}}</td>
+
+
+
+                        <td>
+                            <button type="button" class="btn btn-icon btn-sm" title="View">
+                                <i class="fa fa-eye"></i>
+                            </button>
+                            <button type="button" class="btn btn-icon btn-sm" title="Edit" (click)="onUpdateModule(m.moduleId)">
+                                <i class="fa fa-edit"></i>
+                            </button>
+                            <button type="button" class="btn btn-icon btn-sm js-sweetalert" title="Delete"
+                                data-type="confirm" (click)="onDeleteModule(m.moduleName)">
+                                <i class="fa fa-trash-o text-danger"></i>
+                            </button>
+                        </td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

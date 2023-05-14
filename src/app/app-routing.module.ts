@@ -28,14 +28,18 @@ import {ExamenComponent} from "./components/dashboard/examen/examen.component";
 import {ExamenListComponent} from "./components/dashboard/examen/examen-list/examen-list.component";
 import {ExamenFormComponent} from "./components/dashboard/examen/examen-form/examen-form.component";
 import {ExamenEditFormComponent} from "./components/dashboard/examen/examen-edit-form/examen-edit-form.component";
+import { ModuleListComponent } from './components/dashboard/module/module-list/module-list.component';
 import { ModuleComponent } from './components/dashboard/module/module.component';
+import { ModuleFormComponent } from './components/dashboard/module/module-form/module-form.component';
+import { ModuleEditFormComponent } from './components/dashboard/module/module-edit-form/module-edit-form.component';
 
 const routes: Routes = [
   // { path: '', component: HomeComponent, }, @TODO: Add Home Component
   {
-    path: 'test',
-    component: ModuleComponent
-  },
+    path: "test",
+    component: ModuleListComponent
+  }
+,
   {
     path: 'dashboard',
     component: DashboardComponent,
@@ -151,6 +155,24 @@ const routes: Routes = [
 
             path: 'edit/:id',
             component: ExamenEditFormComponent,
+          },
+        ],
+      },          {
+        path: 'module',
+        component: ModuleComponent,
+        children: [
+          {
+            path: '',
+            component: ModuleListComponent,
+          },
+          {
+            path: 'add',
+            component: ModuleFormComponent,
+          },
+          {
+
+            path: 'edit/:moduleId',
+            component: ModuleEditFormComponent,
           },
         ],
       },

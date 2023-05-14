@@ -36,6 +36,10 @@ import { ExamenFormComponent } from './components/dashboard/examen/examen-form/e
 import { ExamenEditFormComponent } from './components/dashboard/examen/examen-edit-form/examen-edit-form.component';
 import {RouterModule} from "@angular/router";
 import { ModuleComponent } from './components/dashboard/module/module.component';
+import { ModuleListComponent } from './components/dashboard/module/module-list/module-list.component';
+import { ModuleFormComponent } from './components/dashboard/module/module-form/module-form.component';
+import { ModuleEditFormComponent } from './components/dashboard/module/module-edit-form/module-edit-form.component';
+
 
 @NgModule({
   declarations: [
@@ -72,7 +76,10 @@ import { ModuleComponent } from './components/dashboard/module/module.component'
     ExamenListComponent,
     ExamenFormComponent,
     ExamenEditFormComponent,
-    ModuleComponent
+    ModuleComponent,
+    ModuleListComponent,
+    ModuleFormComponent,
+    ModuleEditFormComponent,
   ],
 
   imports: [BrowserModule,AppRoutingModule,HttpClientModule,FormsModule, ReactiveFormsModule],

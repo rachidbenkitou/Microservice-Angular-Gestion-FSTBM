@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {FormBuilder, FormGroup, ValidationErrors, Validators} from "@angular/forms";
 import {ExamenServiceService} from "../../../../services/examen-service.service";
 import {Examen} from "../../../../Entities/Examen";
@@ -16,7 +16,8 @@ export class ExamenEditFormComponent implements OnInit{
   examen!: Examen
   module !: Module
   modules !: Array<Module>
-  constructor(public activateroute:ActivatedRoute,private fb : FormBuilder, private examenServ : ExamenServiceService) {
+  constructor(public activateroute:ActivatedRoute,private fb : FormBuilder,
+              private examenServ : ExamenServiceService, private  router : Router) {
      this.id= activateroute.snapshot.params['id'];
   }
     ngOnInit(): void {
@@ -53,7 +54,7 @@ export class ExamenEditFormComponent implements OnInit{
        this.examenServ.updateExamen(this.examen,this.id).subscribe({
         next : (data) =>{
 
-       console.log(this.examen)
+           this.router.navigateByUrl("dashboard/examens")
      }
      })
        }

@@ -25,45 +25,38 @@
   <div class="container-fluid">
     <div class="card">
       <div class="card-body">
+        <form [formGroup]="searchFormGroup" >
         <div class="row">
           <div class="col-lg-2 col-md-4 col-sm-6">
             <div class="input-group">
-              <input type="text" class="form-control" placeholder="Roll No." />
+              <input type="text" class="form-control" formControlName="keyword1" placeholder="Module Name" />
             </div>
           </div>
-          <div class="col-lg-2 col-md-4 col-sm-6">
-            <div class="input-group">
-              <input type="text" class="form-control" placeholder="Name" />
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-4 col-sm-6">
-            <div class="input-group">
-              <input
-                type="text"
-                class="form-control"
-                placeholder="Department"
-              />
-            </div>
-          </div>
-          <div class="col-lg-2 col-md-4 col-sm-6">
-            <div class="input-group">
-              <input
-                data-provide="datepicker"
-                data-date-autoclose="true"
-                class="form-control"
-                placeholder="Admission Date"
-              />
-            </div>
-          </div>
+
+                <div class="col-lg-4 col-md-4 col-sm-6">
+                <select class="form-control input-height" name="department"  formControlName="keyword2">
+                  <option value="">None</option>
+                  <option value="SEMESTRE1">S1</option>
+                  <option value="SEMESTRE2">S2</option>
+                  <option value="SEMESTRE3">S3</option>
+                  <option value="SEMESTRE4">S4</option>
+                   <option value="SEMESTRE5">S5</option>
+                  <option value="SEMESTRE6">S6</option>
+                </select>
+              </div>
+
           <div class="col-lg-2 col-md-4 col-sm-6">
             <a
               href="javascript:void(0);"
               class="btn btn-sm btn-primary btn-block"
               title=""
+              (click)="gotolist()"
               >Search</a
             >
           </div>
+
         </div>
+        </form>
       </div>
     </div>
     <div class="table-responsive card">

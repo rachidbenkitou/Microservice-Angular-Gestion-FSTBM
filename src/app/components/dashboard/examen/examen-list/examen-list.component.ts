@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Examen} from "../../../../Entities/Examen";
 import {ExamenServiceService} from "../../../../services/examen-service.service";
 import {Router} from "@angular/router";
+import {FormBuilder, FormGroup} from "@angular/forms";
 
 @Component({
   selector: 'app-examen-list',
@@ -10,11 +11,13 @@ import {Router} from "@angular/router";
 })
 export class ExamenListComponent  implements  OnInit{
    examenList: Array<Examen>= new Array<Examen>();
+  searchFormGroup!: FormGroup
   // token !: string
   // httpOptions !: any
   //
   //
-   constructor(private examenServ : ExamenServiceService,public router:Router) {
+
+   constructor(private examenServ : ExamenServiceService,public router:Router, private fb: FormBuilder) {
    }
 
     ngOnInit(): void {
@@ -24,6 +27,12 @@ export class ExamenListComponent  implements  OnInit{
   //       'Authorization': `Bearer ${this.token}`
   //     })
   //   };
+      this.searchFormGroup= this.fb.group({
+      keyword1 : this.fb.control(null),
+      keyword2 : this.fb.control(null)
+    })
+
+
      this.examenServ.getallExamens()
                   .subscribe({
                          next : (data)=>{
@@ -50,5 +59,32 @@ onEditExamen(id:number){
                                  },}
      )
   }
+  handelSearch() {
+
+     const key1 = this.searchFormGroup.get('keyword1')?.value;
+    const key2 = this.searchFormGroup.get('keyword2')?.value;
+    this.examenServ.searchExamen(key1,key2).subscribe({
+      next : (data) => {
+        this.examenList = data
+
+
+      }
+    })
+  }
+gotolist(){
+    if (this.searchFormGroup.get('keyword1')?.value =="" && this.searchFormGroup.get('keyword2')?.value=="") {
+       this.examenServ.getallExamens()
+                  .subscribe({
+                         next : (data)=>{
+                        this.examenList = data;
+                                 },
+                        error : (err)=>{
+                        console.log("err");
+                                     }
+  });
+    }else {
+      this.handelSearch()
+    }
+}
 }
 

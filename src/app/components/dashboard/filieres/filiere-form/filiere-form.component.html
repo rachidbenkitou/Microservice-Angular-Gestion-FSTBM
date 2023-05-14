@@ -11,7 +11,8 @@
             <a [routerLink]="['/dashboard/filieres']">Filieres</a>
           </li>
           <li class="breadcrumb-item active" aria-current="page">
-            Ajout / Modification
+            <span *ngIf="mode === 'add'">Ajout</span>
+            <span *ngIf="mode === 'edit'">Modification</span>
           </li>
         </ol>
       </div>
@@ -29,142 +30,26 @@
           <form class="card-body">
             <div class="form-group row">
               <label class="col-md-3 col-form-label"
-                >Nom <span class="text-danger">*</span></label
+                >Nom de filiere <span class="text-danger">*</span></label
               >
               <div class="col-md-9">
-                <input
-                  type="text"
-                  class="form-control"
-                  placeholder="Nom de famille"
-                />
-              </div>
-            </div>
-            <div class="form-group row">
-              <label class="col-md-3 col-form-label"
-                >Prénom <span class="text-danger">*</span></label
-              >
-              <div class="col-md-9">
-                <input type="text" class="form-control" placeholder="Prénom" />
-              </div>
-            </div>
-            <div class="form-group row">
-              <label class="col-md-3 col-form-label"
-                >CIN <span class="text-danger">*</span></label
-              >
-              <div class="col-md-9">
-                <input type="text" class="form-control" />
-              </div>
-            </div>
-            <div class="form-group row">
-              <label class="col-md-3 col-form-label"
-                >APOGEE <span class="text-danger">*</span></label
-              >
-              <div class="col-md-9">
-                <input type="text" class="form-control" />
-              </div>
-            </div>
-            <div class="form-group row">
-              <label class="col-md-3 col-form-label">Email</label>
-              <div class="col-md-9">
-                <input type="text" class="form-control" />
-              </div>
-            </div>
-
-            <div class="form-group row">
-              <label class="col-md-3 col-form-label">Date de Naissance</label>
-              <div class="col-md-9">
-                <input
-                  data-provide="datepicker"
-                  data-date-autoclose="true"
-                  class="form-control"
-                  placeholder="Date of Birth"
-                />
-              </div>
-            </div>
-
-            <div class="form-group row">
-              <label class="col-md-3 col-form-label"
-                >Date d'Inscription <span class="text-danger">*</span></label
-              >
-              <div class="col-md-9">
-                <input
-                  data-provide="datepicker"
-                  data-date-autoclose="true"
-                  class="form-control"
-                  placeholder=""
-                />
+                <input type="text" class="form-control" placeholder="" name="name" [(ngModel)]="filiere.name" />
               </div>
             </div>
             <div class="form-group row">
               <label class="col-md-3 col-form-label">
-                Filières <span class="text-danger">*</span></label
+                Niveau <span class="text-danger">*</span></label
               >
               <div class="col-md-9">
-                <select class="form-control input-height" name="department">
+                <select class="form-control input-height" name="niveau" [(ngModel)]="filiere.niveau">
                   <option value="">Select...</option>
-                  <option value="Category 1">Computer</option>
-                  <option value="Category 2">Mechanical</option>
-                  <option value="Category 3">Mathematics</option>
-                  <option value="Category 3">Commerce</option>
+                  <option *ngFor="let niveau of getNiveaux()" value="{{niveau}}">{{niveau}}</option>
                 </select>
-              </div>
-            </div>
-            <div class="form-group row">
-              <label class="col-md-3 col-form-label">
-                Niveaux <span class="text-danger">*</span></label
-              >
-              <div class="col-md-9">
-                <select class="form-control input-height" name="department">
-                  <option value="">Select...</option>
-                  <option value="Category 1">DUEG</option>
-                  <option value="Category 2">LST</option>
-                  <option value="Category 3">MST</option>
-                  <option value="Category 3">PHD</option>
-                </select>
-              </div>
-            </div>
-            <div class="form-group row">
-              <label class="col-md-3 col-form-label"
-                >Genre <span class="text-danger">*</span></label
-              >
-              <div class="col-md-9">
-                <select class="form-control input-height" name="gender">
-                  <option value="">Select...</option>
-                  <option value="Category 2">Femme</option>
-                  <option value="Category 1">Homme</option>
-                </select>
-              </div>
-            </div>
-            <div class="form-group row">
-              <label class="col-md-3 col-form-label"
-                >Numéro de téléphone <span class="text-danger">*</span></label
-              >
-              <div class="col-md-9">
-                <input type="text" class="form-control" />
-              </div>
-            </div>
-            <div class="form-group row">
-              <label class="col-md-3 col-form-label"
-                >Address <span class="text-danger">*</span></label
-              >
-              <div class="col-md-9">
-                <input type="text" class="form-control" />
-              </div>
-            </div>
-            <div class="form-group row">
-              <label class="col-md-3 col-form-label">Profile Picture</label>
-              <div class="col-md-9">
-                <input type="file" class="dropify" />
-                <small id="fileHelp" class="form-text text-muted"
-                  >This is some placeholder block-level help text for the above
-                  input. It's a bit lighter and easily wraps to a new
-                  line.</small
-                >
               </div>
             </div>
             <div class="col-sm-12">
-              <button type="submit" class="btn btn-primary">Submit</button>
-              <button type="cancel" class="btn btn-outline-secondary">
+              <button type="submit" class="btn btn-primary" (click)="submit()">Submit</button>
+              <button type="cancel" class="btn btn-outline-secondary" (click)="cancel()">
                 Cancel
               </button>
             </div>

@@ -74,206 +74,36 @@
           <tr>
             <th>ID:</th>
             <th>APOGEE</th>
+            <th>CIN</th>
             <th>Name</th>
-            <th>Department</th>
             <th>Email</th>
             <th>Phone</th>
-            <th>Admission Date</th>
+            <th>Date Naissance</th>
             <th>Action</th>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>A25</td>
-            <td>A222</td>
-            <td><span class="font-16">Ken Smith</span></td>
-            <td>Science</td>
-            <td>ken@gmail.com</td>
-            <td>(417) 646-7483</td>
-            <td>04 Jan, 2019</td>
-            <td>
-              <button type="button" class="btn btn-icon btn-sm" title="View">
-                <i class="fa fa-eye"></i>
-              </button>
-              <button type="button" class="btn btn-icon btn-sm" title="Edit">
-                <i class="fa fa-edit"></i>
-              </button>
-              <button
-                type="button"
-                class="btn btn-icon btn-sm js-sweetalert"
-                title="Delete"
-                data-type="confirm"
-              >
-                <i class="fa fa-trash-o text-danger"></i>
-              </button>
-            </td>
+          <tr *ngIf="etudaintList.length == 0">
+            <td colspan="4" class="text-center">No data found</td>
           </tr>
-          <tr>
-            <td>A26</td>
-            <td>A222</td>
-            <td><span class="font-16">Gerald K Smith</span></td>
-            <td>M.C.A.</td>
-            <td>Gerald@gmail.com</td>
-            <td>(154) 646-2486</td>
-            <td>04 Jan, 2019</td>
+          <tr *ngFor="let etudaint of etudaintList; let i = index">
+            <td>{{i + 1}}</td>
+            <td>{{etudaint.apogee}}</td>
+            <td>{{etudaint.cin}}</td>
+            <td><span class="font-16">{{etudaint.nom}} {{etudaint.prenom}}</span></td>
+            <td>Filiere</td>
+            <td>{{etudaint.email}}</td>
+            <td>{{etudaint.tel}}</td>
+            <td>{{ etudaint.dateNaissance | date:'yyyy-MM-dd' }}</td>
             <td>
               <button type="button" class="btn btn-icon btn-sm" title="View">
                 <i class="fa fa-eye"></i>
               </button>
-              <button type="button" class="btn btn-icon btn-sm" title="Edit">
+              <button type="button" class="btn btn-icon btn-sm" title="Edit" (click)="editEtudiant(etudaint.id)">
                 <i class="fa fa-edit"></i>
               </button>
               <button
-                type="button"
-                class="btn btn-icon btn-sm js-sweetalert"
-                title="Delete"
-                data-type="confirm"
-              >
-                <i class="fa fa-trash-o text-danger"></i>
-              </button>
-            </td>
-          </tr>
-          <tr>
-            <td>A25</td>
-            <td>A222</td>
-            <td><span class="font-16">Ken Smith</span></td>
-            <td>Mechanical</td>
-            <td>ken@gmail.com</td>
-            <td>(417) 646-8377</td>
-            <td>04 Jan, 2019</td>
-            <td>
-              <button type="button" class="btn btn-icon btn-sm" title="View">
-                <i class="fa fa-eye"></i>
-              </button>
-              <button type="button" class="btn btn-icon btn-sm" title="Edit">
-                <i class="fa fa-edit"></i>
-              </button>
-              <button
-                type="button"
-                class="btn btn-icon btn-sm js-sweetalert"
-                title="Delete"
-                data-type="confirm"
-              >
-                <i class="fa fa-trash-o text-danger"></i>
-              </button>
-            </td>
-          </tr>
-          <tr>
-            <td>A27</td>
-            <td>A222</td>
-            <td><span class="font-16">Alice A Smith</span></td>
-            <td>M.B.B.S.</td>
-            <td>Patricia@gmail.com</td>
-            <td>(753) 646-4931</td>
-            <td>04 Jan, 2019</td>
-            <td>
-              <button type="button" class="btn btn-icon btn-sm" title="View">
-                <i class="fa fa-eye"></i>
-              </button>
-              <button type="button" class="btn btn-icon btn-sm" title="Edit">
-                <i class="fa fa-edit"></i>
-              </button>
-              <button
-                type="button"
-                class="btn btn-icon btn-sm js-sweetalert"
-                title="Delete"
-                data-type="confirm"
-              >
-                <i class="fa fa-trash-o text-danger"></i>
-              </button>
-            </td>
-          </tr>
-          <tr>
-            <td>A17</td>
-            <td>A222</td>
-            <td><span class="font-16">Ken Smith</span></td>
-            <td>Arts</td>
-            <td>ken@gmail.com</td>
-            <td>(417) 646-7642</td>
-            <td>04 Jan, 2019</td>
-            <td>
-              <button type="button" class="btn btn-icon btn-sm" title="View">
-                <i class="fa fa-eye"></i>
-              </button>
-              <button type="button" class="btn btn-icon btn-sm" title="Edit">
-                <i class="fa fa-edit"></i>
-              </button>
-              <button
-                type="button"
-                class="btn btn-icon btn-sm js-sweetalert"
-                title="Delete"
-                data-type="confirm"
-              >
-                <i class="fa fa-trash-o text-danger"></i>
-              </button>
-            </td>
-          </tr>
-          <tr>
-            <td>A11</td>
-            <td>A222</td>
-            <td><span class="font-16">Corrine M Johnson</span></td>
-            <td>Mechanical</td>
-            <td>Gladys@gmail.com</td>
-            <td>(349) 646-8377</td>
-            <td>04 Jan, 2019</td>
-            <td>
-              <button type="button" class="btn btn-icon btn-sm" title="View">
-                <i class="fa fa-eye"></i>
-              </button>
-              <button type="button" class="btn btn-icon btn-sm" title="Edit">
-                <i class="fa fa-edit"></i>
-              </button>
-              <button
-                type="button"
-                class="btn btn-icon btn-sm js-sweetalert"
-                title="Delete"
-                data-type="confirm"
-              >
-                <i class="fa fa-trash-o text-danger"></i>
-              </button>
-            </td>
-          </tr>
-          <tr>
-            <td>A12</td>
-            <td>A222</td>
-            <td><span class="font-16">Alan Johnson</span></td>
-            <td>Music</td>
-            <td>ken@gmail.com</td>
-            <td>(648) 646-8523</td>
-            <td>04 Jan, 2019</td>
-            <td>
-              <button type="button" class="btn btn-icon btn-sm" title="View">
-                <i class="fa fa-eye"></i>
-              </button>
-              <button type="button" class="btn btn-icon btn-sm" title="Edit">
-                <i class="fa fa-edit"></i>
-              </button>
-              <button
-                type="button"
-                class="btn btn-icon btn-sm js-sweetalert"
-                title="Delete"
-                data-type="confirm"
-              >
-                <i class="fa fa-trash-o text-danger"></i>
-              </button>
-            </td>
-          </tr>
-          <tr>
-            <td>A23</td>
-            <td>A222</td>
-            <td><span class="font-16">John Smith</span></td>
-            <td>Civil</td>
-            <td>Corrine@gmail.com</td>
-            <td>(417) 646-7845</td>
-            <td>04 Jan, 2019</td>
-            <td>
-              <button type="button" class="btn btn-icon btn-sm" title="View">
-                <i class="fa fa-eye"></i>
-              </button>
-              <button type="button" class="btn btn-icon btn-sm" title="Edit">
-                <i class="fa fa-edit"></i>
-              </button>
-              <button
+                (click)="handleDelete(etudaint.id)"
                 type="button"
                 class="btn btn-icon btn-sm js-sweetalert"
                 title="Delete"

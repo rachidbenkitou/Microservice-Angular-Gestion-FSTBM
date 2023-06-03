@@ -35,11 +35,7 @@ import { ModuleEditFormComponent } from './components/dashboard/module/module-ed
 
 const routes: Routes = [
   // { path: '', component: HomeComponent, }, @TODO: Add Home Component
-  {
-    path: "test",
-    component: ModuleListComponent
-  }
-,
+
   {
     path: 'dashboard',
     component: DashboardComponent,

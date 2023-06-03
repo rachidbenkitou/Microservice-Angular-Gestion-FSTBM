@@ -43,7 +43,7 @@ import { ModuleEditFormComponent } from './components/dashboard/module/module-ed
 
 @NgModule({
   declarations: [
-    
+
     AppComponent,
     DashboardComponent,
     MainComponent,

@@ -1,0 +1,114 @@
+<div class="section-body">
+  <div class="container-fluid">
+    <div class="d-flex justify-content-between align-items-center">
+      <div class="header-action">
+        <h1 class="page-title">Dashboard</h1>
+        <ol class="breadcrumb page-breadcrumb">
+          <li class="breadcrumb-item"><a href="#">FSTBM</a></li>
+          <li class="breadcrumb-item active" aria-current="page">Dashboard</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="section-body mt-4">
+  <div class="container-fluid">
+    <div class="row clearfix row-deck">
+      <div class="col-6 col-md-4 col-xl-2">
+        <div class="card">
+          <div class="card-body">
+            <a
+              [routerLink]="['/dashboard-etudiant/info']"
+              class="my_sort_cut text-muted"
+            >
+              <i class="fa fa-black-tie"></i>
+              <span>Informations</span>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="col-6 col-md-4 col-xl-2">
+        <div class="card">
+          <div class="card-body">
+            <a
+              [routerLink]="['/dashboard-etudiant/note']"
+              class="my_sort_cut text-muted"
+            >
+              <i class="fa fa-user-circle-o"></i>
+              <span>Notes</span>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="col-6 col-md-4 col-xl-2">
+        <div class="card">
+          <div class="card-body">
+            <a href="" class="my_sort_cut text-muted">
+              <i class="fa fa-bullhorn"></i>
+              <span>Avis</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row clearfix row-deck">
+      <div class="col-12 col-md-12 col-xl-6">
+        <div class="card">
+          <div class="card-body top_counter">
+            <div class="icon bg-yellow"><i class="fa fa-users"></i></div>
+            <div class="content">
+              <span> Nombre total d'étudiants</span>
+              <h5 class="number mb-0">2,051</h5>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-12 col-xl-6">
+        <div class="card">
+          <div class="card-body top_counter">
+            <div class="icon bg-gray"><i class="fa fa-sitemap"></i></div>
+            <div class="content">
+              <span>Department</span>
+              <h5 class="number mb-0">14</h5>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-12 col-xl-6">
+        <div class="card">
+          <div class="card-body top_counter">
+            <div class="icon bg-dark"><i class="fa fa-black-tie"></i></div>
+            <div class="content">
+              <span>Nombre total d'enseignants</span>
+              <h5 class="number mb-0">27</h5>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-12 col-xl-6">
+        <div class="card">
+          <div class="card-body top_counter">
+            <div class="icon bg-azure"><i class="fa fa-tags"></i></div>
+            <div class="content">
+              <span>Nombre Total des cours</span>
+              <h5 class="number mb-0">31</h5>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-12 col-xl-6">
+        <div class="card">
+          <div class="card-body top_counter">
+            <div class="icon bg-pink">
+              <i class="fa fa-credit-card"></i>
+            </div>
+            <div class="content">
+              <span>Nombre total des admin</span>
+              <h5 class="number mb-0">4</h5>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

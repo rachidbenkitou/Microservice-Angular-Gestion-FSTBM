@@ -39,11 +39,15 @@ import { ModuleComponent } from './components/dashboard/module/module.component'
 import { ModuleListComponent } from './components/dashboard/module/module-list/module-list.component';
 import { ModuleFormComponent } from './components/dashboard/module/module-form/module-form.component';
 import { ModuleEditFormComponent } from './components/dashboard/module/module-edit-form/module-edit-form.component';
+import { DashboardEtudiantComponent } from './components/dashboard-etudiant/dashboard-etudiant.component';
+import { InfoComponent } from './components/dashboard-etudiant/info/info.component';
+import { NoteComponent } from './components/dashboard-etudiant/note/note.component';
+import { MainEtudiantComponent } from './components/dashboard-etudiant/main-etudiant/main-etudiant.component';
 
 
 @NgModule({
   declarations: [
-    
+
     AppComponent,
     DashboardComponent,
     MainComponent,
@@ -80,6 +84,10 @@ import { ModuleEditFormComponent } from './components/dashboard/module/module-ed
     ModuleListComponent,
     ModuleFormComponent,
     ModuleEditFormComponent,
+    DashboardEtudiantComponent,
+    InfoComponent,
+    NoteComponent,
+    MainEtudiantComponent,
   ],
 
   imports: [BrowserModule,AppRoutingModule,HttpClientModule,FormsModule, ReactiveFormsModule],

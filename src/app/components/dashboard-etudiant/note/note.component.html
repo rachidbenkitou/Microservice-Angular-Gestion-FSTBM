@@ -1,0 +1,28 @@
+<br><br>
+<div class="table-responsive card w-50  m-lg-auto  ">
+  <table
+    class="table table-hover table-vcenter table-striped mb-0 text-nowrap "
+  *ngFor="let s of listSemesters"  >
+    <thead >
+    <tr>
+      <th>{{s}}   </th>
+      <th *ngIf="calculNote(s)!=0">{{calculNote(s)}}   </th>
+      <th *ngIf="calculNote(s)==0">ND</th>
+    </tr>
+    </thead>
+    <tbody>
+
+    <tr   *ngFor="let n of listNotes" >
+
+      <td *ngIf="n.examen.module.moduleSemestre == s">{{n.examen.module.moduleName}}</td>
+      <td *ngIf="n.examen.module.moduleSemestre == s">{{n.note}}</td>
+      <td *ngIf="n.examen.module.moduleSemestre == s"> {{n.mention}} </td>
+
+    </tr>
+    </tbody>
+  </table>
+
+
+
+</div>
+

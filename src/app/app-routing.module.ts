@@ -32,6 +32,10 @@ import { ModuleListComponent } from './components/dashboard/module/module-list/m
 import { ModuleComponent } from './components/dashboard/module/module.component';
 import { ModuleFormComponent } from './components/dashboard/module/module-form/module-form.component';
 import { ModuleEditFormComponent } from './components/dashboard/module/module-edit-form/module-edit-form.component';
+import {InfoComponent} from "./components/dashboard-etudiant/info/info.component";
+import {NoteComponent} from "./components/dashboard-etudiant/note/note.component";
+import {DashboardEtudiantComponent} from "./components/dashboard-etudiant/dashboard-etudiant.component";
+import {MainEtudiantComponent} from "./components/dashboard-etudiant/main-etudiant/main-etudiant.component";
 
 const routes: Routes = [
   // { path: '', component: HomeComponent, }, @TODO: Add Home Component
@@ -40,6 +44,26 @@ const routes: Routes = [
     component: ModuleListComponent
   }
 ,
+  {
+    path: 'dashboard-etudiant',
+    component: DashboardEtudiantComponent,
+    children: [
+      {
+        path: '',
+        component: MainEtudiantComponent,
+      },
+      {
+        path: 'info',
+        component: InfoComponent,
+      },
+      {
+        path: 'note',
+        component: NoteComponent,
+      }
+    ]
+
+  }
+      ,
   {
     path: 'dashboard',
     component: DashboardComponent,

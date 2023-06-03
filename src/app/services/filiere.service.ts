@@ -13,9 +13,11 @@ export class FiliereService {
 
   constructor(private http: HttpClient) {}
 
-  private API_URL = `${GET_BASE_URL(STUDENT_BE_SERVICE)}/${STUDENT_BE_APIS.FILIERES}/`;
+  //private API_URL = `${GET_BASE_URL(STUDENT_BE_SERVICE)}/${STUDENT_BE_APIS.FILIERES}/`;
+  private API_URL = "http://localhost:8222/etudiant-service/api/v1/filiers/"
 
   getAllFilieres(): Observable<Filiere[]> {
+    console.log(this.API_URL)
     return this.http
       .get<Filiere[]>(this.API_URL)
       .pipe(retry(1), catchError(this.handleError));
@@ -23,7 +25,7 @@ export class FiliereService {
 
   getFiliereById(id: string): Observable<Filiere> {
     return this.http
-      .get<Filiere>(this.API_URL + id)
+      .get<Filiere>(`${this.API_URL}id/${id}`)
       .pipe(retry(1), catchError(this.handleError));
   }
 
@@ -39,9 +41,10 @@ export class FiliereService {
 
 
   updateFiliere(filiere: Filiere): Observable<Filiere> {
+    console.log(`${this.API_URL}id/${filiere.id}`)
     return this.http
       .put<Filiere>(
-        this.API_URL + filiere.idFiliere,
+        `${this.API_URL}id/${filiere.id}`,
         JSON.stringify(filiere),
         HTTP_OPTIONS
       )

@@ -36,6 +36,7 @@ import {InfoComponent} from "./components/dashboard-etudiant/info/info.component
 import {NoteComponent} from "./components/dashboard-etudiant/note/note.component";
 import {DashboardEtudiantComponent} from "./components/dashboard-etudiant/dashboard-etudiant.component";
 import {MainEtudiantComponent} from "./components/dashboard-etudiant/main-etudiant/main-etudiant.component";
+import { DashboardEnseignantComponent } from './components/dashboard-enseignant/dashboard-enseignant.component';
 
 const routes: Routes = [
   // { path: '', component: HomeComponent, }, @TODO: Add Home Component
@@ -63,6 +64,11 @@ const routes: Routes = [
     ]
 
   }
+      ,
+      {
+        path:"dashboardEnseignant",
+        component: DashboardEnseignantComponent
+      }
       ,
   {
     path: 'dashboard',

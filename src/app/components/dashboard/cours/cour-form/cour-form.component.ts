@@ -1,3 +1,4 @@
+import { Router, ActivatedRoute } from '@angular/router';
 import { Component } from '@angular/core';
 import { Cour } from 'src/app/models/cour';
 import { CourService } from 'src/app/services/cour.service';
@@ -9,11 +10,21 @@ import { CourService } from 'src/app/services/cour.service';
 })
 export class CourFormComponent {
 
+ 
   cour:Cour;
   file!:File;
-
-  constructor(private service:CourService ){
+  mode: string | undefined;
+  constructor(private service:CourService ,private router: Router,private activateRoute: ActivatedRoute){
     this.cour=new Cour();
+    const id = this.activateRoute.snapshot.params['id'];
+    const path =this.activateRoute.snapshot.routeConfig?.path;
+    this.mode = path?.includes("edit") ? "edit": path?.includes("add") ? "add" : undefined;
+
+    if (this.mode === "edit") {
+      this.service.getById(id).subscribe(res=>{
+        this.cour=(res as Cour)
+      })
+    }
   }
 
 
@@ -27,8 +38,7 @@ export class CourFormComponent {
     console.log(this.cour)
     this.service.saveCour(this.cour).subscribe(
       (res)=>{
-        console.log(res)
-         var courResp=(res as Cour);
+        var courResp=(res as Cour);
         var dataForm= new FormData();
         dataForm.append("file",this.file)
       this.service.uploadFile(courResp.id_cour,dataForm).subscribe((res)=>{
@@ -37,4 +47,18 @@ export class CourFormComponent {
       }
     )
   }
+
+  updateCour(){
+    this.service.updateCour(this.cour.id_cour,this.cour)
+  }
+  submit() {
+    if (this.mode === "edit") {
+      this.updateCour();
+    }
+    if (this.mode === "add") {
+      this.saveCour();
+    }
+    this.router.navigate(['dashboard/cour']);
+  }
+  
 }

@@ -37,6 +37,7 @@
                   type="text"
                   class="form-control"
                   placeholder="Nom de famille"
+                  name="nom" [(ngModel)]="etudaint.nom"
                 />
               </div>
             </div>
@@ -45,7 +46,12 @@
                 >Prénom <span class="text-danger">*</span></label
               >
               <div class="col-md-9">
-                <input type="text" class="form-control" placeholder="Prénom" />
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Prénom"
+                  name="prenom" [(ngModel)]="etudaint.prenom"
+                />
               </div>
             </div>
             <div class="form-group row">
@@ -53,21 +59,34 @@
                 >CIN <span class="text-danger">*</span></label
               >
               <div class="col-md-9">
-                <input type="text" class="form-control" />
+                <input
+                  type="text"
+                  class="form-control"
+                  name="cin" [(ngModel)]="etudaint.cin"
+                />
               </div>
             </div>
-            <div class="form-group row">
+            <div *ngIf="mode === 'edit'" class="form-group row">
               <label class="col-md-3 col-form-label"
                 >APOGEE <span class="text-danger">*</span></label
               >
               <div class="col-md-9">
-                <input type="text" class="form-control" />
+                <input
+                  disabled
+                  type="text"
+                  class="form-control"
+                  name="apogee" [(ngModel)]="etudaint.apogee"
+                />
               </div>
             </div>
             <div class="form-group row">
               <label class="col-md-3 col-form-label">Email</label>
               <div class="col-md-9">
-                <input type="text" class="form-control" />
+                <input
+                  type="text"
+                  class="form-control"
+                  name="email" [(ngModel)]="etudaint.email"
+                />
               </div>
             </div>
 
@@ -78,56 +97,8 @@
                   type="date"
                   class="form-control"
                   placeholder="Date of Birth"
+                  name="dateNaissance" [(ngModel)]="etudaint.dateNaissance"
                 />
-              </div>
-            </div>
-
-            <div class="form-group row">
-              <label class="col-md-3 col-form-label"
-                >Date d'Inscription <span class="text-danger">*</span></label
-              >
-              <div class="col-md-9">
-                <input type="date" class="form-control" placeholder="" />
-              </div>
-            </div>
-            <div class="form-group row">
-              <label class="col-md-3 col-form-label">
-                Filières <span class="text-danger">*</span></label
-              >
-              <div class="col-md-9">
-                <select class="form-control input-height" name="department">
-                  <option value="">Select...</option>
-                  <option value="Category 1">Computer</option>
-                  <option value="Category 2">Mechanical</option>
-                  <option value="Category 3">Mathematics</option>
-                  <option value="Category 3">Commerce</option>
-                </select>
-              </div>
-            </div>
-            <div class="form-group row">
-              <label class="col-md-3 col-form-label">
-                Niveaux <span class="text-danger">*</span></label
-              >
-              <div class="col-md-9">
-                <select class="form-control input-height" name="department">
-                  <option value="">Select...</option>
-                  <option value="Category 1">DUEG</option>
-                  <option value="Category 2">LST</option>
-                  <option value="Category 3">MST</option>
-                  <option value="Category 3">PHD</option>
-                </select>
-              </div>
-            </div>
-            <div class="form-group row">
-              <label class="col-md-3 col-form-label"
-                >Genre <span class="text-danger">*</span></label
-              >
-              <div class="col-md-9">
-                <select class="form-control input-height" name="gender">
-                  <option value="">Select...</option>
-                  <option value="Category 2">Femme</option>
-                  <option value="Category 1">Homme</option>
-                </select>
               </div>
             </div>
             <div class="form-group row">
@@ -135,7 +106,11 @@
                 >Numéro de téléphone <span class="text-danger">*</span></label
               >
               <div class="col-md-9">
-                <input type="text" class="form-control" />
+                <input
+                  type="text"
+                  class="form-control"
+                  name="tel" [(ngModel)]="etudaint.tel"
+                />
               </div>
             </div>
             <div class="form-group row">
@@ -143,7 +118,23 @@
                 >Address <span class="text-danger">*</span></label
               >
               <div class="col-md-9">
-                <input type="text" class="form-control" />
+                <input
+                  type="text"
+                  class="form-control"
+                  name="address" [(ngModel)]="etudaint.adress"
+                />
+              </div>
+            </div>
+            <div class="form-group row">
+              <label class="col-md-3 col-form-label"
+              >Ville <span class="text-danger">*</span></label
+              >
+              <div class="col-md-9">
+                <input
+                  type="text"
+                  class="form-control"
+                  name="ville" [(ngModel)]="etudaint.ville"
+                />
               </div>
             </div>
             <div class="form-group row">
@@ -158,7 +149,7 @@
               </div>
             </div>
             <div class="col-sm-12 action-buttons">
-              <button type="submit" class="btn btn-primary">Submit</button>
+              <button type="submit" class="btn btn-primary" (click)="submit()">Submit</button>
               <button type="cancel" class="btn btn-outline-secondary">
                 Cancel
               </button>

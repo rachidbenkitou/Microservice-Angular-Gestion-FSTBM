@@ -74,7 +74,7 @@
             <td>{{ filiere.name }}</td>
             <td>{{ filiere.niveau }}</td>
             <td>
-              <button type="button" class="btn btn-icon btn-sm" title="Edit" (click)="editFiliere(filiere.idFiliere)">
+              <button type="button" class="btn btn-icon btn-sm" title="Edit" (click)="editFiliere(filiere.id)">
                 <i class="fa fa-edit"></i>
               </button>
               <button
@@ -82,7 +82,7 @@
                 class="btn btn-icon btn-sm js-sweetalert"
                 title="Delete"
                 data-type="confirm"
-                (click)="deleteFiliere(filiere.idFiliere)"
+                (click)="deleteFiliere(filiere.id)"
               >
                 <i class="fa fa-trash-o text-danger"></i>
               </button>

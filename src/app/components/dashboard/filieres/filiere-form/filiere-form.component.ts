@@ -33,7 +33,7 @@ export class FiliereFormComponent implements OnInit {
   }
 
   updateFiliere(filiere: Filiere) {
-    if (!this.filiere?.idFiliere) {
+    if (!this.filiere?.id) {
       throw new Error('Filiere id is null');
     }
     this.filereService.updateFiliere(filiere).subscribe((data: {}) => {

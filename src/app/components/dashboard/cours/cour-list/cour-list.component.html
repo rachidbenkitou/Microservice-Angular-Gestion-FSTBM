@@ -28,39 +28,26 @@
         <div class="row">
           <div class="col-lg-2 col-md-4 col-sm-6">
             <div class="input-group">
-              <input type="text" class="form-control" placeholder="Roll No." />
+              <input type="text" class="form-control" placeholder="search by intitule"  />
             </div>
           </div>
-          <div class="col-lg-2 col-md-4 col-sm-6">
-            <div class="input-group">
-              <input type="text" class="form-control" placeholder="Name" />
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-4 col-sm-6">
-            <div class="input-group">
-              <input
-                type="text"
-                class="form-control"
-                placeholder="Department"
-              />
-            </div>
-          </div>
-          <div class="col-lg-2 col-md-4 col-sm-6">
-            <div class="input-group">
-              <input
-                data-provide="datepicker"
-                data-date-autoclose="true"
-                class="form-control"
-                placeholder="Admission Date"
-              />
-            </div>
-          </div>
+          
           <div class="col-lg-2 col-md-4 col-sm-6">
             <a
               href="javascript:void(0);"
               class="btn btn-sm btn-primary btn-block"
               title=""
+              (click)="searchByIntitule()"
               >Search</a
+            >
+          </div>
+          <div class="col-lg-2 col-md-4 col-sm-6">
+            <a
+              href="javascript:void(0);"
+              class="btn btn-sm btn-outline-secondary btn-block"
+              title=""
+              (click)="cancel()"
+              >cancel</a
             >
           </div>
         </div>
@@ -98,7 +85,7 @@
             </td>
             <td>
              
-              <button type="button" class="btn btn-icon btn-sm" title="Edit">
+              <button type="button" class="btn btn-icon btn-sm" title="Edit" (click)="edit(cour.id_cour)">
                 <i class="fa fa-edit"></i>
               </button>
               

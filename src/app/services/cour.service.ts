@@ -29,6 +29,10 @@ export class CourService {
     return this.http.post(`${this.baseUrl}/${this.serviceName.enseignantService}/${this.apiUrl.cour}/add`,JSON.stringify(cour),{ headers: headers } )
   }
 
+  updateCour(idCour:number,cour:Cour){
+    return this.http.put<Cour>(`${this.baseUrl}/${this.serviceName.enseignantService}/${this.apiUrl.cour}/update/id/${idCour}`,JSON.stringify(cour))
+  }
+
   getAllcour(){
     return this.http.get<Cour[]>(`${this.baseUrl}/${this.serviceName.enseignantService}/${this.apiUrl.cour}/allSortByDateUpdate?page=0&nbrElement=10`)
   }
@@ -45,5 +49,14 @@ export class CourService {
      return this.http.get(`${this.baseUrl}/${this.serviceName.enseignantService}/${this.apiUrl.cour}/downloadDodument/${id}`,
      { responseType: 'blob', headers: new HttpHeaders({ 'Content-Type': 'application/pdf' }) }
      )
+  }
+
+  getById(id:number){
+    return this.http.get<Cour>(`${this.baseUrl}/${this.serviceName.enseignantService}/${this.apiUrl.cour}/id/${id}`)
+  }
+
+  searchByIntitule(intitule:string){
+
+    return this.http.get<Cour[]>(`${this.baseUrl}/${this.serviceName.enseignantService}/${this.apiUrl.cour}/search/intitile/${intitule}`)
   }
 }

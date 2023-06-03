@@ -1,6 +1,7 @@
 import { Component , OnInit } from '@angular/core';
 import { Cour } from 'src/app/models/cour';
 import { CourService } from 'src/app/services/cour.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-cour-list',
@@ -10,13 +11,14 @@ import { CourService } from 'src/app/services/cour.service';
 export class CourListComponent implements OnInit{
 
   listCour:Cour[]=[]
-  constructor(private service:CourService){}
+  intitule:string="";
+  constructor(private service:CourService,private router: Router){}
   ngOnInit():void{
     this.getAllCour()
 }
   getAllCour(){
     this.service.getAllcour().subscribe((res)=>{
-      console.log(res)
+     
       this.listCour=res;
     });
   }
@@ -33,4 +35,19 @@ export class CourListComponent implements OnInit{
         URL.revokeObjectURL(objectUrl);
     })
     
-  }}
+  }
+
+  edit(id:number){
+    this.router.navigate(['/dashboard/cours/edit/'+id]);
+  }
+
+  searchByIntitule(){
+    this.service.searchByIntitule(this.intitule).subscribe(res=>{
+      this.listCour=res
+    })
+  }
+
+  cancel(){
+    this.getAllCour()
+  }
+}

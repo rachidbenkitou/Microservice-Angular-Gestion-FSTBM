@@ -27,7 +27,7 @@ import { DepartementsComponent } from './components/dashboard/departements/depar
 import { DepartementFormComponent } from './components/dashboard/departements/departement-form/departement-form.component';
 import { DepartementListComponent } from './components/dashboard/departements/departement-list/departement-list.component';
 import { CoursComponent } from './components/dashboard/cours/cours.component';
-import { CourFormComponent } from './components/dashboard/cours/cour-form/cour-form.component';
+import { CourFormComponent } from './components/dashbord-enseignant/cour-form/cour-form.component';
 import { CourListComponent } from './components/dashboard/cours/cour-list/cour-list.component';
 import { IndexComponent } from './components/index/index.component';
 import { ExamenComponent } from './components/dashboard/examen/examen.component';
@@ -50,6 +50,7 @@ import { DashbordEnseignantComponent } from './components/dashbord-enseignant/da
 import { ExamensListComponent } from './components/dashbord-enseignant/examens-list/examens-list.component';
 import { ExamensFormComponent } from './components/dashbord-enseignant/examens-form/examens-form.component';
 import { ExamensEditFormComponent } from './components/dashbord-enseignant/examens-edit-form/examens-edit-form.component';
+import { CourCardComponent } from './components/dashbord-enseignant/cour-card/cour-card.component';
 
 
 @NgModule({
@@ -102,6 +103,7 @@ import { ExamensEditFormComponent } from './components/dashbord-enseignant/exame
     ExamensListComponent,
     ExamensFormComponent,
     ExamensEditFormComponent,
+    CourCardComponent
   ],
 
   imports: [BrowserModule,AppRoutingModule,HttpClientModule,FormsModule, ReactiveFormsModule,],

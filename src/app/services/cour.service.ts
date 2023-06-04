@@ -42,6 +42,10 @@ export class CourService {
     return this.http.get<Cour[]>(`${this.baseUrl}/${this.serviceName.enseignantService}/${this.apiUrl.cour}/search/intitile?page=1&nbrElement=10`)
   }
 
+  getCourByEnseignantCin(cin:string){
+    return this.http.get<Cour>(`${this.baseUrl}/${this.serviceName.enseignantService}/${this.apiUrl.cour}/enseignant/cin/${cin}`)
+  }
+
   uploadFile(idCour:number,dataform:FormData){
     return this.http.post(`${this.baseUrl}/${this.serviceName.enseignantService}/${this.apiUrl.cour}/uploadDocument/id/${idCour}`,dataform)
   }

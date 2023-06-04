@@ -54,6 +54,10 @@ export class EtudiantService {
       catchError(this.handleError)
     );
   }
+
+  getEtudiantByFilierId(idFilier:string){
+    return this.httpClient.get<Etudiant[]>(`${this.serverUrl}/filier/${idFilier}`);
+  }
   //Save Etudiant
   saveEtudiant(etudiant: Etudiant): Observable<Etudiant> {
     return this.httpClient.post<Etudiant>(this.serverUrl, etudiant).pipe(

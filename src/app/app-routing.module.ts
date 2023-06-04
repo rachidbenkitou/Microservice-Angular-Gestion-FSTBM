@@ -1,7 +1,8 @@
+import { CourCardComponent } from './components/dashbord-enseignant/cour-card/cour-card.component';
 import { HomeComponent } from './components/home/home.component';
 import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from '@angular/router';
-import { CourFormComponent } from './components/dashboard/cours/cour-form/cour-form.component';
+import { CourFormComponent } from './components/dashbord-enseignant/cour-form/cour-form.component';
 import { CourListComponent } from './components/dashboard/cours/cour-list/cour-list.component';
 import { CoursComponent } from './components/dashboard/cours/cours.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
@@ -79,7 +80,25 @@ const routes: Routes = [
     {
       path: 'etudiants',
       component: ListEtudiantsComponent
+    },
+    {
+      path: 'cour',
+      component:CourCardComponent,
+      children :[
+        {
+          path: 'add',
+          component: CourFormComponent,
+        },
+        {
+    
+          path: 'edit/:id',
+          component: CourFormComponent,
+        }  
+      ]
+
     }
+    
+    
   ]
 
 },

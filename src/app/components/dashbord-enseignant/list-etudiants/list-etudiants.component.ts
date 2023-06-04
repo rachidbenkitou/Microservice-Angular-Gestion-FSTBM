@@ -1,3 +1,4 @@
+import { EtudiantService } from './../../../services/etudiant.service';
 import { Module } from './../../../Entities/Module';
 import { CourService } from 'src/app/services/cour.service';
 import { NoteService } from './../../../services/note.service';
@@ -23,7 +24,7 @@ export class ListEtudiantsComponent implements OnInit{
 
   nomEtuiantSearch:string='';
 
-  constructor(private moduleService:ModuleServiceService,private noteService:NoteService,private courService:CourService){
+  constructor(private moduleService:ModuleServiceService,private noteService:NoteService,private courService:CourService,private etudiantService:EtudiantService){
     
   }
   
@@ -31,7 +32,7 @@ export class ListEtudiantsComponent implements OnInit{
     this.courService.getModuleByEnseignantCin("1223").subscribe((res)=>{
       this.module=res;
       
-      this.getEtudiantsByModuleId(this.module.moduleId)
+      this.getEtudiantsByFilierId(this.module.idFiliere)
 
     })
 
@@ -39,8 +40,8 @@ export class ListEtudiantsComponent implements OnInit{
 
     
   }
-  getEtudiantsByModuleId(moduleId:number){
-    this.moduleService.getEtudiantsByModuleId(moduleId).subscribe(res=>{
+  getEtudiantsByFilierId(filiereId:string){
+    this.etudiantService.getEtudiantByFilierId(filiereId).subscribe(res=>{
       this.etudiants=res;
       
     })

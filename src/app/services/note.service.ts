@@ -14,4 +14,8 @@ export class NoteService {
   getallNotesByCin():Observable<Array<Note>>{
     return this.http.get<Array<Note>>("http://localhost:8222/note-service/api/v1/notes/cin/123")
   }
+
+  getNotesByCinAndModuleId(cin:number , moduleId:number){
+    return this.http.get<Note>(`http://localhost:8222/note-service/api/v1/notes`)
+  }
 }

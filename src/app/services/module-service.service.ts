@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Module } from '../Entities/Module';
+import { Etudiant } from '../models/Etudiant';
 
 @Injectable({
   providedIn: 'root'
@@ -29,5 +30,9 @@ export class ModuleServiceService {
 
   public deleteModule(moduleName: string): Observable<void> {
     return this.http.delete<void>(`${this.apiServerUrl}/${moduleName}`);
+  }
+
+  public getEtudiantsByModuleId(moduleId:number):Observable<Etudiant[]>{
+    return this.http.get<Etudiant[]>('');
   }
 }

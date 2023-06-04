@@ -8,16 +8,7 @@
             <li class="breadcrumb-item active" aria-current="page">Cours</li>
           </ol>
         </div>
-        <ul class="nav nav-tabs page-header-tab">
-          <li class="nav-item">
-            <a
-              class="nav-link"
-              data-toggle="tab"
-              [routerLink]="['/dashboard/cours/add']"
-              >Add</a
-            >
-          </li>
-        </ul>
+        
       </div>
     </div>
   </div>
@@ -37,7 +28,7 @@
                 href="javascript:void(0);"
                 class="btn btn-sm btn-primary btn-block"
                 title=""
-                (click)="searchByIntitule()"
+                
                 >Search</a
               >
             </div>
@@ -46,7 +37,7 @@
                 href="javascript:void(0);"
                 class="btn btn-sm btn-outline-secondary btn-block"
                 title=""
-                (click)="cancel()"
+                
                 >cancel</a
               >
             </div>
@@ -59,38 +50,58 @@
         >
           <thead>
             <tr>
-              <th>ID:</th>
-              <th>Intitule</th>
-              <th>Date debut</th>
-              <th>last update</th>
-              <th>Nom module</th>
-              <th>nom enseignant</th>
-              <th>Download</th>
-              <th>Modifier</th>
+              <th>Appoge</th>
+              <th>Nom</th>
+              <th>Prenom</th>
+              <th>Les notes</th>
+              
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let cour of listCour">
-              <td>{{cour.id_cour}}</td>
-              <td>{{cour.intitule}}</td>
-              <td><span class="font-16">{{cour.dateDebut}}</span></td>
-              <td>{{cour.dateUpdate}}</td>
-              <td>{{cour.moduleName}}</td>
-              <td>{{cour.enseignant_name}}</td>
-      
-              <td>
-                <button type="button" class="btn btn-icon btn-sm" title="View" (click)="download(cour.id_cour)">
-                  <i class="bi bi-download"></i>
-                </button>
-              </td>
-              <td>
-               
-                <button type="button" class="btn btn-icon btn-sm" title="Edit" (click)="edit(cour.id_cour)">
-                  <i class="fa fa-edit"></i>
-                </button>
-                
-              </td>
-            </tr>
+            <ng-container *ngFor="let etudiant of etudiants; let i = index">
+                <tr >
+                    <td></td>
+                    <td>{{ etudiant.nom }}</td>
+                    <td>{{ etudiant.prenom }}</td>
+       
+                     <td>
+                       <button type="button" class="btn btn-icon btn-sm" title="View" (click)="afficherDetails(etudiant)" >
+                         <i class="bi bi-eye-fill"></i>
+                       </button>
+                       <button type="button" class="btn btn-icon btn-sm" title="Edit" >
+                           <i class="fa fa-edit"></i>
+                        </button>
+                     </td>
+                     <td>
+                      
+                       
+                       
+                     </td>
+                </tr>
+                <tr *ngIf="etudiantSelectionne === etudiant">
+                    <td colspan="5">
+                      <table class="table table-hover table-vcenter table-striped mb-0 text-nowrap">
+                        <thead>
+                          <tr>
+                            <th>Note</th>
+                            <th>Session</th>
+                            <th>edit</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr >
+                            <td>{{ note.note }}</td>
+                            <td>{{ note.examen.type }}</td>
+                            <td> <button type="button" class="btn btn-icon btn-sm" title="Edit" >
+                                <i class="fa fa-edit"></i>
+                             </button></td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </td>
+                  </tr>
+            </ng-container>
+            
           </tbody>
         </table>
       </div>

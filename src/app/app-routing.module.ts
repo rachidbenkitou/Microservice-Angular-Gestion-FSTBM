@@ -39,6 +39,7 @@ import {MainEtudiantComponent} from "./components/dashboard-etudiant/main-etudia
 
 import { DashbordEnseignantComponent } from './components/dashbord-enseignant/dashbord-enseignant.component';
 import { ExamensListComponent } from './components/dashbord-enseignant/examens-list/examens-list.component';
+import { ListEtudiantsComponent } from './components/dashbord-enseignant/list-etudiants/list-etudiants.component';
 
 const routes: Routes = [
   // { path: '', component: HomeComponent, }, @TODO: Add Home Component
@@ -62,6 +63,10 @@ const routes: Routes = [
     {
       path: 'exams',
       component: ExamensListComponent,
+    },
+    {
+      path: 'etudiants',
+      component: ListEtudiantsComponent
     }
   ]
 

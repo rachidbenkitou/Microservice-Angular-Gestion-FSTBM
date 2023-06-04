@@ -10,7 +10,10 @@
             </div>
             <ul class="nav nav-tabs page-header-tab">
                 <li class="nav-item">
-                    <a class="nav-link button_ btn btn-sm btn-primary btn-block" data-toggle="tab" style="color: aliceblue; " (click)="showComponentModuleForm()">Ajouter Module</a>
+                    
+                    <div class="">
+                        <a href="javascript:void(0);" class="btn btn-sm btn-primary btn-block" title="" (click)="showComponentModuleForm()">Ajouter Note</a>
+                    </div>
                 </li>
             </ul>
         </div>
@@ -31,7 +34,7 @@
                             <input type="text" class="form-control" placeholder="Semestre" />
                         </div>
                     </div>
-                    
+
                     <div class="col-lg-2 col-md-4 col-sm-6">
                         <a href="javascript:void(0);" class="btn btn-sm btn-primary btn-block" title="">Search</a>
                     </div>
@@ -60,7 +63,8 @@
                             <button type="button" class="btn btn-icon btn-sm" title="View">
                                 <i class="fa fa-eye"></i>
                             </button>
-                            <button type="button" class="btn btn-icon btn-sm" title="Edit" (click)="onUpdateModule(m.moduleId)">
+                            <button type="button" class="btn btn-icon btn-sm" title="Edit"
+                                (click)="onUpdateModule(m.moduleId)">
                                 <i class="fa fa-edit"></i>
                             </button>
                             <button type="button" class="btn btn-icon btn-sm js-sweetalert" title="Delete"

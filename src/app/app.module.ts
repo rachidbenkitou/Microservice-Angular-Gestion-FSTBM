@@ -96,7 +96,7 @@ import { InscriptionsListComponent } from './components/dashboard/inscriptions/i
     InscriptionsListComponent,
   ],
 
-  imports: [BrowserModule,AppRoutingModule,HttpClientModule,FormsModule, ReactiveFormsModule],
+  imports: [BrowserModule,AppRoutingModule,HttpClientModule,FormsModule, ReactiveFormsModule,],
   providers: [],
   bootstrap: [AppComponent],
 })

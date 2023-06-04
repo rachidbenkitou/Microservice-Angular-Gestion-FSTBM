@@ -11,7 +11,7 @@
       <ul class="nav nav-tabs page-header-tab">
         <li class="nav-item">
           <a href="javascript:void(0);" class="btn btn-sm btn-primary btn-block" title=""
-            [routerLink]="['/dashboard/examens/add']">Ajouter un Examen</a>
+            [routerLink]="['/dashboard-enseignant/exams/add']">Ajouter un Examen</a>
         </li>
       </ul>
     </div>
@@ -21,44 +21,55 @@
   <div class="container-fluid">
     <div class="card">
       <div class="card-body">
-        <form>
+
+
+        <form [formGroup]="searchFormGroup" >
           <div class="row">
             <div class="col-lg-2 col-md-4 col-sm-6">
               <div class="input-group">
                 <input type="text" class="form-control" formControlName="keyword1" placeholder="Module Name" />
               </div>
             </div>
-
-            <div class="col-lg-4 col-md-4 col-sm-6">
-              <select class="form-control input-height" name="department" formControlName="keyword2">
-                <option value="">None</option>
-                <option value="SEMESTRE1">S1</option>
-                <option value="SEMESTRE2">S2</option>
-                <option value="SEMESTRE3">S3</option>
-                <option value="SEMESTRE4">S4</option>
-                <option value="SEMESTRE5">S5</option>
-                <option value="SEMESTRE6">S6</option>
-              </select>
-            </div>
-
+  
+                  <div class="col-lg-4 col-md-4 col-sm-6">
+                  <select class="form-control input-height" name="department"  formControlName="keyword2">
+                    <option value="">None</option>
+                    <option value="SEMESTRE1">S1</option>
+                    <option value="SEMESTRE2">S2</option>
+                    <option value="SEMESTRE3">S3</option>
+                    <option value="SEMESTRE4">S4</option>
+                     <option value="SEMESTRE5">S5</option>
+                    <option value="SEMESTRE6">S6</option>
+                  </select>
+                </div>
+  
             <div class="col-lg-2 col-md-4 col-sm-6">
-              <a href="javascript:void(0);" class="btn btn-sm btn-primary btn-block" title="">Search</a>
+              <a
+                href="javascript:void(0);"
+                class="btn btn-sm btn-primary btn-block"
+                title=""
+                (click)="gotolist()"
+                >Search</a
+              >
             </div>
-
+  
           </div>
-        </form>
+          </form>
+
       </div>
     </div>
     <div class="table-responsive card">
 
 
-      <div class="row" style="margin: 13px;">
-        <div class="col-sm-6">
+      <div class="row" style="margin-right: 13px;">
+        <div class="col-sm-3" *ngFor="let e of examenList">
           <div class="card">
             <div class="card-body">
-              <h5 class="card-title">Special title treatment</h5>
-              <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-              <a href="#" class="btn btn-primary">Go somewhere</a>
+              <h5 class="card-title">Examen: {{e.module.moduleName}}</h5>
+              <p class="card-text">Type: {{e.type}}</p>
+              <p class="card-text">Date: {{e.dateExam}}</p>
+              <a  class="btn btn-primary" style="margin: 10px; color: aliceblue;" (click)="onEditExamen(e.id)">Modifier</a>
+              <a class="btn btn-primary" style=" color: aliceblue;" data-type="confirm" (click)="handelDeleteExamen(e)">Supprimer</a>
             </div>
           </div>
         </div>

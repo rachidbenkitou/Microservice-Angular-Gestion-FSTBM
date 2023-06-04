@@ -48,6 +48,8 @@ import { InscriptionsFormComponent } from './components/dashboard/inscriptions/i
 import { InscriptionsListComponent } from './components/dashboard/inscriptions/inscriptions-list/inscriptions-list.component';
 import { DashbordEnseignantComponent } from './components/dashbord-enseignant/dashbord-enseignant.component';
 import { ExamensListComponent } from './components/dashbord-enseignant/examens-list/examens-list.component';
+import { ExamensFormComponent } from './components/dashbord-enseignant/examens-form/examens-form.component';
+import { ExamensEditFormComponent } from './components/dashbord-enseignant/examens-edit-form/examens-edit-form.component';
 
 
 @NgModule({
@@ -98,6 +100,8 @@ import { ExamensListComponent } from './components/dashbord-enseignant/examens-l
     InscriptionsListComponent,
     DashbordEnseignantComponent,
     ExamensListComponent,
+    ExamensFormComponent,
+    ExamensEditFormComponent,
   ],
 
   imports: [BrowserModule,AppRoutingModule,HttpClientModule,FormsModule, ReactiveFormsModule],

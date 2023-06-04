@@ -38,6 +38,8 @@ import {DashboardEtudiantComponent} from "./components/dashboard-etudiant/dashbo
 import {MainEtudiantComponent} from "./components/dashboard-etudiant/main-etudiant/main-etudiant.component";
 import { DashbordEnseignantComponent } from './components/dashbord-enseignant/dashbord-enseignant.component';
 import { ExamensListComponent } from './components/dashbord-enseignant/examens-list/examens-list.component';
+import { ExamensFormComponent } from './components/dashbord-enseignant/examens-form/examens-form.component';
+import { ExamensEditFormComponent } from './components/dashbord-enseignant/examens-edit-form/examens-edit-form.component';
 
 const routes: Routes = [
   // { path: '', component: HomeComponent, }, @TODO: Add Home Component
@@ -53,6 +55,14 @@ const routes: Routes = [
     {
       path: '',
       component: MainEtudiantComponent,
+    },
+    {
+      path: 'exams/add',
+      component: ExamensFormComponent,
+    },
+    {
+      path: 'edit/:id',
+      component: ExamensEditFormComponent,
     },
     {
       path: 'info',
@@ -73,6 +83,7 @@ const routes: Routes = [
         path: '',
         component: MainEtudiantComponent,
       },
+
       {
         path: 'info',
         component: InfoComponent,

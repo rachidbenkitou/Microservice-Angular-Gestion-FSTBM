@@ -1,0 +1,80 @@
+<div class="page-loader-wrapper">
+  <div class="loader"></div>
+</div>
+
+<div id="main_content" class="dashboard-component">
+  <!-- Start Main top header -->
+  <div id="header_top" class="header_top">
+    <div class="container">
+      <div class="hleft">
+        <a class="header-brand menu_toggle" href="javascript:void(0)"><i
+            class="fa fa-graduation-cap brand-logo"></i></a>
+      </div>
+      <div class="hright">
+        <a href="login.html" class="nav-link icon settingbar"><i class="fe fe-power"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+  <!-- Start Main leftbar navigation -->
+  <div id="left-sidebar" class="sidebar">
+    <h5 class="brand-name">
+      FSTBM<a href="javascript:void(0)" class="menu_option float-right"><i class="icon-grid font-16"
+          data-toggle="tooltip" data-placement="left" title="Grid & List Toggle"></i></a>
+    </h5>
+    <nav class="sidebar-nav">
+      <ul class="metismenu">
+        <li class="active">
+          <a [routerLink]="['/dashboard-etudiant']"><i class="fa fa-dashboard"></i><span>Dashboard</span></a>
+        </li>
+        <li>
+          <a [routerLink]="['/dashboard-etudiant/info']"><i class="fa fa-black-tie"></i><span>Informations</span></a>
+        </li>
+        <li>
+          <a [routerLink]="['/dashboard-etudiant/note']"><i class="fa fa-user-circle-o"></i><span>Etudiants</span></a>
+        </li>
+        <li>
+          <a [routerLink]="['/dashboard-etudiant/note']"><i class="fa fa-user-circle-o"></i><span>Cours</span></a>
+        </li>
+        <li>
+          <a [routerLink]="['/dashboard-enseignant/exams']"><i class="fa fa-user-circle-o"></i><span>Examens</span></a>
+        </li>
+
+      </ul>
+    </nav>
+  </div>
+  <!-- Start content area -->
+  <div class="page">
+    <!-- Start Page header -->
+    <div class="section-body" id="page_top">
+      <div class="container-fluid">
+        <div class="page-header">
+          <div class="left"></div>
+          <div class="right">
+            <div class="notification d-flex">
+              <div class="dropdown d-flex">
+                <a href="javascript:void(0)" class="chip ml-3" data-toggle="dropdown">
+                  <span class="avatar" style=""></span>
+                  Admin name</a>
+                <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
+                  <a class="dropdown-item" href="login.html"><i class="dropdown-icon fe fe-log-out"></i> Sign out</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <router-outlet></router-outlet>
+    <!-- Start main footer -->
+    <div class="section-body">
+      <footer class="footer">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-md-6 col-sm-12">Copyright © 2023 FSTBM</div>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </div>
+</div>

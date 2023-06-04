@@ -36,15 +36,35 @@ import {InfoComponent} from "./components/dashboard-etudiant/info/info.component
 import {NoteComponent} from "./components/dashboard-etudiant/note/note.component";
 import {DashboardEtudiantComponent} from "./components/dashboard-etudiant/dashboard-etudiant.component";
 import {MainEtudiantComponent} from "./components/dashboard-etudiant/main-etudiant/main-etudiant.component";
-import { DashboardEnseignantComponent } from './components/dashboard-enseignant/dashboard-enseignant.component';
+import { DashbordEnseignantComponent } from './components/dashbord-enseignant/dashbord-enseignant.component';
+import { ExamensListComponent } from './components/dashbord-enseignant/examens-list/examens-list.component';
 
 const routes: Routes = [
   // { path: '', component: HomeComponent, }, @TODO: Add Home Component
   {
     path: "test",
-    component: ModuleListComponent
+    component: DashbordEnseignantComponent
   }
 ,
+{
+  path: 'dashboard-enseignant',
+  component: DashbordEnseignantComponent,
+  children: [
+    {
+      path: '',
+      component: MainEtudiantComponent,
+    },
+    {
+      path: 'info',
+      component: InfoComponent,
+    },
+    {
+      path: 'exams',
+      component: ExamensListComponent,
+    }
+  ]
+
+},
   {
     path: 'dashboard-etudiant',
     component: DashboardEtudiantComponent,
@@ -64,11 +84,7 @@ const routes: Routes = [
     ]
 
   }
-      ,
-      {
-        path:"dashboardEnseignant",
-        component: DashboardEnseignantComponent
-      }
+
       ,
   {
     path: 'dashboard',

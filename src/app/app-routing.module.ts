@@ -36,6 +36,7 @@ import {InfoComponent} from "./components/dashboard-etudiant/info/info.component
 import {NoteComponent} from "./components/dashboard-etudiant/note/note.component";
 import {DashboardEtudiantComponent} from "./components/dashboard-etudiant/dashboard-etudiant.component";
 import {MainEtudiantComponent} from "./components/dashboard-etudiant/main-etudiant/main-etudiant.component";
+
 import { DashbordEnseignantComponent } from './components/dashbord-enseignant/dashbord-enseignant.component';
 import { ExamensListComponent } from './components/dashbord-enseignant/examens-list/examens-list.component';
 import { ExamensFormComponent } from './components/dashbord-enseignant/examens-form/examens-form.component';
@@ -95,7 +96,6 @@ const routes: Routes = [
     ]
 
   }
-
       ,
   {
     path: 'dashboard',

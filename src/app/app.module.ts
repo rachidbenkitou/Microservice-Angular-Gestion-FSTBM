@@ -104,7 +104,7 @@ import { ExamensEditFormComponent } from './components/dashbord-enseignant/exame
     ExamensEditFormComponent,
   ],
 
-  imports: [BrowserModule,AppRoutingModule,HttpClientModule,FormsModule, ReactiveFormsModule],
+  imports: [BrowserModule,AppRoutingModule,HttpClientModule,FormsModule, ReactiveFormsModule,],
   providers: [],
   bootstrap: [AppComponent],
 })

@@ -1,0 +1,99 @@
+<div class="section-body">
+    <div class="container-fluid">
+      <div class="d-flex justify-content-between align-items-center">
+        <div class="header-action">
+          <h1 class="page-title">Cours</h1>
+          <ol class="breadcrumb page-breadcrumb">
+            <li class="breadcrumb-item"><a href="#">FSTBM</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Cours</li>
+          </ol>
+        </div>
+        <ul class="nav nav-tabs page-header-tab">
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              data-toggle="tab"
+              [routerLink]="['/dashboard/cours/add']"
+              >Add</a
+            >
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="section-body mt-4">
+    <div class="container-fluid">
+      <div class="card">
+        <div class="card-body">
+          <div class="row">
+            <div class="col-lg-2 col-md-4 col-sm-6">
+              <div class="input-group">
+                <input type="text" class="form-control" placeholder="search by intitule"  />
+              </div>
+            </div>
+            
+            <div class="col-lg-2 col-md-4 col-sm-6">
+              <a
+                href="javascript:void(0);"
+                class="btn btn-sm btn-primary btn-block"
+                title=""
+                (click)="searchByIntitule()"
+                >Search</a
+              >
+            </div>
+            <div class="col-lg-2 col-md-4 col-sm-6">
+              <a
+                href="javascript:void(0);"
+                class="btn btn-sm btn-outline-secondary btn-block"
+                title=""
+                (click)="cancel()"
+                >cancel</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="table-responsive card">
+        <table
+          class="table table-hover table-vcenter table-striped mb-0 text-nowrap"
+        >
+          <thead>
+            <tr>
+              <th>ID:</th>
+              <th>Intitule</th>
+              <th>Date debut</th>
+              <th>last update</th>
+              <th>Nom module</th>
+              <th>nom enseignant</th>
+              <th>Download</th>
+              <th>Modifier</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let cour of listCour">
+              <td>{{cour.id_cour}}</td>
+              <td>{{cour.intitule}}</td>
+              <td><span class="font-16">{{cour.dateDebut}}</span></td>
+              <td>{{cour.dateUpdate}}</td>
+              <td>{{cour.moduleName}}</td>
+              <td>{{cour.enseignant_name}}</td>
+      
+              <td>
+                <button type="button" class="btn btn-icon btn-sm" title="View" (click)="download(cour.id_cour)">
+                  <i class="bi bi-download"></i>
+                </button>
+              </td>
+              <td>
+               
+                <button type="button" class="btn btn-icon btn-sm" title="Edit" (click)="edit(cour.id_cour)">
+                  <i class="fa fa-edit"></i>
+                </button>
+                
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  

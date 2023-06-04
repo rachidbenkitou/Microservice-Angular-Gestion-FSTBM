@@ -32,6 +32,8 @@ export class ModuleServiceService {
     return this.http.delete<void>(`${this.apiServerUrl}/${moduleName}`);
   }
 
+
+
   public getEtudiantsByModuleId(moduleId:number):Observable<Etudiant[]>{
     return this.http.get<Etudiant[]>('');
   }

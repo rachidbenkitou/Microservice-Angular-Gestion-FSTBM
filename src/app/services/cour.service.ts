@@ -1,3 +1,4 @@
+import { Module } from 'src/app/Entities/Module';
 import { HttpHeaders } from '@angular/common/http';
 import { Cour } from './../models/cour';
 import { HttpClient } from '@angular/common/http';
@@ -59,4 +60,10 @@ export class CourService {
 
     return this.http.get<Cour[]>(`${this.baseUrl}/${this.serviceName.enseignantService}/${this.apiUrl.cour}/search/intitile/${intitule}`)
   }
+
+  getModuleByEnseignantCin(cin:string){
+    return this.http.get<Module>(`${this.baseUrl}/${this.serviceName.enseignantService}/${this.apiUrl.cour}/module/enseignant/${cin}`)
+
+  }
+
 }

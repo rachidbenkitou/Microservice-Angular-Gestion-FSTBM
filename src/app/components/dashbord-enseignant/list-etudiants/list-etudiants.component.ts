@@ -29,7 +29,7 @@ export class ListEtudiantsComponent implements OnInit{
   }
   
   ngOnInit(): void {
-    this.courService.getModuleByEnseignantCin("1223").subscribe((res)=>{
+    this.courService.getModuleByEnseignantCin("IC121333").subscribe((res)=>{
       this.module=res;
       
       this.getEtudiantsByFilierId(this.module.idFiliere)

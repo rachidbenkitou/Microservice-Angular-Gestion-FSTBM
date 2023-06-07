@@ -20,7 +20,7 @@ export class CourService {
     cour:'cour'
   };
   private serviceName={
-    enseignantService:'enseigant-service/api',
+    enseignantService:'enseigant-service/api/v1',
     securiryServiceL:'security-service'
 
   }

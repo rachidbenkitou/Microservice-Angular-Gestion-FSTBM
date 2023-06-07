@@ -11,6 +11,8 @@ export class HomeComponent implements OnInit{
    nbrStudent:number=0;
    nbrDepartement:number=0;
    nbrTeacher:number=0;
+   
+
 
   ngOnInit(): void {
     this.initNbrStudent();

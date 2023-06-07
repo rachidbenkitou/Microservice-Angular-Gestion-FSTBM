@@ -19,7 +19,7 @@ export class EnseignantService {
     enseignant:'enseignant'
   };
   private serviceName={
-    enseignantService:'enseigant-service/api',
+    enseignantService:'enseigant-service/api/v1',
     securiryServiceL:'security-service'
 
   }

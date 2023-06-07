@@ -1,8 +1,32 @@
-<br><br>
+<div class="section-body">
+  <div class="container-fluid">
+    <div class="d-flex justify-content-between align-items-center">
+      <div class="header-action">
+        <h1 class="page-title">Filiere</h1>
+        <ol class="breadcrumb page-breadcrumb">
+          <li class="breadcrumb-item"><a href="#">FSTBM</a></li>
+          <li class="breadcrumb-item active" aria-current="page">Filiere</li>
+        </ol>
+      </div>
+      <ul class="nav nav-tabs page-header-tab">
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            data-toggle="tab"
+            [routerLink]="['/dashboard/filieres/add']"
+            >Add</a
+          >
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
 <div class="card  w-75  m-lg-auto  " >
+  
   <div class="card-body">
     <h5 class="card-title">intitule  {{cour.intitule}}</h5>
-    <iframe [src]="blob" width="100%" height="500px"></iframe>
+    <iframe [src]="pdfUrl" width="100%" height="500px"></iframe>
     <button type="submit" class="btn btn-primary" (click)="download()" >Download</button>
   </div>
 </div>
+   

@@ -52,6 +52,10 @@ import { ExamensFormComponent } from './components/dashbord-enseignant/examens-f
 import { ExamensEditFormComponent } from './components/dashbord-enseignant/examens-edit-form/examens-edit-form.component';
 import { CourCardComponent } from './components/dashbord-enseignant/cour-card/cour-card.component';
 
+import { NgxWebstorageModule } from 'ngx-webstorage';
+
+import { ToastrModule } from 'ngx-toastr';
+
 
 @NgModule({
   declarations: [
@@ -103,10 +107,11 @@ import { CourCardComponent } from './components/dashbord-enseignant/cour-card/co
     ExamensListComponent,
     ExamensFormComponent,
     ExamensEditFormComponent,
-    CourCardComponent
+    CourCardComponent,
   ],
 
-  imports: [BrowserModule,AppRoutingModule,HttpClientModule,FormsModule, ReactiveFormsModule,],
+  imports: [BrowserModule,AppRoutingModule,HttpClientModule,FormsModule, ReactiveFormsModule
+    ,NgxWebstorageModule.forRoot(),ToastrModule.forRoot()],
   providers: [],
   bootstrap: [AppComponent],
 })

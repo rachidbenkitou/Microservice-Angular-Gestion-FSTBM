@@ -19,7 +19,9 @@ export class TokenIntercepter implements HttpInterceptor{
             return next.handle(req);
         }
        const jwtToken = this.loginService.getJwtToken();
+      
        if (jwtToken) {
+        console.log("jwt exist")
         return next.handle(this.addToken(req, jwtToken)).pipe(catchError(error => {
             if (error instanceof HttpErrorResponse
                 && error.status === 403) {
@@ -63,9 +65,9 @@ export class TokenIntercepter implements HttpInterceptor{
     }
 
     addToken(req: HttpRequest<any>, jwtToken: any) {
-        console.log(jwtToken)
+        console.log("add jwt")
         return req.clone({
-            headers: req.headers.set('Authorization',
+            headers: req.headers.set('AUTHORIZATION',
                 'Bearer ' + jwtToken)
         });
     }

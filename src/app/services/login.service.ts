@@ -5,6 +5,7 @@ import { HttpClient } from '@angular/common/http';
 import { EventEmitter, Injectable, Output } from '@angular/core';
 import { LocalStorageService } from 'ngx-webstorage';
 import { Inscription } from '../models/Inscription';
+import jwt_decode from 'jwt-decode';
 
 
 @Injectable({
@@ -48,11 +49,12 @@ export class LoginService {
     var res = this.http.post<ConnexionResponse>(`${this.urlApi}/token`, connexion)
     .pipe(map(
       data => {
-        console.log(data)
+        
         this.localStorage.store('accessToken', data.accessToken);
         this.localStorage.store('email', data.username);
         this.localStorage.store('refreshToken', data.refreshToken);
         this.localStorage.store('expiresAt', data.cin);
+        this.localStorage.store('scope', this.getScopeFromJwt(data.accessToken));
 
         this.loggedIn.emit(true);
         this.email.emit(data.username);
@@ -63,18 +65,26 @@ export class LoginService {
     return res;
   }
 
+  getScopeFromJwt(jwtToken:any):string | string[]{
+    const decodedToken: any = jwt_decode(jwtToken);
+    const scopes: string | string[] = decodedToken['scope'];
+
+    console.log(scopes)
+    return scopes
+  }
+
   getJwtToken() {
-    return this.localStorage.retrieve('authenticationToken');
+    return this.localStorage.retrieve('accessToken');
   }
 
   refrechToken() {
     return this.http.post<ConnexionResponse>(`${this.urlApi}/token`,
     this.refreshTokenPayload)
     .pipe(tap(response => {
-      this.localStorage.clear('authenticationToken');
+      this.localStorage.clear('accessToken');
       this.localStorage.clear('expiresAt');
 
-      this.localStorage.store('authenticationToken',
+      this.localStorage.store('accessToken',
         response.accessToken);
       this.localStorage.store('expiresAt', response.expiresAt);
     }));
@@ -88,7 +98,7 @@ export class LoginService {
       }, error => {
         throwError(error);
       })
-    this.localStorage.clear('authenticationToken');
+    this.localStorage.clear('accessToken');
     this.localStorage.clear('email');
     this.localStorage.clear('refreshToken');
     this.localStorage.clear('expiresAt');

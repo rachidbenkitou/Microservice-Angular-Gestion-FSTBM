@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule} from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -52,9 +52,11 @@ import { ExamensFormComponent } from './components/dashbord-enseignant/examens-f
 import { ExamensEditFormComponent } from './components/dashbord-enseignant/examens-edit-form/examens-edit-form.component';
 import { CourCardComponent } from './components/dashbord-enseignant/cour-card/cour-card.component';
 
+
 import { NgxWebstorageModule } from 'ngx-webstorage';
 
 import { ToastrModule } from 'ngx-toastr';
+import { TokenIntercepter } from './services/TokenIntercepter';
 
 
 @NgModule({
@@ -112,7 +114,7 @@ import { ToastrModule } from 'ngx-toastr';
 
   imports: [BrowserModule,AppRoutingModule,HttpClientModule,FormsModule, ReactiveFormsModule
     ,NgxWebstorageModule.forRoot(),ToastrModule.forRoot()],
-  providers: [],
+  providers: [{provide: HTTP_INTERCEPTORS, useClass: TokenIntercepter, multi: true}],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

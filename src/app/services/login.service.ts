@@ -54,7 +54,7 @@ export class LoginService {
         this.localStorage.store('email', data.username);
         this.localStorage.store('refreshToken', data.refreshToken);
         this.localStorage.store('expiresAt', data.cin);
-        this.localStorage.store('scope', this.getScopeFromJwt(data.accessToken));
+        this.localStorage.store('scope', this.DecoderScopeFromJwt(data.accessToken));
 
         this.loggedIn.emit(true);
         this.email.emit(data.username);
@@ -65,7 +65,7 @@ export class LoginService {
     return res;
   }
 
-  getScopeFromJwt(jwtToken:any):string | string[]{
+  DecoderScopeFromJwt(jwtToken:any):string | string[]{
     const decodedToken: any = jwt_decode(jwtToken);
     const scopes: string | string[] = decodedToken['scope'];
 
@@ -73,8 +73,14 @@ export class LoginService {
     return scopes
   }
 
+
+
   getJwtToken() {
     return this.localStorage.retrieve('accessToken');
+  }
+
+  getScopes():string | string[]{
+    return this.localStorage.retrieve('scope')
   }
 
   refrechToken() {

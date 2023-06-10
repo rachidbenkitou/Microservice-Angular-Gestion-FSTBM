@@ -13,9 +13,19 @@ export class HeaderComponent implements OnInit{
 
   constructor(private loginService:LoginService,private router: Router){}
   ngOnInit(): void {
-    this.isLoggedIn=this.loginService.isLoggedIn()
 
-    if(this.isLoggedIn) this.scope=this.loginService.getScopes();
+    this.initLogin(this.loginService.isLoggedIn())
+    this.loginService.loggedIn.subscribe((res)=>{
+    this.initLogin(res)
+   })
+   
+  }
+
+  initLogin(islogin:boolean){
+
+    this.isLoggedIn=islogin
+    if(this.isLoggedIn) this.scope=this.loginService.getScopes()
+
   }
 
   dashboard(scope:string){

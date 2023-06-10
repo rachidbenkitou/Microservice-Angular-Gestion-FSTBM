@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { LoginService } from './../../services/login.service';
 import {Component, ViewEncapsulation} from '@angular/core';
 
@@ -8,13 +9,17 @@ import {Component, ViewEncapsulation} from '@angular/core';
   encapsulation: ViewEncapsulation.None
 })
 export class DashboardEtudiantComponent {
-  constructor(private loginService:LoginService){}
+  constructor(private loginService:LoginService,private route:Router){}
 
   ngOnInit() {
 
   }
 
+  
   logOut(){
+    console.log("logout")
     this.loginService.logout();
+    this.route.navigateByUrl("/login")
+
   }
 }

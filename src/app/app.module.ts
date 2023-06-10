@@ -109,7 +109,7 @@ import { TokenIntercepter } from './services/TokenIntercepter';
     ExamensListComponent,
     ExamensFormComponent,
     ExamensEditFormComponent,
-    CourCardComponent,
+    CourCardComponent
   ],
 
   imports: [BrowserModule,AppRoutingModule,HttpClientModule,FormsModule, ReactiveFormsModule

@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { LoginService } from './../../services/login.service';
 import { Component, ViewEncapsulation } from '@angular/core';
 
@@ -9,7 +10,7 @@ import { Component, ViewEncapsulation } from '@angular/core';
 
 })
 export class DashbordEnseignantComponent {
-  constructor(private loginService:LoginService){}
+  constructor(private loginService:LoginService,private route:Router){}
 
   ngOnInit() {
 
@@ -17,6 +18,8 @@ export class DashbordEnseignantComponent {
 
   logOut(){
     console.log("logout")
+    this.loginService.loggedIn.emit(false)
     this.loginService.logout();
+    this.route.navigateByUrl("")
   }
 }

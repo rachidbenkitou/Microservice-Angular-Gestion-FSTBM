@@ -47,7 +47,7 @@ ngOnInit() {
     console.log(etudaint);
     this.etudiantService.updateEtudiant(etudaint).subscribe(
       (data)=>{
-        this.router.navigate(['dashboard/etudiants/']);
+        this.router.navigate(['dashboard/ADMIN/etudiants/']);
       }, (error)=>{
         console.log(error);
       }
@@ -58,7 +58,7 @@ ngOnInit() {
     console.log(etudaint);
     this.etudiantService.saveEtudiant(etudaint).subscribe(
       (data)=>{
-        this.router.navigate(['dashboard/etudiants/']);
+        this.router.navigate(['dashboard/ADMIN/etudiants/']);
       }, (error)=>{
         console.log(error);
       }

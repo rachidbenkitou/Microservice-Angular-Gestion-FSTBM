@@ -23,7 +23,7 @@ export class FiliereListComponent {
     }
     if (window.confirm('Are you sure?')) {
       this.filereService.deleteFiliere(id).subscribe((data: {}) => {
-        this.router.navigate(['dashboard/filieres']);
+        this.router.navigate(['dashboard/ADMIN/filieres']);
       });
     } 
   }
@@ -38,7 +38,7 @@ export class FiliereListComponent {
     if (!id) {
       throw new Error('Filiere id is null');
     }
-    this.router.navigate(['dashboard/filieres/edit/' + id]);
+    this.router.navigate(['dashboard/ADMIN/filieres/edit/' + id]);
   }
 
 }

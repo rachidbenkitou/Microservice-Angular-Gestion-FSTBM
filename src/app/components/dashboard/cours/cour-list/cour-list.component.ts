@@ -38,7 +38,7 @@ export class CourListComponent implements OnInit{
   }
 
   edit(id:number){
-    this.router.navigate(['/dashboard/cours/edit/'+id]);
+    this.router.navigate(['/dashboard/ADMIN/cours/edit/'+id]);
   }
 
   searchByIntitule(){

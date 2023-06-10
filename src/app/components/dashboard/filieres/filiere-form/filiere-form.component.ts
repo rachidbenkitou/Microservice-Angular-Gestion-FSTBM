@@ -28,7 +28,7 @@ export class FiliereFormComponent implements OnInit {
 
   addFiliere(filiere: Filiere) {
     this.filereService.createFiliere(filiere).subscribe((data: {}) => {
-      this.router.navigate(['dashboard/filieres']);
+      this.router.navigate(['dashboard/ADMIN/filieres']);
     });
   }
 
@@ -37,7 +37,7 @@ export class FiliereFormComponent implements OnInit {
       throw new Error('Filiere id is null');
     }
     this.filereService.updateFiliere(filiere).subscribe((data: {}) => {
-      this.router.navigate(['dashboard/filieres']);
+      this.router.navigate(['dashboard/ADMIN/filieres']);
     });
   }
 
@@ -48,7 +48,7 @@ export class FiliereFormComponent implements OnInit {
   }
 
   cancel() {
-    this.router.navigate(['dashboard/filieres']);
+    this.router.navigate(['dashboard/ADMIN/filieres']);
   }
 
   submit() {

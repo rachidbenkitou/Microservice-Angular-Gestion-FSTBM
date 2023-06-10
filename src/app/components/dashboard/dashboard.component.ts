@@ -16,6 +16,7 @@ export class  DashboardComponent {
   }
 
   logOut(){
+    console.log("logout")
     this.loginService.logout();
   }
 }

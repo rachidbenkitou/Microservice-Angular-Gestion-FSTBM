@@ -69,7 +69,7 @@ export class LoginComponent implements OnInit {
     this.inscriptionService.Connexion(this.connexion).subscribe(data=>{
 
         this.isError=false;
-        this.router.navigateByUrl('/');
+        this.router.navigateByUrl(`/dashboard/${this.inscriptionService.getScopes}`);
         this.toastr.success('connexion reussite');
       },
       error =>

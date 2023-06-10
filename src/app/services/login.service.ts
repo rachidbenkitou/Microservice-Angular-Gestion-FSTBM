@@ -53,7 +53,7 @@ export class LoginService {
         this.localStorage.store('accessToken', data.accessToken);
         this.localStorage.store('email', data.username);
         this.localStorage.store('refreshToken', data.refreshToken);
-        this.localStorage.store('expiresAt', data.cin);
+        this.localStorage.store('cin', data.cin);
         this.localStorage.store('scope', this.DecoderScopeFromJwt(data.accessToken));
 
         this.loggedIn.emit(true);
@@ -97,17 +97,11 @@ export class LoginService {
   }
 
   logout() {
-    this.http.post(`${this.urlApi}/logout`, this.refreshTokenPayload,
-      { responseType: 'text' })
-      .subscribe(data => {
-        console.log(data);
-      }, error => {
-        throwError(error);
-      })
+    
     this.localStorage.clear('accessToken');
     this.localStorage.clear('email');
     this.localStorage.clear('refreshToken');
-    this.localStorage.clear('expiresAt');
+    this.localStorage.clear('scope');
   }
 
   getEmail() {

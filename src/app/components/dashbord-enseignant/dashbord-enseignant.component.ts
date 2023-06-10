@@ -16,6 +16,7 @@ export class DashbordEnseignantComponent {
   }
 
   logOut(){
+    console.log("logout")
     this.loginService.logout();
   }
 }

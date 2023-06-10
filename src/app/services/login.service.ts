@@ -79,7 +79,7 @@ export class LoginService {
     return this.localStorage.retrieve('accessToken');
   }
 
-  getScopes():string | string[]{
+  getScopes():string {
     return this.localStorage.retrieve('scope')
   }
 

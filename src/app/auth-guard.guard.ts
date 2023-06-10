@@ -8,45 +8,46 @@ import { Observable } from 'rxjs';
 })
 export class AuthGuardGuard implements CanActivate {
 
-  constructor(private loginService:LoginService,private router:Router){}
+  constructor(private loginService:LoginService, private route:Router){}
 
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    
+     
+
       if(this.loginService.isLoggedIn()){
+        const path=route.url[0].path
+        const scope=this.loginService.getScopes()
+        console.log(path)
 
-        if(this.isAdmin()){
-          this.router.navigateByUrl('/auth/login');
-        }else
-        if(this.isStudent()){
+        if(path.includes(scope))
+        return true;
 
-        }
-        else
-        if(this.isTeacher()){
-
+        else   {
+          
+          this.route.navigateByUrl(`/dashboard/${scope}`)
+          return true;
         }
 
       }else{
-        this.router.navigateByUrl('/auth/login');
-
+        this.route.navigateByUrl(`/login`)
       }
     
-    return true;
+    return false;
   }
 
   isAdmin():boolean{
-    return this.loginService.getScopes()=='ADMIN'
+    return this.loginService.getScopes().includes("ADMIN") 
 
   }
 
   isTeacher():boolean{
-    return this.loginService.getScopes()=='TEACHER'
+    return this.loginService.getScopes().includes('TEACHER')
 
   }
 
   isStudent():boolean{
-    return this.loginService.getScopes()=='STUDENT'
+    return this.loginService.getScopes().includes('STUDENT')
   }
   
 }

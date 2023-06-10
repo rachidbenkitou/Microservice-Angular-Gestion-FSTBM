@@ -38,45 +38,41 @@
           >
         </li>
         <li>
-          <a [routerLink]="['/dashboard/enseignents']"
+          <a [routerLink]="['/dashboard/ADMIN/enseignents']"
             ><i class="fa fa-black-tie"></i><span>Enseignants</span></a
           >
         </li>
         <li>
-          <a [routerLink]="['/dashboard/filieres']"
+          <a [routerLink]="['/dashboard/ADMIN/filieres']"
             ><i class="fa fa-user-circle-o"></i><span>Filières</span></a
           >
         </li>
         <li>
-          <a [routerLink]="['/dashboard/etudiants']"
+          <a [routerLink]="['/dashboard/ADMIN/etudiants']"
             ><i class="fa fa-users"></i><span>Étudiants</span></a
           >
         </li>
         <li>
-          <a [routerLink]="['/dashboard/departements']"
+          <a [routerLink]="['/dashboard/ADMIN/departements']"
             ><i class="fa fa-users"></i><span>Départements</span></a
           >
         </li>
         <li>
-          <a [routerLink]="['/dashboard/cours']"
+          <a [routerLink]="['/dashboard/ADMIN/cours']"
             ><i class="fa fa-graduation-cap"></i><span>Cours</span></a
           >
         </li>
            <li>
-          <a [routerLink]="['/dashboard/examens']"
+          <a [routerLink]="['/dashboard/ADMIN/examens']"
             ><i class="fa fa-pencil"></i><span>Examens</span></a
           >
         </li>
         <li>
-          <a [routerLink]="['/dashboard/module']"
+          <a [routerLink]="['/dashboard/ADMIN/module']"
             ><i class="fa fa-pencil"></i><span>Modules</span></a
           >
         </li>
-        <li>
-          <a [routerLink]="['/dashboard']"
-            ><i class="fa fa-book"></i><span>PFE</span></a
-          >
-        </li>
+       
       </ul>
     </nav>
   </div>
@@ -95,14 +91,14 @@
                   class="chip ml-3"
                   data-toggle="dropdown"
                 >
-                  <span class="avatar" style=""></span>
+                  <span class="avatar" ></span>
                   Admin name</a
                 >
                 <div
                   class="dropdown-menu dropdown-menu-right dropdown-menu-arrow"
                 >
-                  <a class="dropdown-item" href="login.html"
-                    ><i class="dropdown-icon fe fe-log-out"></i> Sign out</a
+                  <a class="dropdown-item" routerLink=""
+                    ><i class="dropdown-icon fe fe-log-out" (click)="logOut()" ></i> Sign out</a
                   >
                 </div>
               </div>

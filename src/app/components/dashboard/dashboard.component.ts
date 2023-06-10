@@ -1,3 +1,4 @@
+import { LoginService } from './../../services/login.service';
 import { Component, ViewEncapsulation } from '@angular/core';
 
 @Component({
@@ -7,7 +8,14 @@ import { Component, ViewEncapsulation } from '@angular/core';
   encapsulation: ViewEncapsulation.None
 })
 export class  DashboardComponent {
+
+  constructor(private loginService:LoginService){}
+
   ngOnInit() {
 
+  }
+
+  logOut(){
+    this.loginService.logout();
   }
 }

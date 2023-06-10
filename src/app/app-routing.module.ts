@@ -45,6 +45,7 @@ import { ListEtudiantsComponent } from './components/dashbord-enseignant/list-et
 
 import { ExamensFormComponent } from './components/dashbord-enseignant/examens-form/examens-form.component';
 import { ExamensEditFormComponent } from './components/dashbord-enseignant/examens-edit-form/examens-edit-form.component';
+import { AuthGuardGuard } from './auth-guard.guard';
 
 const routes: Routes = [
   // { path: '', component: HomeComponent, }, @TODO: Add Home Component
@@ -53,9 +54,15 @@ const routes: Routes = [
     component: DashbordEnseignantComponent
   }
 ,
+
 {
-  path: 'dashboard-enseignant',
+path: 'dashboard',
+children:[
+{
+  path: 'ENSEIGNANT',
   component: DashbordEnseignantComponent,
+  canActivate:[AuthGuardGuard],
+
   children: [
     {
       path: '',
@@ -102,9 +109,11 @@ const routes: Routes = [
   ]
 
 },
-  {
-    path: 'dashboard-etudiant',
+{
+    path: 'ETUDIANT',
     component: DashboardEtudiantComponent,
+    canActivate:[AuthGuardGuard],
+
     children: [
       {
         path: '',
@@ -121,11 +130,12 @@ const routes: Routes = [
       }
     ]
 
-  }
-      ,
-  {
-    path: 'dashboard',
+},
+{
+    path: 'ADMIN',
     component: DashboardComponent,
+    canActivate:[AuthGuardGuard],
+
     children: [
       {
         path: '',
@@ -260,7 +270,9 @@ const routes: Routes = [
         ],
       },
     ],
-  },
+}
+]
+},
 {
 path:'',component:IndexComponent,
 children:[

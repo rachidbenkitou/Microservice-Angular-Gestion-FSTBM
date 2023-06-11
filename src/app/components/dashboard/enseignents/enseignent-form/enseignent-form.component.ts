@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { enseignant } from './../../../../models/enseignant';
 import { Component, OnInit } from '@angular/core';
 import { EnseignantService } from 'src/app/services/enseignant.service';
@@ -27,10 +28,10 @@ export class EnseignentFormComponent implements OnInit{
   user:User={
     cin:'',
     password:'',
-    role:'',
+    roleNames:[],
     email:''
   } ;
-  constructor(private service:EnseignantService){
+  constructor(private service:EnseignantService,private route:Router){
 
   }
   ngOnInit(): void {
@@ -47,10 +48,15 @@ export class EnseignentFormComponent implements OnInit{
   saveEnseignat(){
     this.user.cin=this.enseignant.cin
     this.user.email=this.enseignant.email
-    this.user.role='ENSEIGNANT'
+    this.user.password=this.enseignant.password
+    this.user.roleNames=[]
+    this.user.roleNames.push('ENSEIGNANT')
+   alert(this.user.password)
     this.service.insertUser(this.user).subscribe(()=>{
       this.service.insertEnseignant(this.enseignant).subscribe((res)=>{
         console.log(res)
+        this.route.navigateByUrl("/dashboard/ADMIN/enseignents")
+
       })
     });
   }

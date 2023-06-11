@@ -87,6 +87,7 @@ export class LoginService {
     return this.http.post<ConnexionResponse>(`${this.urlApi}/token`,
     this.refreshTokenPayload)
     .pipe(tap(response => {
+      console.log("refresh")
       this.localStorage.clear('accessToken');
       this.localStorage.clear('expiresAt');
 

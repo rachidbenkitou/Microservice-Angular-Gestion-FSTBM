@@ -39,6 +39,7 @@ export class TokenIntercepter implements HttpInterceptor{
 
     private handleAuthErrors(req: HttpRequest<any>, next: HttpHandler)
         : Observable<HttpEvent<any>> {
+            console.log("handle")
         if (!this.isTokenRefreshing) {
             this.isTokenRefreshing = true;
             this.refreshTokenSubject.next(null);

@@ -1,6 +1,6 @@
 export interface User {
     cin:string
     password:string;
-    role:string
+    roleNames:string[]
     email:string
 }

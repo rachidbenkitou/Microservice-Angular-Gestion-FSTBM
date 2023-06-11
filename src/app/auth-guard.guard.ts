@@ -42,12 +42,12 @@ export class AuthGuardGuard implements CanActivate {
   }
 
   isTeacher():boolean{
-    return this.loginService.getScopes().includes('TEACHER')
+    return this.loginService.getScopes().includes('ENSEIGNANT')
 
   }
 
   isStudent():boolean{
-    return this.loginService.getScopes().includes('STUDENT')
+    return this.loginService.getScopes().includes('ETUDIANT')
   }
   
 }

@@ -1,3 +1,4 @@
+import { LoginService } from './../../../services/login.service';
 import { Component } from '@angular/core';
 import {Etudiant} from "../../../models/Etudiant";
 import {EtudiantService} from "../../../services/etudiant.service";
@@ -14,12 +15,13 @@ import {catchError} from "rxjs/operators";
 export class InfoComponent {
   public inscription!: Inscription;
   public errors!: Error;
-  public cin: string = "JT91248";
+  public cin: string='' ;
 
-  constructor(private etudaintService: EtudiantService, private router: Router) {
+  constructor(private etudaintService: EtudiantService, private router: Router,private loginService:LoginService) {
   }
   ngOnInit(): void {
     this.getEtudiantInfo();
+    this.cin=this.loginService.getCin();
   }
 
   //get Etudiant Info by cin

@@ -26,8 +26,8 @@ export class CourService {
   }
   constructor(private http: HttpClient) { }
 
-  saveCour(cour:Cour){
-    return this.http.post(`${this.baseUrl}/${this.serviceName.enseignantService}/${this.apiUrl.cour}/add`,JSON.stringify(cour),{ headers: headers } )
+  saveCour(cin:string,cour:Cour){
+    return this.http.post(`${this.baseUrl}/${this.serviceName.enseignantService}/${this.apiUrl.cour}/add/${cin}`,JSON.stringify(cour),{ headers: headers } )
   }
 
   updateCour(idCour:number,cour:Cour){

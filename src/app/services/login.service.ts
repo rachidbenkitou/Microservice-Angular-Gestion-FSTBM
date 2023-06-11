@@ -96,6 +96,11 @@ export class LoginService {
     }));
   }
 
+  getCin():string{
+    return this.localStorage.retrieve('cin')
+
+  }
+
   logout() {
     
     this.localStorage.clear('accessToken');

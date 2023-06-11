@@ -1,5 +1,6 @@
+import { LoginService } from './../../../services/login.service';
 import { Router, ActivatedRoute } from '@angular/router';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Cour } from 'src/app/models/cour';
 import { CourService } from 'src/app/services/cour.service';
 
@@ -8,13 +9,14 @@ import { CourService } from 'src/app/services/cour.service';
   templateUrl: './cour-form.component.html',
   styleUrls: ['./cour-form.component.scss']
 })
-export class CourFormComponent {
+export class CourFormComponent implements OnInit{
 
- 
+
   cour:Cour;
   file!:File;
   mode: string | undefined;
-  constructor(private service:CourService ,private router: Router,private activateRoute: ActivatedRoute){
+  cin:string='';
+  constructor(private service:CourService ,private router: Router,private activateRoute: ActivatedRoute,private loginService:LoginService){
     this.cour=new Cour();
     const id = this.activateRoute.snapshot.params['id'];
     const path =this.activateRoute.snapshot.routeConfig?.path;
@@ -26,6 +28,10 @@ export class CourFormComponent {
       })
     }
   }
+  ngOnInit(): void {
+    this.cin=this.loginService.getCin()
+
+  }
 
 
   onFileChange(event:any) {
@@ -34,9 +40,9 @@ export class CourFormComponent {
 
   saveCour(){
     this.cour.idModule=3;
-    this.cour.id_enseignant=2 ;
+
     console.log(this.cour)
-    this.service.saveCour(this.cour).subscribe(
+    this.service.saveCour(this.cin,this.cour).subscribe(
       (res)=>{
         var courResp=(res as Cour);
         var dataForm= new FormData();

@@ -1,3 +1,4 @@
+import { LoginService } from './../../../services/login.service';
 import { EtudiantService } from './../../../services/etudiant.service';
 import { Module } from './../../../Entities/Module';
 import { CourService } from 'src/app/services/cour.service';
@@ -23,13 +24,16 @@ export class ListEtudiantsComponent implements OnInit{
   module:Module=new Module();
 
   nomEtuiantSearch:string='';
+  cin:string='';
 
-  constructor(private moduleService:ModuleServiceService,private noteService:NoteService,private courService:CourService,private etudiantService:EtudiantService){
+  constructor(private moduleService:ModuleServiceService,private noteService:NoteService,
+    private courService:CourService,private etudiantService:EtudiantService,private loginService:LoginService){
     
   }
   
   ngOnInit(): void {
-    this.courService.getModuleByEnseignantCin("IC121333").subscribe((res)=>{
+    this.cin=this.loginService.getCin()
+    this.courService.getModuleByEnseignantCin(this.cin).subscribe((res)=>{
       this.module=res;
       
       this.getEtudiantsByFilierId(this.module.idFiliere)

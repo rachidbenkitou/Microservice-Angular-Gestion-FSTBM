@@ -1,3 +1,4 @@
+import { LoginService } from './../../../services/login.service';
 import { CourService } from 'src/app/services/cour.service';
 import { Cour } from './../../../models/cour';
 import { Component, OnInit } from '@angular/core';
@@ -16,14 +17,18 @@ export class CourCardComponent implements OnInit{
 
   pdfUrl!: SafeUrl;
 
+  cin:string=''
 
-  constructor(private courService: CourService,private sanitizer: DomSanitizer){
+
+  constructor(private courService: CourService,private sanitizer: DomSanitizer,private loginService:LoginService){
     this.cour=new Cour()
   }
 
 
   ngOnInit() {
-    this.courService.getCourByEnseignantCin("IC121333").subscribe((res)=>{
+        this.cin=this.loginService.getCin();
+
+    this.courService.getCourByEnseignantCin(this.cin).subscribe((res)=>{
       this.cour=res;
       this.initFile(this.cour.id_cour)
     })

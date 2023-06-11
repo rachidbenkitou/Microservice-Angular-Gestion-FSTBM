@@ -15,11 +15,11 @@ export class DashboardEtudiantComponent {
 
   }
 
-  
+
   logOut(){
     console.log("logout")
+    this.loginService.loggedIn.emit(false)
     this.loginService.logout();
-    this.route.navigateByUrl("/login")
-
+    this.route.navigateByUrl("")
   }
 }

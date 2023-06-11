@@ -33,17 +33,17 @@
     <nav class="sidebar-nav">
       <ul class="metismenu">
         <li class="active">
-          <a [routerLink]="['/dashboard-etudiant']"
+          <a [routerLink]="['/dashboard/ETUDIANT']"
           ><i class="fa fa-dashboard"></i><span>Dashboard</span></a
           >
         </li>
         <li>
-          <a [routerLink]="['/dashboard-etudiant/info']"
+          <a [routerLink]="['/dashboard/ETUDIANT/info']"
           ><i class="fa fa-black-tie"></i><span>Informations</span></a
           >
         </li>
         <li>
-          <a [routerLink]="['/dashboard-etudiant/note']"
+          <a [routerLink]="['/dashboard/ETUDIANT/note']"
           ><i class="fa fa-user-circle-o"></i><span>Notes</span></a
           >
 
@@ -71,9 +71,7 @@
                 <div
                   class="dropdown-menu dropdown-menu-right dropdown-menu-arrow"
                 >
-                  <a class="dropdown-item" href="login.html"
-                  ><i class="dropdown-icon fe fe-log-out"></i> Sign out</a
-                  >
+                  <a class="dropdown-item"><i class="dropdown-icon fe fe-log-out" (click)="logOut()"></i> Sign out</a>
                 </div>
               </div>
             </div>

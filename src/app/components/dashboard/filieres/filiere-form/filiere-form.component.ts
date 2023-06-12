@@ -58,6 +58,9 @@ export class FiliereFormComponent implements OnInit {
     if (this.mode === "add") {
       this.addFiliere(this.filiere);
     }
+    this.router.navigate(['dashboard/ADMIN/filieres']);
+
+
   }
 
   getNiveaux() {

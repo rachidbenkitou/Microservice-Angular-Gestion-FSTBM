@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { EnseignantService } from './../../../../services/enseignant.service';
 import { Component } from '@angular/core';
 
@@ -8,13 +9,14 @@ import { Component } from '@angular/core';
 })
 export class DepartementFormComponent {
   departementName!: string;
- constructor(private service:EnseignantService){
+ constructor(private service:EnseignantService,private route:Router){
 
  }
  save(){
   console.log("save")
   this.service.saveDepartement(this.departementName).subscribe(res=>{
 console.log(res)
+    this.route.navigateByUrl("dashboard/ADMIN/departements")
   });
 }
 }

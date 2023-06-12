@@ -5,10 +5,10 @@
         <h1 class="page-title">Cours</h1>
         <ol class="breadcrumb page-breadcrumb">
           <li class="breadcrumb-item">
-            <a [routerLink]="['/dashboard']">FSTBM</a>
+            <a [routerLink]="['/dashboard/ENSEIGNANT']">FSTBM</a>
           </li>
           <li class="breadcrumb-item">
-            <a [routerLink]="['/dashboard/cours']">Cours</a>
+            <a [routerLink]="['/dashboard/ENSEIGNANT/cour']">Cours</a>
           </li>
           <li class="breadcrumb-item active" aria-current="page">
             Ajout / Modification
@@ -44,7 +44,7 @@
            
 
             <div class="form-group row">
-              <label class="col-md-3 col-form-label">Date de Naissance</label>
+              <label class="col-md-3 col-form-label">Date de debut</label>
               <div class="col-md-9">
                 <input
                   type="date"
@@ -53,6 +53,21 @@
                   name="date_debut"
                   [(ngModel)]="cour.dateDebut"
                 />
+              </div>
+            </div>
+            <div class="form-group row">
+              <label class="col-md-3 col-form-label">
+                Modules <span class="text-danger">*</span></label
+              >
+              <div class="col-md-9">
+                <select class="form-control input-height" name="module" [(ngModel)]="cour.idModule">
+                  <option value="">Select...</option>
+                  
+                    <option *ngFor="let module of modules" [ngValue]="module.moduleId" value="Category 1">{{module.moduleName}}  {{module.moduleSemestre}}</option>
+                  
+                  
+                
+            </select>
               </div>
             </div>
             <div class="form-group row">

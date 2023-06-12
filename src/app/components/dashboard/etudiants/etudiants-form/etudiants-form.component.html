@@ -66,19 +66,7 @@
                 />
               </div>
             </div>
-            <div *ngIf="mode === 'edit'" class="form-group row">
-              <label class="col-md-3 col-form-label"
-                >APOGEE <span class="text-danger">*</span></label
-              >
-              <div class="col-md-9">
-                <input
-                  disabled
-                  type="text"
-                  class="form-control"
-                  name="apogee" [(ngModel)]="etudaint.apogee"
-                />
-              </div>
-            </div>
+            
             <div class="form-group row">
               <label class="col-md-3 col-form-label">Email</label>
               <div class="col-md-9">
@@ -89,7 +77,16 @@
                 />
               </div>
             </div>
-
+            <div class="form-group row">
+              <label class="col-md-3 col-form-label">password</label>
+              <div class="col-md-9">
+                <input
+                  type="password"
+                  class="form-control"
+                  name="email" [(ngModel)]="user.password"
+                />
+              </div>
+            </div>
             <div class="form-group row">
               <label class="col-md-3 col-form-label">Date de Naissance</label>
               <div class="col-md-9">
@@ -137,17 +134,7 @@
                 />
               </div>
             </div>
-            <div class="form-group row">
-              <label class="col-md-3 col-form-label">Profile Picture</label>
-              <div class="col-md-9">
-                <input type="file" class="dropify" />
-                <small id="fileHelp" class="form-text text-muted"
-                  >This is some placeholder block-level help text for the above
-                  input. It's a bit lighter and easily wraps to a new
-                  line.</small
-                >
-              </div>
-            </div>
+           
             <div class="col-sm-12 action-buttons">
               <button type="submit" class="btn btn-primary" (click)="submit()">Submit</button>
               <button type="cancel" class="btn btn-outline-secondary">

@@ -1,3 +1,5 @@
+import { User } from './../../../../models/user';
+import { EnseignantService } from './../../../../services/enseignant.service';
 import { Component } from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {Etudiant} from "../../../../models/Etudiant";
@@ -13,7 +15,13 @@ export class EtudiantsFormComponent {
   mode: string | undefined;
   etudaint : Etudiant = {} as Etudiant;
   id! : string;
-  constructor(private route: ActivatedRoute,private etudiantService: EtudiantService, private router: Router, private activeRouter: ActivatedRoute) {}
+  user:User={
+    cin:'',
+    password:'',
+    roleNames:[],
+    email:''
+  }
+  constructor(private route: ActivatedRoute,private service:EnseignantService,private etudiantService: EtudiantService, private router: Router, private activeRouter: ActivatedRoute) {}
 ngOnInit() {
     console.log(this.route); // ActivatedRoute
     const path =this.route.snapshot.routeConfig?.path;
@@ -55,7 +63,15 @@ ngOnInit() {
   }
 
   private addEtudaint(etudaint: Etudiant) {
-    console.log(etudaint);
+    this.user.cin=etudaint.cin
+    this.user.email=etudaint.email
+    this.user.roleNames=[]
+    this.user.roleNames.push("ETUDIANT")
+    console.log(etudaint,this.user);
+
+    alert(this.user.password)
+    this.service.insertUser(this.user).subscribe(()=>{
+
     this.etudiantService.saveEtudiant(etudaint).subscribe(
       (data)=>{
         this.router.navigate(['dashboard/ADMIN/etudiants/']);
@@ -63,5 +79,6 @@ ngOnInit() {
         console.log(error);
       }
     );
-  }
+  })
+}
 }

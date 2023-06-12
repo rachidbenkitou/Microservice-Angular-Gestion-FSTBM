@@ -13,7 +13,7 @@
           <a
             class="nav-link"
             data-toggle="tab"
-            [routerLink]="['/dashboard/filieres/add']"
+            [routerLink]="['/dashboard/ENSEIGNANT/cour/add']"
             >Add</a
           >
         </li>
@@ -21,7 +21,7 @@
     </div>
   </div>
 </div>
-<div class="card  w-75  m-lg-auto  " >
+<div class="card  w-75  m-lg-auto  " *ngIf="cour">
   
   <div class="card-body">
     <h5 class="card-title">intitule  {{cour.intitule}}</h5>

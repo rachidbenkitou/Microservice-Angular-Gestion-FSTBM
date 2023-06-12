@@ -51,7 +51,7 @@ export class EnseignentFormComponent implements OnInit{
     this.user.password=this.enseignant.password
     this.user.roleNames=[]
     this.user.roleNames.push('ENSEIGNANT')
-   alert(this.user.password)
+
     this.service.insertUser(this.user).subscribe(()=>{
       this.service.insertEnseignant(this.enseignant).subscribe((res)=>{
         console.log(res)

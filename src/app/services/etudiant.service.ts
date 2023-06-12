@@ -37,9 +37,9 @@ export class EtudiantService {
   }
 
   //get Etudiant by cin
-  getEtudiantByCin(cin: string ): Observable<Etudiant[]> {
+  getEtudiantByCin(cin: string ): Observable<Etudiant> {
     const url = `${this.serverUrl}/cin/${cin}`;
-    return this.httpClient.get<Etudiant[]>(url).pipe(
+    return this.httpClient.get<Etudiant>(url).pipe(
       catchError(this.handleError)
     );
   }

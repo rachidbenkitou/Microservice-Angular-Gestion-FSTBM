@@ -39,6 +39,9 @@ import { ModuleComponent } from './components/dashboard/module/module.component'
 import { ModuleListComponent } from './components/dashboard/module/module-list/module-list.component';
 import { ModuleFormComponent } from './components/dashboard/module/module-form/module-form.component';
 import { ModuleEditFormComponent } from './components/dashboard/module/module-edit-form/module-edit-form.component';
+import { InscriptionComponent } from './components/dashboard/inscription/inscription.component';
+import { InscriptionListComponent } from './components/dashboard/inscription/inscription-list/inscription-list.component';
+import { InscriptionFormComponent } from './components/dashboard/inscription/inscription-form/inscription-form.component';
 import { DashboardEtudiantComponent } from './components/dashboard-etudiant/dashboard-etudiant.component';
 import { InfoComponent } from './components/dashboard-etudiant/info/info.component';
 import { NoteComponent } from './components/dashboard-etudiant/note/note.component';
@@ -98,6 +101,9 @@ import { TokenIntercepter } from './services/TokenIntercepter';
     ModuleListComponent,
     ModuleFormComponent,
     ModuleEditFormComponent,
+    InscriptionComponent,
+    InscriptionListComponent,
+    InscriptionFormComponent,
     DashboardEtudiantComponent,
     InfoComponent,
     NoteComponent,

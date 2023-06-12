@@ -1,6 +1,6 @@
 export enum Niveau {
   DEUST = "DEUST",
-  LICENCE = "LICENCE",
-  MASTER = "MASTER",
-  DOCTORAT = "DOCTORAT"
+  LST = "LST",
+  MST = "MST",
+  PHD = "PHD"
 }

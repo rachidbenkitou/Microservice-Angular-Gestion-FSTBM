@@ -4,7 +4,9 @@ import {Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import {Etudiant} from "../models/Etudiant";
 import {Module} from "../Entities/Module";
+
 import {Inscription} from "../models/Inscription";
+
 
 @Injectable({
   providedIn: 'root'
@@ -12,6 +14,7 @@ import {Inscription} from "../models/Inscription";
 export class EtudiantService {
   //data based url
   private serverUrl : string = 'http://localhost:8222/etudiant-service/api/v1/Etudiants';
+
   private serverUrl_2 : string = 'http://localhost:8222/etudiant-service/api/v1/inscriptions/cin';
 
   //injecter HttpClient
@@ -34,9 +37,9 @@ export class EtudiantService {
   }
 
   //get Etudiant by cin
-  getEtudiantByCin(cin: string ): Observable<Etudiant[]> {
+  getEtudiantByCin(cin: string ): Observable<Etudiant> {
     const url = `${this.serverUrl}/cin/${cin}`;
-    return this.httpClient.get<Etudiant[]>(url).pipe(
+    return this.httpClient.get<Etudiant>(url).pipe(
       catchError(this.handleError)
     );
   }
@@ -47,7 +50,7 @@ export class EtudiantService {
       catchError(this.handleError)
     );
   }
-  //get  Etudiant by cin
+  //get  Etudiant by apogee
   getEtudiantByApogee(apogee: string ): Observable<Etudiant[]> {
     const url = `${this.serverUrl}/apogee/${apogee}`;
     return this.httpClient.get<Etudiant[]>(url).pipe(

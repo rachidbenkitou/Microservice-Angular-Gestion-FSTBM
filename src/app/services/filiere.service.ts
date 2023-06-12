@@ -4,6 +4,7 @@ import { Observable, throwError } from 'rxjs';
 import { catchError, retry } from 'rxjs/operators';
 import { GET_BASE_URL, HTTP_OPTIONS, STUDENT_BE_APIS, STUDENT_BE_SERVICE } from '../config';
 import { Filiere } from '../models/Filiere';
+import {Inscription} from "../models/Inscription";
 
 @Injectable({
   providedIn: 'root'
@@ -24,11 +25,17 @@ export class FiliereService {
   }
 
   getFiliereById(id: string): Observable<Filiere> {
+    const url = `${this.API_URL}/id/${id}`;
     return this.http
-      .get<Filiere>(`${this.API_URL}id/${id}`)
-      .pipe(retry(1), catchError(this.handleError));
+      .get<Filiere>(url)
+      .pipe( catchError(this.handleError));
   }
-
+  getFiliereByName(name: string ): Observable<Filiere> {
+    const url = `${this.API_URL}/name/${name}`;
+    return this.http.get<Filiere>(url).pipe(
+      catchError(this.handleError)
+    );
+  }
   createFiliere(filiere: Filiere): Observable<Filiere> {
     return this.http
       .post<Filiere>(

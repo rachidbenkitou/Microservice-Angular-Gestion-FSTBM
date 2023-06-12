@@ -46,6 +46,9 @@ import { ListEtudiantsComponent } from './components/dashbord-enseignant/list-et
 import { ExamensFormComponent } from './components/dashbord-enseignant/examens-form/examens-form.component';
 import { ExamensEditFormComponent } from './components/dashbord-enseignant/examens-edit-form/examens-edit-form.component';
 import { AuthGuardGuard } from './auth-guard.guard';
+import {InscriptionComponent} from "./components/dashboard/inscription/inscription.component";
+import {InscriptionListComponent} from "./components/dashboard/inscription/inscription-list/inscription-list.component";
+import {InscriptionFormComponent} from "./components/dashboard/inscription/inscription-form/inscription-form.component";
 
 const routes: Routes = [
   // { path: '', component: HomeComponent, }, @TODO: Add Home Component
@@ -97,15 +100,15 @@ children:[
           component: CourFormComponent,
         },
         {
-    
+
           path: 'edit/:id',
           component: CourFormComponent,
-        }  
+        }
       ]
 
     }
-    
-    
+
+
   ]
 
 },
@@ -131,6 +134,7 @@ children:[
     ]
 
 },
+
 {
     path: 'ADMIN',
     component: DashboardComponent,
@@ -156,6 +160,24 @@ children:[
           {
             path: 'edit/:id',
             component: EtudiantsFormComponent,
+          },
+        ],
+      },
+      {
+        path: 'inscriptions',
+        component: InscriptionComponent,
+        children: [
+          {
+            path: '',
+            component: InscriptionListComponent,
+          },
+          {
+            path: 'add',
+            component: InscriptionFormComponent,
+          },
+          {
+            path: 'edit/:id',
+            component: InscriptionFormComponent,
           },
         ],
       },

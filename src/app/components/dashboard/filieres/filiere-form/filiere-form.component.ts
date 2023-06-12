@@ -11,7 +11,7 @@ import { FiliereService } from 'src/app/services/filiere.service';
 })
 export class FiliereFormComponent implements OnInit {
 
-  @Input() filiere: Filiere = {};
+  filiere: Filiere = {} as Filiere;
   mode: string | undefined;
 
   constructor(private filereService: FiliereService, private router: Router, private activateRoute: ActivatedRoute) {}
@@ -33,7 +33,7 @@ export class FiliereFormComponent implements OnInit {
   }
 
   updateFiliere(filiere: Filiere) {
-    if (!this.filiere?.idFiliere) {
+    if (!this.filiere?.id) {
       throw new Error('Filiere id is null');
     }
     this.filereService.updateFiliere(filiere).subscribe((data: {}) => {
@@ -42,7 +42,7 @@ export class FiliereFormComponent implements OnInit {
   }
 
   getFiliereById(id: string) {
-    this.filereService.getFiliereById(id).subscribe((data: {}) => {
+    this.filereService.getFiliereById(id).subscribe((data) => {
       this.filiere = data;
     });
   }

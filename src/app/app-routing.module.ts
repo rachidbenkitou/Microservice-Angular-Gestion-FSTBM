@@ -32,6 +32,9 @@ import { ModuleListComponent } from './components/dashboard/module/module-list/m
 import { ModuleComponent } from './components/dashboard/module/module.component';
 import { ModuleFormComponent } from './components/dashboard/module/module-form/module-form.component';
 import { ModuleEditFormComponent } from './components/dashboard/module/module-edit-form/module-edit-form.component';
+import {InscriptionComponent} from "./components/dashboard/inscription/inscription.component";
+import {InscriptionListComponent} from "./components/dashboard/inscription/inscription-list/inscription-list.component";
+import {InscriptionFormComponent} from "./components/dashboard/inscription/inscription-form/inscription-form.component";
 
 const routes: Routes = [
   // { path: '', component: HomeComponent, }, @TODO: Add Home Component
@@ -59,6 +62,24 @@ const routes: Routes = [
           {
             path: 'edit/:id',
             component: EtudiantsFormComponent,
+          },
+        ],
+      },
+      {
+        path: 'inscriptions',
+        component: InscriptionComponent,
+        children: [
+          {
+            path: '',
+            component: InscriptionListComponent,
+          },
+          {
+            path: 'add',
+            component: InscriptionFormComponent,
+          },
+          {
+            path: 'edit/:id',
+            component: InscriptionFormComponent,
           },
         ],
       },

@@ -35,11 +35,7 @@ export class EtudiantsListComponent {
     if (!id) {
       throw new Error('Etudaint id is null');
     }
-<<<<<<< HEAD
-    this.router.navigate(['dashboard/etudiants/edit/' + id]);
-=======
     this.router.navigate(['dashboard/ADMIN/etudiants/edit/' + id]);
->>>>>>> fcedd6ac6e8e7b3509d0cee813b4eec1626923b6
 
   }
     handleDelete(id: string) {

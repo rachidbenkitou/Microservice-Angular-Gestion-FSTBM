@@ -51,11 +51,11 @@ export class ModuleListComponent implements OnInit{
   }
   
   showComponentModuleForm() {
-    this.router.navigate(['/dashboard/module/add']);
+    this.router.navigate(['/dashboard/ADMIN/module/add']);
   }
 
   onUpdateModule(k: number) {
-    this.router.navigate(['dashboard/module/edit/',k]);
+    this.router.navigate(['dashboard/ADMIN/module/edit/',k]);
     console.log('List-Module',k);
 
   }
@@ -70,7 +70,7 @@ export class ModuleListComponent implements OnInit{
   }
 
   showComponentModuleList() {
-    this.router.navigate(['/dashboard/module']);
+    this.router.navigate(['/dashboard/ADMIN/module']);
   }
 
 

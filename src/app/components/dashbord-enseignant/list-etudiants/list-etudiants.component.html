@@ -1,0 +1,110 @@
+<div class="section-body">
+    <div class="container-fluid">
+      <div class="d-flex justify-content-between align-items-center">
+        <div class="header-action">
+          <h1 class="page-title">List etudiants</h1>
+          <ol class="breadcrumb page-breadcrumb">
+            <li class="breadcrumb-item"><a href="#">Module</a></li>
+            <li class="breadcrumb-item active" aria-current="page">{{module.moduleName}}</li>
+          </ol>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+  <div class="section-body mt-4">
+    <div class="container-fluid">
+      <div class="card">
+        <div class="card-body">
+          <div class="row">
+            <div class="col-lg-2 col-md-4 col-sm-6">
+              <div class="input-group">
+                <input type="text" class="form-control" placeholder="search by Nom"   name="nomEtudianst"  />
+              </div>
+            </div>
+            
+            <div class="col-lg-2 col-md-4 col-sm-6">
+              <a
+                href="javascript:void(0);"
+                class="btn btn-sm btn-primary btn-block"
+                title=""
+                (click)="searchByNom()"
+                >Search</a
+              >
+            </div>
+            <div class="col-lg-2 col-md-4 col-sm-6">
+              <a
+                href="javascript:void(0);"
+                class="btn btn-sm btn-outline-secondary btn-block"
+                title=""
+                (click)="cancel()"
+                >cancel</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="table-responsive card">
+        <table
+          class="table table-hover table-vcenter table-striped mb-0 text-nowrap"
+        >
+          <thead>
+            <tr>
+              <th>Appoge</th>
+              <th>Nom</th>
+              <th>Prenom</th>
+              <th>Les notes</th>
+              
+            </tr>
+          </thead>
+          <tbody>
+            <ng-container *ngFor="let etudiant of etudiants; let i = index">
+                <tr >
+                    <td></td>
+                    <td>{{ etudiant.nom }}</td>
+                    <td>{{ etudiant.prenom }}</td>
+       
+                     <td>
+                       <button type="button" class="btn btn-icon btn-sm" title="View" (click)="afficherDetails(etudiant)" >
+                         <i class="bi bi-eye-fill"></i>
+                       </button>
+                       <button type="button" class="btn btn-icon btn-sm" title="Edit" >
+                           <i class="fa fa-edit"></i>
+                        </button>
+                     </td>
+                     <td>
+                      
+                       
+                       
+                     </td>
+                </tr>
+                <tr *ngIf="etudiantSelectionne === etudiant">
+                    <td colspan="5">
+                      <table class="table table-hover table-vcenter table-striped mb-0 text-nowrap">
+                        <thead>
+                          <tr>
+                            <th>Note</th>
+                            
+                            <th>edit</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr >
+                            <td>{{ note.note }}</td>
+                            
+                            <td> <button type="button" class="btn btn-icon btn-sm" title="Edit" >
+                                <i class="fa fa-edit"></i>
+                             </button></td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </td>
+                  </tr>
+            </ng-container>
+            
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  

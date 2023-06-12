@@ -1,0 +1,20 @@
+<br><br>
+<div class="card  w-75  m-lg-auto  " >
+  <div class="card-body">
+    <h5 class="card-title">Informations</h5>
+    <div class="form-group row">
+    <label class="col-md-5 col-form-label">Nom: {{inscription.etudiant.nom}}</label>
+      <label class="col-md-5 col-form-label">Prenom: {{inscription.etudiant.prenom}} </label></div>
+
+    <div class="form-group row">
+      <label class="col-md-5 col-form-label">CIN: {{inscription.etudiant.cin}}</label>
+      <label class="col-md-5 col-form-label"> Date de Naissance: {{inscription.etudiant.dateNaissance | date:'yyyy-MM-dd'}}</label></div>
+      <div class="form-group row">
+    <label class="col-md-5 col-form-label">Filiere: {{inscription.filiere.name}}</label>
+        <label class="col-md-5 col-form-label">Niveau: {{inscription.filiere.niveau}}</label></div>
+    <div class="form-group row">
+      <label class="col-md-5 col-form-label">Apogee: {{inscription.etudiant.apogee}}</label>
+      </div>
+
+  </div>
+</div>

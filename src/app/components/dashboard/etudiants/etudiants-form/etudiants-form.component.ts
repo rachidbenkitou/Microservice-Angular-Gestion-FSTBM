@@ -47,7 +47,11 @@ ngOnInit() {
     console.log(etudaint);
     this.etudiantService.updateEtudiant(etudaint).subscribe(
       (data)=>{
+<<<<<<< HEAD
         this.router.navigate(['dashboard/etudiants/']);
+=======
+        this.router.navigate(['dashboard/ADMIN/etudiants/']);
+>>>>>>> fcedd6ac6e8e7b3509d0cee813b4eec1626923b6
       }, (error)=>{
         console.log(error);
       }
@@ -58,7 +62,11 @@ ngOnInit() {
     console.log(etudaint);
     this.etudiantService.saveEtudiant(etudaint).subscribe(
       (data)=>{
+<<<<<<< HEAD
         this.router.navigate(['dashboard/etudiants/']);
+=======
+        this.router.navigate(['dashboard/ADMIN/etudiants/']);
+>>>>>>> fcedd6ac6e8e7b3509d0cee813b4eec1626923b6
       }, (error)=>{
         console.log(error);
       }

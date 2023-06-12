@@ -6,4 +6,5 @@ export interface Filiere {
   name: string;
   niveau: Niveau;
   inscriptions: Inscription[];
+
 }

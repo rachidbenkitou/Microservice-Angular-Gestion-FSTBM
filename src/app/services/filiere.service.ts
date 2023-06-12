@@ -15,9 +15,14 @@ export class FiliereService {
   constructor(private http: HttpClient) {}
 
   //private API_URL = `${GET_BASE_URL(STUDENT_BE_SERVICE)}/${STUDENT_BE_APIS.FILIERES}/`;
+<<<<<<< HEAD
   private API_URL = 'http://localhost:8222/etudiant-service/api/v1/filiers'
+=======
+  private API_URL = "http://localhost:8222/etudiant-service/api/v1/filiers/"
+>>>>>>> fcedd6ac6e8e7b3509d0cee813b4eec1626923b6
 
   getAllFilieres(): Observable<Filiere[]> {
+    console.log(this.API_URL)
     return this.http
       .get<Filiere[]>(this.API_URL)
       .pipe(retry(1), catchError(this.handleError));
@@ -26,6 +31,7 @@ export class FiliereService {
   getFiliereById(id: string): Observable<Filiere> {
     const url = `${this.API_URL}/id/${id}`;
     return this.http
+<<<<<<< HEAD
       .get<Filiere>(url)
       .pipe( catchError(this.handleError));
   }
@@ -34,6 +40,10 @@ export class FiliereService {
     return this.http.get<Filiere>(url).pipe(
       catchError(this.handleError)
     );
+=======
+      .get<Filiere>(`${this.API_URL}id/${id}`)
+      .pipe(retry(1), catchError(this.handleError));
+>>>>>>> fcedd6ac6e8e7b3509d0cee813b4eec1626923b6
   }
   createFiliere(filiere: Filiere): Observable<Filiere> {
     return this.http
@@ -47,9 +57,14 @@ export class FiliereService {
 
 
   updateFiliere(filiere: Filiere): Observable<Filiere> {
+    console.log(`${this.API_URL}id/${filiere.id}`)
     return this.http
       .put<Filiere>(
+<<<<<<< HEAD
         this.API_URL + filiere.id,
+=======
+        `${this.API_URL}id/${filiere.id}`,
+>>>>>>> fcedd6ac6e8e7b3509d0cee813b4eec1626923b6
         JSON.stringify(filiere),
         HTTP_OPTIONS
       )

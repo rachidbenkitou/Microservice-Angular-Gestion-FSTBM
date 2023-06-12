@@ -19,7 +19,7 @@ export class EnseignantService {
     enseignant:'enseignant'
   };
   private serviceName={
-    enseignantService:'enseigant-service/api',
+    enseignantService:'enseigant-service/api/v1',
     securiryServiceL:'security-service'
 
   }
@@ -76,6 +76,7 @@ export class EnseignantService {
     console.log(departement)
     return this.http.get<enseignant[]>(`${this.baseUrl}/${this.serviceName.enseignantService}/${this.apiUrl.departement}/profsByname/${departement}`)
   }
+
 
 
 }

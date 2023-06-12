@@ -75,7 +75,7 @@ export class ModuleEditFormComponent implements OnInit {
   }
 
   showComponentModuleList() {
-    this.router.navigate(['/dashboard/module']);
+    this.router.navigate(['/dashboard/ADMIN/module']);
   }
 
 }

@@ -1,7 +1,8 @@
+import { CourCardComponent } from './components/dashbord-enseignant/cour-card/cour-card.component';
 import { HomeComponent } from './components/home/home.component';
 import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from '@angular/router';
-import { CourFormComponent } from './components/dashboard/cours/cour-form/cour-form.component';
+import { CourFormComponent } from './components/dashbord-enseignant/cour-form/cour-form.component';
 import { CourListComponent } from './components/dashboard/cours/cour-list/cour-list.component';
 import { CoursComponent } from './components/dashboard/cours/cours.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
@@ -32,16 +33,112 @@ import { ModuleListComponent } from './components/dashboard/module/module-list/m
 import { ModuleComponent } from './components/dashboard/module/module.component';
 import { ModuleFormComponent } from './components/dashboard/module/module-form/module-form.component';
 import { ModuleEditFormComponent } from './components/dashboard/module/module-edit-form/module-edit-form.component';
+import {InfoComponent} from "./components/dashboard-etudiant/info/info.component";
+import {NoteComponent} from "./components/dashboard-etudiant/note/note.component";
+import {DashboardEtudiantComponent} from "./components/dashboard-etudiant/dashboard-etudiant.component";
+import {MainEtudiantComponent} from "./components/dashboard-etudiant/main-etudiant/main-etudiant.component";
+
+import { DashbordEnseignantComponent } from './components/dashbord-enseignant/dashbord-enseignant.component';
+import { ExamensListComponent } from './components/dashbord-enseignant/examens-list/examens-list.component';
+
+import { ListEtudiantsComponent } from './components/dashbord-enseignant/list-etudiants/list-etudiants.component';
+
+import { ExamensFormComponent } from './components/dashbord-enseignant/examens-form/examens-form.component';
+import { ExamensEditFormComponent } from './components/dashbord-enseignant/examens-edit-form/examens-edit-form.component';
+import { AuthGuardGuard } from './auth-guard.guard';
 import {InscriptionComponent} from "./components/dashboard/inscription/inscription.component";
 import {InscriptionListComponent} from "./components/dashboard/inscription/inscription-list/inscription-list.component";
 import {InscriptionFormComponent} from "./components/dashboard/inscription/inscription-form/inscription-form.component";
 
 const routes: Routes = [
   // { path: '', component: HomeComponent, }, @TODO: Add Home Component
-
   {
-    path: 'dashboard',
+    path: "test",
+    component: DashbordEnseignantComponent
+  }
+,
+
+{
+path: 'dashboard',
+children:[
+{
+  path: 'ENSEIGNANT',
+  component: DashbordEnseignantComponent,
+  canActivate:[AuthGuardGuard],
+
+  children: [
+    {
+      path: '',
+      component: MainEtudiantComponent,
+    },
+    {
+      path: 'exams/add',
+      component: ExamensFormComponent,
+    },
+    {
+      path: 'edit/:id',
+      component: ExamensEditFormComponent,
+    },
+    {
+      path: 'info',
+      component: InfoComponent,
+    },
+    {
+      path: 'exams',
+      component: ExamensListComponent,
+    },
+    {
+      path: 'etudiants',
+      component: ListEtudiantsComponent
+    },
+    {
+      path: 'cour',
+      component:CourCardComponent,
+      children :[
+        {
+          path: 'add',
+          component: CourFormComponent,
+        },
+        {
+
+          path: 'edit/:id',
+          component: CourFormComponent,
+        }
+      ]
+
+    }
+
+
+  ]
+
+},
+{
+    path: 'ETUDIANT',
+    component: DashboardEtudiantComponent,
+    canActivate:[AuthGuardGuard],
+
+    children: [
+      {
+        path: '',
+        component: MainEtudiantComponent,
+      },
+
+      {
+        path: 'info',
+        component: InfoComponent,
+      },
+      {
+        path: 'note',
+        component: NoteComponent,
+      }
+    ]
+
+},
+{
+    path: 'ADMIN',
     component: DashboardComponent,
+    canActivate:[AuthGuardGuard],
+
     children: [
       {
         path: '',
@@ -194,7 +291,9 @@ const routes: Routes = [
         ],
       },
     ],
-  },
+}
+]
+},
 {
 path:'',component:IndexComponent,
 children:[

@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule} from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -27,7 +27,7 @@ import { DepartementsComponent } from './components/dashboard/departements/depar
 import { DepartementFormComponent } from './components/dashboard/departements/departement-form/departement-form.component';
 import { DepartementListComponent } from './components/dashboard/departements/departement-list/departement-list.component';
 import { CoursComponent } from './components/dashboard/cours/cours.component';
-import { CourFormComponent } from './components/dashboard/cours/cour-form/cour-form.component';
+import { CourFormComponent } from './components/dashbord-enseignant/cour-form/cour-form.component';
 import { CourListComponent } from './components/dashboard/cours/cour-list/cour-list.component';
 import { IndexComponent } from './components/index/index.component';
 import { ExamenComponent } from './components/dashboard/examen/examen.component';
@@ -42,6 +42,24 @@ import { ModuleEditFormComponent } from './components/dashboard/module/module-ed
 import { InscriptionComponent } from './components/dashboard/inscription/inscription.component';
 import { InscriptionListComponent } from './components/dashboard/inscription/inscription-list/inscription-list.component';
 import { InscriptionFormComponent } from './components/dashboard/inscription/inscription-form/inscription-form.component';
+import { DashboardEtudiantComponent } from './components/dashboard-etudiant/dashboard-etudiant.component';
+import { InfoComponent } from './components/dashboard-etudiant/info/info.component';
+import { NoteComponent } from './components/dashboard-etudiant/note/note.component';
+import { MainEtudiantComponent } from './components/dashboard-etudiant/main-etudiant/main-etudiant.component';
+import { InscriptionsComponent } from './components/dashboard/inscriptions/inscriptions.component';
+import { InscriptionsFormComponent } from './components/dashboard/inscriptions/inscriptions-form/inscriptions-form.component';
+import { InscriptionsListComponent } from './components/dashboard/inscriptions/inscriptions-list/inscriptions-list.component';
+import { DashbordEnseignantComponent } from './components/dashbord-enseignant/dashbord-enseignant.component';
+import { ExamensListComponent } from './components/dashbord-enseignant/examens-list/examens-list.component';
+import { ExamensFormComponent } from './components/dashbord-enseignant/examens-form/examens-form.component';
+import { ExamensEditFormComponent } from './components/dashbord-enseignant/examens-edit-form/examens-edit-form.component';
+import { CourCardComponent } from './components/dashbord-enseignant/cour-card/cour-card.component';
+
+
+import { NgxWebstorageModule } from 'ngx-webstorage';
+
+import { ToastrModule } from 'ngx-toastr';
+import { TokenIntercepter } from './services/TokenIntercepter';
 
 
 @NgModule({
@@ -86,10 +104,23 @@ import { InscriptionFormComponent } from './components/dashboard/inscription/ins
     InscriptionComponent,
     InscriptionListComponent,
     InscriptionFormComponent,
+    DashboardEtudiantComponent,
+    InfoComponent,
+    NoteComponent,
+    MainEtudiantComponent,
+    InscriptionsComponent,
+    InscriptionsFormComponent,
+    InscriptionsListComponent,
+    DashbordEnseignantComponent,
+    ExamensListComponent,
+    ExamensFormComponent,
+    ExamensEditFormComponent,
+    CourCardComponent
   ],
 
-  imports: [BrowserModule,AppRoutingModule,HttpClientModule,FormsModule, ReactiveFormsModule],
-  providers: [],
+  imports: [BrowserModule,AppRoutingModule,HttpClientModule,FormsModule, ReactiveFormsModule
+    ,NgxWebstorageModule.forRoot(),ToastrModule.forRoot()],
+  providers: [{provide: HTTP_INTERCEPTORS, useClass: TokenIntercepter, multi: true}],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

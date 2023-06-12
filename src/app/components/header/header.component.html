@@ -79,9 +79,12 @@
                     <li class="nav-item">
                         <a class="nav-link click-scroll" [routerLink]="['']">Formations</a>
                     </li>
-                    <li class="nav-item ms-3">
-                        <a class="nav-link custom-btn custom-border-btn btn" [routerLink]="['/login']">se connecter</a>
+                    <li class="nav-item ms-3" >
+                        <a class="nav-link custom-btn custom-border-btn btn" *ngIf="!isLoggedIn" [routerLink]="['/login']">se connecter</a>
+                        <a class="nav-link custom-btn custom-border-btn btn" *ngIf="isLoggedIn" (click)="dashboard(scope)">espace {{scope}}</a>
+
                     </li>
+                    
                 </ul>
             </div>
         </div>

@@ -122,5 +122,6 @@ import { TokenIntercepter } from './services/TokenIntercepter';
     ,NgxWebstorageModule.forRoot(),ToastrModule.forRoot()],
   providers: [{provide: HTTP_INTERCEPTORS, useClass: TokenIntercepter, multi: true}],
   bootstrap: [AppComponent],
+
 })
 export class AppModule {}

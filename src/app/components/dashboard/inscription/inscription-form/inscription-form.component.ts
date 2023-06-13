@@ -17,7 +17,15 @@ import { forkJoin } from 'rxjs';
 })
 export class InscriptionFormComponent {
   mode: string | undefined;
-  inscription : Inscription = {} as Inscription;
+  inscription : Inscription ={
+    idInscription:"",
+    filiere:{
+      id:"", name:""
+    },
+    etudiant:{
+      cin:"",nom:"",id:"",email:""
+    }
+  };
   updatedInscription : Inscription = {} as Inscription;
   id! : string;
   public filieres:  Array<Filiere> = [];
@@ -36,7 +44,7 @@ export class InscriptionFormComponent {
       this.getInscriptionById(this.id)
     }
     this.getAllFilieres()
-    console.log(this.filieres)
+    
   }
   submit() {
     if (this.mode === "edit") {
@@ -94,13 +102,16 @@ export class InscriptionFormComponent {
   private addEtudaint(inscription: Inscription) {
     console.log("added inscription")
     console.log(inscription);
-    /*this.inscriptionService.saveInscription(inscription).subscribe(
+    this.inscriptionService.saveInscription(inscription).subscribe(
       (data)=>{
-        this.router.navigate(['dashboard/inscriptions/']);
+
+        this.router.navigateByUrl('dashboard/ADMIN/inscriptions/');
+
+        this.getAllFilieres()
       }, (error)=>{
         console.log(error);
       }
-    );*/
+    );
   }
   getNiveaux_1(){
     return Object.values(Niveau);
@@ -112,6 +123,7 @@ export class InscriptionFormComponent {
     this.filiereService.getAllFilieres().subscribe(
       (data)=>{
         this.filieres = data
+        console.log(this.filieres)
       },
       (error)=>{
         console.log(error);

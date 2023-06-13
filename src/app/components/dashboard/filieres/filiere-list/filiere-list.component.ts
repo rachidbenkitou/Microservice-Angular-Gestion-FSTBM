@@ -14,6 +14,7 @@ export class FiliereListComponent {
   constructor(private filereService: FiliereService, public router: Router) {}
 
   ngOnInit(): void {
+    console.log("init list filier")
     this.getListFiliere();
   }
 

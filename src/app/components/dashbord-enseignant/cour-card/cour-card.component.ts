@@ -30,11 +30,12 @@ export class CourCardComponent implements OnInit{
 
     this.courService.getCourByEnseignantCin(this.cin).subscribe((res)=>{
       this.cour=res;
-      this.initFile(this.cour.id_cour)
+      console.log(this.cour)
+      if(this.cour.id_cour!=null) this.initFile(this.cour.id_cour)
     })
   }
   initFile(id:number){
-    this.courService.download(id).subscribe((res)=>{
+      this.courService.download(id).subscribe((res)=>{
       
       this.blob = new Blob([res], { type: 'application/pdf' });
       this.pdfUrl = this.sanitizer.bypassSecurityTrustResourceUrl(URL.createObjectURL(this.blob));
@@ -52,5 +53,10 @@ export class CourCardComponent implements OnInit{
         a.download = `${this.cour.intitule}.pdf`;
         a.click();
         URL.revokeObjectURL(objectUrl);
+  }
+
+  deleteById(id:number){
+    this.courService.deleteById(id).subscribe();
+    this.cour=new Cour();
   }
 }

@@ -3,7 +3,7 @@ import {Etudiant} from "./Etudiant";
 
 export interface Inscription {
   idInscription: string;
-  dateInscripton: Date;
+  dateInscripton?: Date;
   filiere: Filiere;
   etudiant: Etudiant;
 }

@@ -94,13 +94,14 @@ export class InscriptionFormComponent {
   private addEtudaint(inscription: Inscription) {
     console.log("added inscription")
     console.log(inscription);
-    /*this.inscriptionService.saveInscription(inscription).subscribe(
+    this.inscriptionService.saveInscription(inscription).subscribe(
       (data)=>{
+        this.getAllFilieres()
         this.router.navigate(['dashboard/inscriptions/']);
       }, (error)=>{
         console.log(error);
       }
-    );*/
+    );
   }
   getNiveaux_1(){
     return Object.values(Niveau);

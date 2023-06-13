@@ -2,8 +2,8 @@ import {Filiere} from "./Filiere";
 import {Etudiant} from "./Etudiant";
 
 export interface Inscription {
-  idInscription: string;
+  idInscription?: string;
   dateInscripton?: Date;
-  filiere: Filiere;
-  etudiant: Etudiant;
+  idFilier: string;
+  cin: string;
 }

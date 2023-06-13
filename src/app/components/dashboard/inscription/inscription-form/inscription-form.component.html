@@ -36,44 +36,23 @@
                 <input
                   type="text"
                   class="form-control"
-                  name="cin" [(ngModel)]="inscription.etudiant.cin"
+                  name="cin" [(ngModel)]="inscription.cin"
                 />
               </div>
             </div>
-            <div class="form-group row">
-              <label class="col-md-3 col-form-label"
-              >APOGEE <span class="text-danger">*</span></label
-              >
-              <div class="col-md-9">
-                <input
-                  type="text"
-                  class="form-control"
-                  name="apogee" [(ngModel)]="inscription.etudiant.apogee"
-                />
-              </div>
-            </div>
+           
             <div class="form-group row">
               <label class="col-md-3 col-form-label"
               >Filiere <span class="text-danger">*</span></label
               >
               <div class="col-md-9">
-                <select class="form-control input-height" name="name" [(ngModel)]="inscription.filiere.name">
+                <select class="form-control input-height" name="name" [(ngModel)]="inscription.idFilier">
                   <option value="">Select...</option>
-                  <option *ngFor="let filiere of filieres" [ngValue]="filiere.name">{{filiere.name}}</option>
+                  <option *ngFor="let filiere of filieres" [ngValue]="filiere.id">{{filiere.name}}</option>
                 </select>
               </div>
             </div>
-            <div class="form-group row">
-              <label class="col-md-3 col-form-label"
-              >Niveau <span class="text-danger">*</span></label
-              >
-              <div class="col-md-9">
-              <select class="form-control input-height" name="niveau" [(ngModel)]="inscription.filiere.niveau">
-                <option value="">Select...</option>
-                <option *ngFor="let niveau of getNiveaux()" value="{{niveau}}">{{niveau}}</option>
-              </select>
-              </div>
-            </div>
+            
             <div class="col-sm-12 action-buttons">
               <button type="submit" class="btn btn-primary" (click)="submit()">Submit</button>
               <button type="cancel" class="btn btn-outline-secondary" (click)="cancel()">

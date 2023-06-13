@@ -70,4 +70,9 @@ export class CourService {
 
   }
 
+  deleteById(id:number){
+    return this.http.delete(`${this.baseUrl}/${this.serviceName.enseignantService}/${this.apiUrl.cour}/delete/id/${id}`)
+
+  }
+
 }

@@ -93,15 +93,13 @@ children:[
     },
     {
       path: 'cour',
-      component:CourCardComponent,
       children :[
         {
-          path: 'add',
-          component: CourFormComponent,
+          path: '',
+          component: CourCardComponent,
         },
         {
-
-          path: 'edit/:id',
+          path: 'add',
           component: CourFormComponent,
         }
       ]

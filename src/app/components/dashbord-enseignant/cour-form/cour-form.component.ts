@@ -23,19 +23,19 @@ export class CourFormComponent implements OnInit{
   constructor(private service:CourService ,private router: Router,private activateRoute: ActivatedRoute,private loginService:LoginService
     ,private moduleService: ModuleServiceService 
     ){
+
+      console.log("add cour")
     this.cour=new Cour();
-    const id = this.activateRoute.snapshot.params['id'];
-    const path =this.activateRoute.snapshot.routeConfig?.path;
-    this.mode = path?.includes("edit") ? "edit": path?.includes("add") ? "add" : undefined;
+    // const id = this.activateRoute.snapshot.params['id'];
+    // const path =this.activateRoute.snapshot.routeConfig?.path;
+    // this.mode = path?.includes("edit") ? "edit": path?.includes("add") ? "add" : undefined;
 
 
-    if (this.mode === "edit") {
-      this.service.getById(id).subscribe(res=>{
-        this.cour=(res as Cour)
-      })
-    }
+
   }
   ngOnInit(): void {
+    console.log("add cour")
+
     this.cin=this.loginService.getCin()
     this.moduleService.getModules().subscribe((res)=>{
       this.modules=res;

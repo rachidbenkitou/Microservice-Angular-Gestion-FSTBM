@@ -1,0 +1,53 @@
+import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { Etudiant } from 'src/app/models/Etudiant';
+import { EtudiantService } from 'src/app/services/etudiant.service';
+
+@Component({
+  selector: 'app-list-etudiant-ens',
+  templateUrl: './list-etudiant-ens.component.html',
+  styleUrls: ['./list-etudiant-ens.component.scss']
+})
+export class ListEtudiantEnsComponent {
+  public etudaintList: Array<Etudiant>= new Array<Etudiant>();
+  public errors!: Error;
+
+  constructor(private etudaintService: EtudiantService, private router: Router) {
+  }
+  ngOnInit(): void {
+    this.getListEtudaint();
+  }
+
+  public getListEtudaint(): void {
+    this.etudaintService.getEtudiants().subscribe(
+      (data) => {
+        this.etudaintList = data;
+      },
+      (error) => {
+        this.errors = error
+      }
+    );
+  }
+  public editEtudiant(id?: string) {
+    if (!id) {
+      throw new Error('Etudaint id is null');
+    }
+    this.router.navigate(['dashboard/ADMIN/etudiants/edit/' + id]);
+
+  }
+
+  onEAddNote(id:String){
+    this.router.navigate(['dashboard/ENSEIGNANT/etudiants/note/add/' + id]);    
+  }
+    handleDelete(id: string) {
+    this.etudaintService.deleteEtudiant(id).subscribe(
+      (data) => {
+        // Supprimer l'étudiant de la liste côté frontend
+        this.etudaintList = this.etudaintList.filter(etudaint => etudaint.id !== id);
+      },
+      (error) => {
+        this.errors = error;
+      }
+    );
+  }
+}

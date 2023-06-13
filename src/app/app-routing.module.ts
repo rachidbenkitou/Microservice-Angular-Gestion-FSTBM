@@ -49,12 +49,14 @@ import { AuthGuardGuard } from './auth-guard.guard';
 import {InscriptionComponent} from "./components/dashboard/inscription/inscription.component";
 import {InscriptionListComponent} from "./components/dashboard/inscription/inscription-list/inscription-list.component";
 import {InscriptionFormComponent} from "./components/dashboard/inscription/inscription-form/inscription-form.component";
+import { ListEtudiantEnsComponent } from './components/dashbord-enseignant/list-etudiant-ens/list-etudiant-ens.component';
+import { NoteAjoutFormComponent } from './components/dashbord-enseignant/note-ajout-form/note-ajout-form.component';
 
 const routes: Routes = [
   // { path: '', component: HomeComponent, }, @TODO: Add Home Component
   {
     path: "test",
-    component: DashbordEnseignantComponent
+    component: ListEtudiantEnsComponent
   }
 ,
 
@@ -89,7 +91,11 @@ children:[
     },
     {
       path: 'etudiants',
-      component: ListEtudiantsComponent
+      component: ListEtudiantEnsComponent
+    },
+    {
+      path: 'etudiants/note/add/:id',
+      component: NoteAjoutFormComponent
     },
     {
       path: 'cour',

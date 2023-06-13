@@ -10,6 +10,7 @@ export class Note{
   note !: number;
   oldNote !: number;
   mention !: string;
-  examen !: Examen;
-  etudiant !: Etudiant;
+  etudiantApogee!: Number;
+  etudiantCin!: String;
+  examen: any;
 }

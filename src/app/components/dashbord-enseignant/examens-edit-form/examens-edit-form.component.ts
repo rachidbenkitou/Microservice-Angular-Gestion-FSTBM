@@ -54,7 +54,7 @@ export class ExamensEditFormComponent implements OnInit{
        this.examenServ.updateExamen(this.examen,this.id).subscribe({
         next : (data) =>{
 
-           this.router.navigateByUrl("dashboard-enseignant/exams")
+           this.router.navigateByUrl("dashboard/ENSEIGNANT/exams")
      }
      })
        }

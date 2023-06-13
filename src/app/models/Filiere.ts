@@ -4,7 +4,7 @@ import { Niveau } from "./Niveau";
 export interface Filiere {
   id: string;
   name: string;
-  niveau: Niveau;
-  inscriptions: Inscription[];
+  niveau?: Niveau;
+  inscriptions?: Inscription[];
 
 }

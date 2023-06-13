@@ -19,7 +19,6 @@
     </div>
   </div>
 </div>
-{{filieres | json}}
 <div class="section-body mt-4">
   <div class="container-fluid">
     <div class="row clearfix">
@@ -60,7 +59,7 @@
               <div class="col-md-9">
                 <select class="form-control input-height" name="name" [(ngModel)]="inscription.filiere.name">
                   <option value="">Select...</option>
-                  <option *ngFor="let filiere of filieres" value="{{filiere.name}}">{{filiere.name}}</option>
+                  <option *ngFor="let filiere of filieres" [ngValue]="filiere.name">{{filiere.name}}</option>
                 </select>
               </div>
             </div>

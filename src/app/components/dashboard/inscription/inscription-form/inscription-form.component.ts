@@ -104,7 +104,10 @@ export class InscriptionFormComponent {
     console.log(inscription);
     this.inscriptionService.saveInscription(inscription).subscribe(
       (data)=>{
+
         this.router.navigateByUrl('dashboard/ADMIN/inscriptions/');
+
+        this.getAllFilieres()
       }, (error)=>{
         console.log(error);
       }

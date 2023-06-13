@@ -18,9 +18,13 @@ import { forkJoin } from 'rxjs';
 export class InscriptionFormComponent {
   mode: string | undefined;
   inscription : Inscription ={
-    cin:""
-    ,
-   idFilier:""
+    idInscription:"",
+    filiere:{
+      id:"", name:""
+    },
+    etudiant:{
+      cin:"",nom:"",id:"",email:""
+    }
   };
   updatedInscription : Inscription = {} as Inscription;
   id! : string;
@@ -44,6 +48,7 @@ export class InscriptionFormComponent {
   }
   submit() {
     if (this.mode === "edit") {
+      this.editeinscription(this.inscription);
     }
     if (this.mode === "add") {
       this.addEtudaint(this.inscription);
@@ -60,7 +65,40 @@ export class InscriptionFormComponent {
     }
     )
   }
+  private editeinscription(inscription: Inscription) {
+    console.log("originale inscription");
+    console.log(inscription);
+    console.log("edited inscription");
+    console.log(this.updatedInscription);
+    this.updatedInscription.idInscription = this.inscription.idInscription;
+    this.updatedInscription.dateInscripton = this.inscription.dateInscripton;
+    this.etudiantService.getEtudiantByCin(inscription.etudiant.cin).subscribe(
+      (etudiantData) => {
+        this.updatedInscription.etudiant = etudiantData;
 
+        this.filiereService.getFiliereByName(inscription.filiere.name).subscribe(
+          (filiereData) => {
+            this.updatedInscription.filiere = filiereData;
+
+            this.inscriptionService.updateInscription(this.updatedInscription).subscribe(
+              (updatedData) => {
+                this.router.navigate(['dashboard/inscriptions']);
+              },
+              (updateError) => {
+                console.log("Failed to update inscription:", updateError);
+              }
+            );
+          },
+          (filiereError) => {
+            console.log("Failed to fetch filiere data:", filiereError);
+          }
+        );
+      },
+      (etudiantError) => {
+        console.log("Failed to fetch etudiant data:", etudiantError);
+      }
+    );
+  }
   private addEtudaint(inscription: Inscription) {
     console.log("added inscription")
     console.log(inscription);

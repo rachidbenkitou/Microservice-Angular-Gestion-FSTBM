@@ -3,7 +3,7 @@ import { HomeComponent } from './components/home/home.component';
 import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from '@angular/router';
 import { CourFormComponent } from './components/dashbord-enseignant/cour-form/cour-form.component';
-import { CourListComponent } from './components/dashboard/cours/cour-list/cour-list.component';
+import { CourListComponent } from './components/dashboard-etudiant/cour-list/cour-list.component';
 import { CoursComponent } from './components/dashboard/cours/cours.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { DepartementFormComponent } from './components/dashboard/departements/departement-form/departement-form.component';
@@ -122,8 +122,8 @@ children:[
       },
 
       {
-        path: 'info',
-        component: InfoComponent,
+        path: 'cours',
+        component: CourListComponent,
       },
       {
         path: 'note',
@@ -230,25 +230,6 @@ children:[
           {
             path: 'edit/:id',
             component: DepartementFormComponent,
-          },
-        ],
-      },
-      {
-        path: 'cours',
-        component: CoursComponent,
-        children: [
-          {
-            path: '',
-            component: CourListComponent,
-          },
-          {
-            path: 'add',
-            component: CourFormComponent,
-          },
-          {
-
-            path: 'edit/:id',
-            component: CourFormComponent,
           },
         ],
       },

@@ -28,7 +28,7 @@ import { DepartementFormComponent } from './components/dashboard/departements/de
 import { DepartementListComponent } from './components/dashboard/departements/departement-list/departement-list.component';
 import { CoursComponent } from './components/dashboard/cours/cours.component';
 import { CourFormComponent } from './components/dashbord-enseignant/cour-form/cour-form.component';
-import { CourListComponent } from './components/dashboard/cours/cour-list/cour-list.component';
+import { CourListComponent } from './components/dashboard-etudiant/cour-list/cour-list.component';
 import { IndexComponent } from './components/index/index.component';
 import { ExamenComponent } from './components/dashboard/examen/examen.component';
 import { ExamenListComponent } from './components/dashboard/examen/examen-list/examen-list.component';

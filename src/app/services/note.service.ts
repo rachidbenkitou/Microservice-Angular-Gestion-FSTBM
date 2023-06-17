@@ -18,4 +18,8 @@ export class NoteService {
   getNotesByCinAndModuleId(cin:number , moduleId:number){
     return this.http.get<Note>(`http://localhost:8222/note-service/api/v1/notes/${cin}/${moduleId}`)
   }
+
+  saveExamen(note : Note): Observable<Note>{
+    return  this.http.post<Note>("http://localhost:8222/note-service/api/v1/notes",note);
+   }
 }

@@ -1,0 +1,75 @@
+<div class="section-body">
+    <div class="container-fluid">
+        <div class="d-flex justify-content-between align-items-center">
+            <div class="header-action">
+                <h1 class="page-title">Notes</h1>
+                <ol class="breadcrumb page-breadcrumb">
+                    <li class="breadcrumb-item">
+                        <a [routerLink]="['/dashboard']">FSTBM</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a [routerLink]="['/dashboard/ENSEIGNANT/examens']">Notes</a>
+                    </li>
+                    <li class="breadcrumb-item active" aria-current="page">
+                        Ajout / Modification
+                    </li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="section-body mt-4">
+    <div class="container-fluid">
+        <div class="row clearfix">
+            <div class="col-lg-12 col-md-12 col-sm-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Les informations de notes</h3>
+                    </div>
+                    <form [formGroup]="formGroup" class="card-body">
+
+                        <div class="form-group row">
+                            <label class="col-md-3 col-form-label">Examen <span class="text-danger">*</span></label>
+                            <div class="col-md-9">
+
+                                <select class="form-control input-height" formControlName="exam_h" aria-label="Default select example">
+                                    <option *ngFor="let m of examens" [value]="m.id">{{ m.module.moduleName }} / {{ m.type }}</option>
+                                </select>
+                                
+   
+                                <small
+                                    *ngIf="formGroup.controls['exam_h'].errors && formGroup.controls['exam_h'].touched"
+                                    class="text-danger">
+                                    {{getErrorMessag('examen',formGroup.controls['exam_h'].errors )}}</small>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label class="col-md-3 col-form-label">Note <span class="text-danger">*</span></label>
+                            <div class="col-md-9">
+                                <input type="text" formControlName="note_h" class="form-control" placeholder="" />
+                                <small
+                                    *ngIf="formGroup.controls['note_h'].errors && formGroup.controls['note_h'].touched"
+                                    class="text-danger">
+                                    {{getErrorMessag('Note',formGroup.controls['note_h'].errors )}}
+                                </small>
+                            </div>
+                        </div>
+
+
+                        <div class="col-sm-12 action-buttons">
+
+                            <button type="submit" class="btn btn-primary" (click)="handleAddNote()">Submit</button>
+
+                            <button type="cancel" class="btn btn-outline-secondary" (click)="goEtudiantList()">
+                                Cancel
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

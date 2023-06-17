@@ -49,7 +49,7 @@ handleAddProduct() {
         next : (data) =>{
 
 
-          this.router.navigateByUrl("dashboard-enseignant/exams")
+          this.router.navigateByUrl("dashboard/ENSEIGNANT/exams")
      }
      })
        }

@@ -45,7 +45,7 @@ export class ExamensListComponent implements OnInit {
   }
 
   onEditExamen(id: number) {
-    this.router.navigate(['dashboard-enseignant/edit', id]);
+    this.router.navigate(['dashboard/ENSEIGNANT/edit', id]);
   }
 
   handelDeleteExamen(examen: Examen) {

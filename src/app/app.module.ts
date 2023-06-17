@@ -60,6 +60,8 @@ import { NgxWebstorageModule } from 'ngx-webstorage';
 
 import { ToastrModule } from 'ngx-toastr';
 import { TokenIntercepter } from './services/TokenIntercepter';
+import { ListEtudiantEnsComponent } from './components/dashbord-enseignant/list-etudiant-ens/list-etudiant-ens.component';
+import { NoteAjoutFormComponent } from './components/dashbord-enseignant/note-ajout-form/note-ajout-form.component';
 
 
 @NgModule({
@@ -115,7 +117,9 @@ import { TokenIntercepter } from './services/TokenIntercepter';
     ExamensListComponent,
     ExamensFormComponent,
     ExamensEditFormComponent,
-    CourCardComponent
+    CourCardComponent,
+    ListEtudiantEnsComponent,
+    NoteAjoutFormComponent
   ],
 
   imports: [BrowserModule,AppRoutingModule,HttpClientModule,FormsModule, ReactiveFormsModule

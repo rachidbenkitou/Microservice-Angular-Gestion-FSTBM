@@ -3,16 +3,17 @@ import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {Examen} from "../Entities/Examen";
 import {Note} from "../models/Note";
+import {LoginService} from "./login.service";
 
 @Injectable({
   providedIn: 'root'
 })
 export class NoteService {
 
-  constructor(private http : HttpClient) { }
+  constructor(private http : HttpClient,private servlog: LoginService) { }
 
   getallNotesByCin():Observable<Array<Note>>{
-    return this.http.get<Array<Note>>("http://localhost:8222/note-service/api/v1/notes/cin/123")
+    return this.http.get<Array<Note>>("http://localhost:8222/note-service/api/v1/notes/cin/"+this.servlog.getCin())
   }
 
   getNotesByCinAndModuleId(cin:number , moduleId:number){
